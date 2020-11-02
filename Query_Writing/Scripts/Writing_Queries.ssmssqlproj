@@ -3,13 +3,13 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="jdsql1.database.windows.net:johndeardurff">
-          <Created>2020-11-02T09:08:46.1935144-05:00</Created>
+        <ConnectionNode Name="(local)\JDSQL19:NORTHAMERICA\jodeardu">
+          <Created>2020-11-02T14:58:47.0121331-05:00</Created>
           <Type>SQL</Type>
-          <Server>jdsql1.database.windows.net</Server>
-          <UserName>johndeardurff</UserName>
-          <Authentication>SQL</Authentication>
-          <InitialDB>AdventureWorksLT</InitialDB>
+          <Server>(local)\JDSQL19</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>AdventureWorks2016</InitialDB>
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
@@ -20,40 +20,82 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="01_Writing_SELECT.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_Writing_SELECT.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Character_DataTypes.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>02_Character_DataTypes.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Date_Time_DataTypes.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>02_Date_Time_DataTypes.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Integer_DataTypes.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>02_Integer_DataTypes.sql</FullPath>
         </FileNode>
         <FileNode Name="03_Create_Join_Demo_Tables.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>03_Create_Join_Demo_Tables.sql</FullPath>
         </FileNode>
         <FileNode Name="03_Joining_Multiple_Tables.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>03_Joining_Multiple_Tables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_CreateTable.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_DBCCstatements.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04_DBCCstatements.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_TableScan_ClusteredScan.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04_TableScan_ClusteredScan.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04a_AddRecords.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04a_AddRecords.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05_BuiltIn_Functions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_BuiltIn_Functions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05_Group_By_Having.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_Group_By_Having.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06_Execution_NCI_Includes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>06_Execution_NCI_Includes.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Writing_Queries">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="jdsql1.database.windows.net:johndeardurff">
+          <Created>2020-11-02T09:08:46.1935144-05:00</Created>
+          <Type>SQL</Type>
+          <Server>jdsql1.database.windows.net</Server>
+          <UserName>johndeardurff</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>AdventureWorksLT</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="01_Writing_SELECT.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>01_Writing_SELECT.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_Character_DataTypes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <FullPath>02_Character_DataTypes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_Date_Time_DataTypes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <FullPath>02_Date_Time_DataTypes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_Integer_DataTypes.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <FullPath>02_Integer_DataTypes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="03_Create_Join_Demo_Tables.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <FullPath>03_Create_Join_Demo_Tables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="03_Joining_Multiple_Tables.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsql1.database.windows.net:False:johndeardurff</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsql1.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>johndeardurff</AssociatedConnUserName>
+          <FullPath>03_Joining_Multiple_Tables.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

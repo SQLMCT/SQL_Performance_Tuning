@@ -26,14 +26,14 @@
           <FullPath>01_Writing_SELECT.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Character_DataTypes.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_Character_DataTypes.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Date_Time_DataTypes.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_Date_Time_DataTypes.sql</FullPath>
         </FileNode>
@@ -55,11 +55,11 @@
           <AssociatedConnUserName />
           <FullPath>03_Joining_Multiple_Tables.sql</FullPath>
         </FileNode>
-        <FileNode Name="04_CreateTable.sql">
+        <FileNode Name="04_Create_BankAccounts_Table.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>04_CreateTable.sql</FullPath>
+          <FullPath>04_Create_BankAccounts_Table.sql</FullPath>
         </FileNode>
         <FileNode Name="04_DBCCstatements.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
@@ -91,11 +91,71 @@
           <AssociatedConnUserName />
           <FullPath>05_Group_By_Having.sql</FullPath>
         </FileNode>
+        <FileNode Name="06_Display_Statistics.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>06_Display_Statistics.sql</FullPath>
+        </FileNode>
         <FileNode Name="06_Execution_NCI_Includes.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>06_Execution_NCI_Includes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06_Execution_Plan_Join_Operators.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>06_Execution_Plan_Join_Operators.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06_Live_Query_Stats.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>06_Live_Query_Stats.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06_ShowPlan_Statistics.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>06_ShowPlan_Statistics.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07__Insert_Sequences.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>07__Insert_Sequences.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07_Identity_Insert_Example.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>07_Identity_Insert_Example.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07_Insert_Update_Delete.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>07_Insert_Update_Delete.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_AutoCommit_Transactions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_AutoCommit_Transactions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Explicit_Transactions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_Explicit_Transactions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Transactions_Errors_Demo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_Transactions_Errors_Demo.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

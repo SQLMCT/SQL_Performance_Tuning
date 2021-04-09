@@ -1,6 +1,6 @@
 --SQL Server Concurrency
 --Phantom Read - Session 2
-USE AdventureWorks2016
+USE TestDB
 BEGIN TRAN
 	DELETE FROM Accounting.BankAccounts
 	WHERE AcctID IN(3,5,6)

@@ -1,4 +1,4 @@
-USE AdventureWorks2016
+USE TestDB
 
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts

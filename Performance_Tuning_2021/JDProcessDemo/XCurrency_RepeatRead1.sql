@@ -1,6 +1,6 @@
 --SQL Server Concurrency
 --Repeatable Read - Session 1
-USE AdventureWorks2016
+USE TestDB
 SET TRANSACTION ISOLATION LEVEL
 READ COMMITTED -- Before Example
 --REPEATABLE READ --Switch for Example

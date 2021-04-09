@@ -1,16 +1,38 @@
---SQL Server Concurrency
---Dirty Read - Session 2
 USE AdventureWorks2016
 GO
-SET TRANSACTION ISOLATION LEVEL
-READ UNCOMMITTED
-	SELECT * FROM Accounting.BankAccounts 
-	WHERE AcctID = 1
+--Change Compatibility Level on Database
+--ALTER DATABASE AdventureWorks2016
+--SET COMPATIBILITY_LEVEL = 150
+--GO
+
+--ProductID 897 has 2 rows
+--ProductID 945 has 257 rows
+--ProductID 870 has 4688 rows
+
+--Ad-Hoc Query
+SELECT SalesOrderID, OrderQty
+FROM Sales.SalesOrderDetail
+WHERE ProductID = 945
+
+--DBCC FREEPROCCACHE
+--DROP PROC IF EXISTS GET_ORDERID_ORDER_QTY
+
+--Parameter Sniffing 897, 945, 870
+CREATE PROC GET_ORDERID_ORDER_QTY
+@PRODUCTID int
+AS
+
+SELECT SalesOrderID, OrderQty
+FROM Sales.SalesOrderDetail
+WHERE ProductID = @PRODUCTID
+--Option(Optimize FOR (@ProductID - 945)
+
+EXEC dbo.GET_ORDERID_ORDER_QTY 945
+
+--DBCC FREEPROCCACHE
 
 
-
-
-	/* This Sample Code is provided for the purpose of illustration only and is not intended 
+/* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
 NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR 

@@ -11,12 +11,12 @@ Please note: None of the conditions outlined in the disclaimer above will superc
 DROP DATABASE IF EXISTS LockingDemo
 
 CREATE DATABASE LockingDemo
-Go
+GO
 
 USE LockingDemo
-Go
+GO
 
--- Let's create a partitioned table 
+-- Let's create a partition function
 CREATE PARTITION FUNCTION PartFunc1 (int) 
 AS RANGE RIGHT FOR VALUES (100,200,300)
 GO
@@ -33,15 +33,19 @@ CREATE TABLE LockingTest
 col1 int,
 col2 varchar(20),
 col3 datetime
-)On PartSch1(col1)
+)ON PartSch1(col1)
 
 
 -- Let's insert a 1 record into the table and check the locks being generated
 BEGIN TRANSACTION
 INSERT INTO LockingTest VALUES (1, 'FirstRecord',getdate())
 
-SELECT * FROM sys.dm_tran_locks
+--John don't run the COMMIT yet!
+SELECT resource_type, resource_description, resource_lock_partition,
+	request_mode, request_type, request_status
+FROM sys.dm_tran_locks
 WHERE request_session_id = @@SPID
+
 -- We should see 4 locks in this case 
 -- 1 RID Lock (X), 2 IX locks (Object and Page) and 1 S lock on the DB
 COMMIT
@@ -68,15 +72,19 @@ BEGIN TRAN
 SELECT * FROM LockingTest
 -- 350 Records Returned
 
---- how many Locks would be see... 
-SELECT * FROM sys.dm_tran_locks
-WHERE request_session_id = @@SPID -- 356 Records
-ORDER BY resource_description
+--- How many Locks would be seen?
+SELECT resource_type, resource_description, resource_lock_partition,
+	request_mode, request_type, request_status
+FROM sys.dm_tran_locks
+WHERE request_session_id = @@SPID --356 Records
+ORDER BY resource_type
 -- Why 356??
 -- 350 for the RID (Shared Locks)
 -- 1 Shared at DB Level 
 -- 1 IS at Object Level
--- 4 Page Level (the average record size for the table is 33 Bytes) and there are 4 partitions 
+-- 4 Page Level (the average record size for the table is 33 Bytes) 
+--and there are 4 partitions 
+
 SELECT * FROM sys.partitions 
 WHERE object_id = object_id('LockingTest')
 
@@ -87,11 +95,15 @@ BEGIN TRANSACTION
 SELECT * FROM LockingTest where col1 = 100
 
 --- how many Locks would be see... 
-SELECT * FROM sys.dm_tran_locks
+SELECT resource_type, resource_description, resource_lock_partition,
+	request_mode, request_type, request_status
+FROM sys.dm_tran_locks
 WHERE request_session_id = @@SPID
+--Don't Commit yet.
 COMMIT
 
--- Let's insert some more records to the table (such that record count is grater than 5000)
+--Let's insert some more records to the table 
+--(Such that the record count is greater than 5000)
 SET NOCOUNT ON
 DECLARE @outerloop int = 1
 DECLARE @count int
@@ -126,21 +138,25 @@ BEGIN TRAN
 SELECT * FROM LockingTest 
 
 -- Check the locks 
-SELECT * FROM sys.dm_tran_locks
+SELECT resource_type, resource_description, resource_lock_partition,
+	request_mode, request_type, request_status
+FROM sys.dm_tran_locks
 WHERE request_session_id = @@SPID
 
 -- We should see only 2 locks (1 at the DB Level and another one at the Object Level)
--- check the LockEscalation XE live Data
+-- Check the LockEscalation XE live Data
 COMMIT 
 
 --- Change the Table Lock Escalation to AUTO
-ALTER TABLE lockingTest SET (lock_escalation = Auto)
+ALTER TABLE LockingTest SET (lock_escalation = Auto)
 
 BEGIN TRAN
 SELECT * FROM LockingTest 
 
 -- Check the locks 
-SELECT * FROM sys.dm_tran_locks
+SELECT resource_type, resource_description, resource_lock_partition,
+	request_mode, request_type, request_status
+FROM sys.dm_tran_locks
 WHERE request_session_id = @@SPID
 
 -- We should see  6 locks now (The escalation is now at the Partition Level)

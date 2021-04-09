@@ -1,6 +1,6 @@
 --SQL Server Concurrency
 --Dirty Read - Session 2
-USE AdventureWorks2016
+USE TestDB
 GO
 SET TRANSACTION ISOLATION LEVEL
 READ UNCOMMITTED

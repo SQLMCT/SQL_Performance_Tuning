@@ -1,6 +1,6 @@
 --SQL Server Concurrency
 --Repeatable Read - Session 2
-USE AdventureWorks2016
+USE TestDB
 BEGIN TRAN
 	UPDATE Accounting.BankAccounts
 	SET ModifiedDate = '12/12/2015' --Reset Date

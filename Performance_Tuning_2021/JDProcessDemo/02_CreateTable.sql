@@ -1,22 +1,24 @@
-USE AdventureWorks2016
+USE TestDB
 GO
-BEGIN TRY
-	BEGIN TRAN
-		UPDATE Accounting.BankAccounts
-		SET Balance -= 2/0
-		WHERE AcctID = 1
+/*
+DROP TABLE IF EXISTS Accounting.BankAccounts
+DROP SCHEMA IF EXISTS Accounting
+GO
+--*/
 
-		UPDATE Accounting.BankAccounts
-		SET Balance += 200
-		WHERE AcctID = 2
-	COMMIT TRAN
-END TRY
-BEGIN CATCH
-	ROLLBACK TRAN
-	PRINT 'Divide by Zero'	
-END CATCH
+CREATE SCHEMA Accounting Authorization dbo
+CREATE TABLE BankAccounts
+ (AcctID int IDENTITY,
+  AcctName char(15),
+  Balance money,
+  ModifiedDate date)
+GO
 
-
+INSERT INTO Accounting.BankAccounts
+VALUES('Jack',500, GETDATE())
+INSERT INTO Accounting.BankAccounts
+VALUES('Diane', 750, GETDATE())
+GO
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

@@ -1,5 +1,0 @@
---Clean up Demo
-USE SUMMIT2018
-GO
-DROP TABLE IF EXISTS Accounting.BankAccounts
-DROP SCHEMA IF EXISTS Accounting

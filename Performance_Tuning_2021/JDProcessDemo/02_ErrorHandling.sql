@@ -1,4 +1,4 @@
-USE AdventureWorks2016
+USE TestDB
 GO
 BEGIN TRY
 	BEGIN TRAN

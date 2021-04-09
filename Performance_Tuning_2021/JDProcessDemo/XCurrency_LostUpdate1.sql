@@ -1,6 +1,6 @@
 --	SQL Server Concurrency 
 -- Lost Update - Session 1
-USE AdventureWorks2016
+USE TestDB
 GO
 DECLARE @OldBalance int, @NewBalance int
 BEGIN TRAN

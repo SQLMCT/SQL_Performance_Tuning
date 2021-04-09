@@ -1,25 +1,39 @@
-USE AdventureWorks2016
+--Add Records for Data Structure Demo
+USE TestDB
 GO
+SET IDENTITY_INSERT Accounting.BankAccounts ON
+BEGIN TRAN
+	INSERT INTO Accounting.BankAccounts
+	(AcctID, AcctName, Balance, ModifiedDate)
+	VALUES (29,'Kelli', 1250, GETDATE()),
+		   (27,'Jessica', 1005, GETDATE()),
+		   (18,'Maddison', 745, GETDATE()),
+		   (31,'Alicen', 555, GETDATE()),
+		   (15,'Molly', 790, GETDATE()),
+		   (34,'Amy', 650, GETDATE()),
+		   (32,'Logan', 1050, GETDATE()),
+		   (33,'Tommy', 450, GETDATE()),
+		   (36,'David', 850, GETDATE()),
+		   (22,'Reagan', 630, GETDATE()),
+		   (14,'Mayleigh', 204, GETDATE())	   
+COMMIT TRAN
+SET IDENTITY_INSERT Accounting.BankAccounts OFF
+SELECT * FROM Accounting.BankAccounts
 
---Show IX_Address_StateProvince Index
---SELECT * will need to find all columns
-SELECT *
-FROM Person.Address
-WHERE StateProvinceID = 119
 
---Show IX_Address_StateProvince Index
---SELECT only columns in Index
---This is an index that covers a query
-SELECT AddressID, StateProvinceID
-FROM Person.Address
-WHERE StateProvinceID = 119
+/*
+DECLARE @AcctID AS tinyint = 1
 
---Show IX_Address_StateProvince Index
---City is not covered in the Index
---Use INCLUDE to add City to Index
-SELECT AddressID, StateProvinceID, City
-FROM Person.Address
-WHERE StateProvinceID = 119
+WHILE @AcctID < 10
+	BEGIN
+		INSERT INTO Accounting.BankAccounts
+			(AcctName, Balance, ModifiedDate)
+		SELECT lastname, 100 * @AcctID, GETDATE()
+			FROM HR.Employees
+			WHERE empid = @AcctID
+		SET @AcctID += 1
+	END
+*/
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
@@ -34,4 +48,3 @@ in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and
 Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
 result from the use or distribution of the Sample Code.
 */
-

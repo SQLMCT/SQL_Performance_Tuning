@@ -1,4 +1,4 @@
-USE SUMMIT2018
+USE TestDB
 GO
 ---Adding a Primary Key will also create a clustered index.
 ALTER TABLE Accounting.BankAccounts

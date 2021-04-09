@@ -1,4 +1,4 @@
-USE SUMMIT2018
+USE TestDB
 GO
 --DROP TABLE IF EXISTS Accounting.BankAccounts
 --DROP SCHEMA IF EXISTS Accounting
@@ -33,6 +33,8 @@ VALUES('John',500, GETDATE())
 INSERT INTO Accounting.BankAccounts
 VALUES('Jane', 750, GETDATE())
 GO
+
+
 --Check the number of Partitions
 SELECT * FROM sys.partitions 
 where object_id = object_id('Accounting.BankAccounts')
@@ -42,6 +44,17 @@ where object_id = object_id('Accounting.BankAccounts')
 SELECT * FROM sys.partitions 
 where object_id = object_id('Accounting.BankAccounts')
 
+
+--MERGE the last two partitions.
+ALTER PARTITION FUNCTION PartFunc1() 
+MERGE RANGE (20)
+GO
+
+--SPLIT the last two partitions
+
+ALTER PARTITION FUNCTION PartFunc1() 
+SPLIT RANGE (10)
+GO
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

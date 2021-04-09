@@ -19,15 +19,20 @@ GO
 		- Transaction Processing (Phase 0)
 		- Quick Plan (Phase 1)
 		- Full Optimization (Phase 2)
-
-	
+			
 	Also verify StatementOptmEarlyAbortReason and StatementOptmLevel 
 	values in XML. Note that StatementOptmLevel only shows values
 	TRIVIAL or FULL
 */
 
 --Turn on Acutal Execution Plan (CTRL + M)
--- Example 1
+--Demonstrate Trivial Plan Example
+SELECT * FROM Person.Person OPTION (RECOMPILE, QUERYTRACEON 8675); --Trivial
+SELECT * FROM Person.Person WHERE LastName = 'Baker'
+	OPTION (RECOMPILE, QUERYTRACEON 8675); --FULL
+	
+
+-- Example Phase 1
 SELECT p.Name AS ProductName, 
 NonDiscountSales = (OrderQty * UnitPrice),
 Discounts = ((OrderQty * UnitPrice) * UnitPriceDiscount)
@@ -65,10 +70,6 @@ OPTION (RECOMPILE, QUERYTRACEON 8675)
 GO
 --*** Optimizer time out abort at task 3492 ***
 
---Demonstrate Trivial Plan Example
-SELECT * FROM Person.Person OPTION (RECOMPILE, QUERYTRACEON 8675); --Trivial
-SELECT * FROM Person.Person WHERE LastName = 'Baker'
-	OPTION (RECOMPILE, QUERYTRACEON 8675); --FULL
 
 --DMV with cumulative optimization information
 SELECT counter, occurrence

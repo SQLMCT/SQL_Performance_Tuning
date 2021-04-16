@@ -19,4 +19,4 @@ REM 		Our suppliers from and against any claims or lawsuits,
 REM 		including attorneys fees, that arise or result from the 
 REM 		use or distribution of the Sample Code.
 REM =============================================================
-start "CPU_MKT1" C:\Temp\OSTRESS -S.\JDSQL19 -U UserMarketing -P UserPwd -i "14_CPU_Intensive_Loop.sql" -n10
+OSTRESS -S.\JDSQL19 -UUserMarketing -PUserPwd -i"14_CPU_Intensive_Loop01.sql" -n20 -o"CPUSales01"

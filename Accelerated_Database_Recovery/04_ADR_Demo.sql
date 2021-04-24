@@ -44,13 +44,26 @@ GO
 
 --Update records in table
 --How long does it take?
+SET STATISTICS TIME ON
 BEGIN TRAN
 UPDATE ADRTest 
 	SET [SomeLetters2] = 'JD',
 		[SomeDate] = CURRENT_TIMESTAMP
+SET STATISTICS TIME OFF
 GO
+
+-- Check Transaction Log Usage Before and After a CHECKPOINT
+-- Notice that there is no size difference.
+SELECT * FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT * FROM sys.dm_db_log_space_usage
+
 --Without ADR how long does it take to Rollback?
+SET STATISTICS TIME ON
 ROLLBACK
+SET STATISTICS TIME OFF
 
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO
@@ -59,16 +72,44 @@ SET ACCELERATED_DATABASE_RECOVERY = ON
 --Notice the Compatibility Level is still 2017
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
 FROM sys.databases
+WHERE name = 'ADR_DEMO'
 
 --Update records in table again.
 --How long does it take? Should be about the same.
+SET STATISTICS TIME ON
 BEGIN TRAN
 UPDATE ADRTest 
 	SET [SomeLetters2] = 'JD',
 		[SomeDate] = CURRENT_TIMESTAMP
+SET STATISTICS TIME OFF
 GO
+
+--Check Transaction Log Usage
+--Before and After a CHECKPOINT
+SELECT * FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT * FROM sys.dm_db_log_space_usage
+
 --With ADR how long does it take to Rollback?
+SET STATISTICS TIME ON
 ROLLBACK
+SET STATISTICS TIME OFF
+
+/* This Sample Code is provided for the purpose of illustration only and is not intended 
+to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
+PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR 
+PURPOSE.  We grant You a nonexclusive, royalty-free right to use and modify the Sample Code
+and to reproduce and distribute the object code form of the Sample Code, provided that You 
+agree: (i) to not use Our name, logo, or trademarks to market Your software product in which
+the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product
+in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and defend Us and
+Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
+result from the use or distribution of the Sample Code.
+*/
+
 
 
 

@@ -34,23 +34,40 @@ INTO dbo.ADRTest
 FROM Sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
 GO
 
---Look at the data
-SELECT * FROM dbo.ADRTest
-
 --Create Index to slow down Update statement
 CREATE NONCLUSTERED INDEX NC_Letters_Date ON 
 dbo.ADRTest (SomeLetters2, SomeDate)
 GO
 
+--Look at the data
+SELECT * FROM dbo.ADRTest
+
 --Update records in table
 --How long does it take?
+--SQL Server Execution Times:
+--CPU time = 13407 ms,  elapsed time = 31762 ms.
+SET STATISTICS TIME ON
 BEGIN TRAN
 UPDATE ADRTest 
 	SET [SomeLetters2] = 'JD',
 		[SomeDate] = CURRENT_TIMESTAMP
+SET STATISTICS TIME OFF
 GO
+
+-- Check Transaction Log Usage Before and After a CHECKPOINT
+-- Notice that there is no size difference.
+SELECT * FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT * FROM sys.dm_db_log_space_usage
+
 --Without ADR how long does it take to Rollback?
+--SQL Server Execution Times:
+--CPU time = 7906 ms,  elapsed time = 18166 ms.
+SET STATISTICS TIME ON
 ROLLBACK
+SET STATISTICS TIME OFF
 
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO
@@ -59,17 +76,40 @@ SET ACCELERATED_DATABASE_RECOVERY = ON
 --Notice the Compatibility Level is still 2017
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
 FROM sys.databases
+WHERE name = 'ADR_DEMO'
 
---Update records in table again.
---How long does it take? Should be about the same.
+--Update records in table again. How long does it take? 
+--SQL Server Execution Times:
+--CPU time = 36063 ms,  elapsed time = 54612 ms.
+SET STATISTICS TIME ON
 BEGIN TRAN
 UPDATE ADRTest 
 	SET [SomeLetters2] = 'JD',
 		[SomeDate] = CURRENT_TIMESTAMP
+SET STATISTICS TIME OFF
 GO
---With ADR how long does it take to Rollback?
-ROLLBACK
 
+--Check Transaction Log Usage
+--Before and After a CHECKPOINT
+SELECT * FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT * FROM sys.dm_db_log_space_usage
+
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS persistent_version_store_size_mb,
+       pvss.current_aborted_transaction_count,
+       pvss.aborted_version_cleaner_start_time,
+       pvss.aborted_version_cleaner_end_time
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+
+--With ADR how long does it take to Rollback?
+SET STATISTICS TIME ON
+ROLLBACK
+SET STATISTICS TIME OFF
+
+ 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT

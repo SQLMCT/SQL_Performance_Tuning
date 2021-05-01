@@ -30,6 +30,7 @@ GO
 -- Create a stored proc
 CREATE OR ALTER PROCEDURE dbo.getProductInfo
     @ProductID INT
+WITH RECOMPILE
 AS
     SET NOCOUNT ON;
     SELECT   ProductID, OrderQty, UnitPrice
@@ -58,30 +59,22 @@ WHILE (@counter <= 25000)
 BEGIN
 	-- Run the stored procedure with parameters that will return a range of rows
 	EXECUTE dbo.getProductInfo 870;	-- 4688
-	EXECUTE dbo.getProductInfo 777;	--  242
-	EXECUTE dbo.getProductInfo 942;	--    5
+	EXECUTE dbo.getProductInfo 897;	--    2
+	EXECUTE dbo.getProductInfo 945;	--  257
 	EXECUTE dbo.getProductInfo 768;	--  441
 
-	DECLARE @product_id INT, @counter2 INT = 1;
-	WHILE (@counter2 <= 5)
-	BEGIN
-		SET @product_id = ROUND(( ( 707 - 999 - 1 ) * RAND() + 707 ), 0);
-		EXEC dbo.getProductInfo @product_id;
-		SET @counter2 += 1;
-	END
-	
-	-- Every so often, change up the indexes so different plans are generated
-	/*IF @counter % 250 = 0
+-- Every so often, change up the indexes so different plans are generated
+	IF @counter % 5 = 0
 	BEGIN
 		IF @subcounter = 1
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON Sales.SalesOrderDetail ( ProductID ) INCLUDE (UnitPrice, OrderQty);
-
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice);
+		
 		IF @subcounter = 2
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail ( ProductID ) INCLUDE ( UnitPrice);
-
-		IF @subcounter = 3
 			DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
-
+		
+		IF @subcounter = 3
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice, OrderQty);
+			
 		IF @subcounter = 4
 			DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
 		
@@ -90,7 +83,7 @@ BEGIN
 		ELSE 
 			SET @subcounter = 1;
 	END
-	*/
+	
 	SET @counter += 1;
 
 	WAITFOR DELAY '00:00:02';

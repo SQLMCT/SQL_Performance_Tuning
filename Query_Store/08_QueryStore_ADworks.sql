@@ -30,6 +30,7 @@ GO
 -- Create a stored proc
 CREATE OR ALTER PROCEDURE dbo.getProductInfo
     @ProductID INT
+WITH RECOMPILE
 AS
     SET NOCOUNT ON;
     SELECT   ProductID, OrderQty, UnitPrice
@@ -58,39 +59,31 @@ WHILE (@counter <= 25000)
 BEGIN
 	-- Run the stored procedure with parameters that will return a range of rows
 	EXECUTE dbo.getProductInfo 870;	-- 4688
-	EXECUTE dbo.getProductInfo 777;	--  242
-	EXECUTE dbo.getProductInfo 942;	--    5
+	EXECUTE dbo.getProductInfo 897;	--    2
+	EXECUTE dbo.getProductInfo 945;	--  257
 	EXECUTE dbo.getProductInfo 768;	--  441
 
-	DECLARE @product_id INT, @counter2 INT = 1;
-	WHILE (@counter2 <= 5)
-	BEGIN
-		SET @product_id = ROUND(( ( 707 - 999 - 1 ) * RAND() + 707 ), 0);
-		EXEC dbo.getProductInfo @product_id;
-		SET @counter2 += 1;
-	END
-	
-	-- Every so often, change up the indexes so different plans are generated
-	IF @counter % 250 = 0
+-- Every so often, change up the indexes so different plans are generated
+	IF @counter % 5 = 0
 	BEGIN
 		IF @subcounter = 1
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON Sales.SalesOrderDetail ( ProductID ) INCLUDE (UnitPrice);
-
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice);
+		
 		IF @subcounter = 2
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail ( ProductID ) INCLUDE ( UnitPrice, OrderQty );
-
-		IF @subcounter = 3
-			DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
-
-		IF @subcounter = 4
 			DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
-
+		
+		IF @subcounter = 3
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice, OrderQty);
+			
+		IF @subcounter = 4
+			DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
+		
 		IF @subcounter < 4
 			SET @subcounter += 1;
 		ELSE 
 			SET @subcounter = 1;
 	END
-
+	
 	SET @counter += 1;
 
 	WAITFOR DELAY '00:00:02';
@@ -104,4 +97,15 @@ GO
 EXEC sys.sp_helpindex 'sales.salesorderdetail';
 
 
-
+/* This Sample Code is provided for the purpose of illustration only and is not intended 
+to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
+PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR 
+PURPOSE.  We grant You a nonexclusive, royalty-free right to use and modify the Sample Code
+and to reproduce and distribute the object code form of the Sample Code, provided that You 
+agree: (i) to not use Our name, logo, or trademarks to market Your software product in which
+the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product
+in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and defend Us and
+Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
+result from the use or distribution of the Sample Code.
+*/

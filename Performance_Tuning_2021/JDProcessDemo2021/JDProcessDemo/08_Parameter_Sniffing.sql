@@ -1,9 +1,12 @@
 USE AdventureWorks2016
 GO
---Change Compatibility Level on Database
---ALTER DATABASE AdventureWorks2016
---SET COMPATIBILITY_LEVEL = 150
---GO
+
+/*
+-- Clean up from Query Store demo
+	DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
+	DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
+	GO
+*/
 
 --ProductID 897 has 2 rows
 --ProductID 945 has 257 rows
@@ -12,22 +15,23 @@ GO
 --Ad-Hoc Query
 SELECT SalesOrderID, OrderQty
 FROM Sales.SalesOrderDetail
-WHERE ProductID = 945
-
+WHERE ProductID = 870
+GO
 --DBCC FREEPROCCACHE
 --DROP PROC IF EXISTS GET_ORDERID_ORDER_QTY
 
 --Parameter Sniffing 897, 945, 870
-CREATE PROC GET_ORDERID_ORDER_QTY
+CREATE OR ALTER PROC GET_ORDERID_ORDER_QTY
 @PRODUCTID int
 AS
 
 SELECT SalesOrderID, OrderQty
 FROM Sales.SalesOrderDetail
 WHERE ProductID = @PRODUCTID
---Option(Optimize FOR (@ProductID - 945)
+Option(Optimize FOR (@ProductID = 945))
+GO
 
-EXEC dbo.GET_ORDERID_ORDER_QTY 945
+EXEC dbo.GET_ORDERID_ORDER_QTY 897
 
 --DBCC FREEPROCCACHE
 

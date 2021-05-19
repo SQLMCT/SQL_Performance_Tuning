@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="TDEDemo">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="(local)\JDSQL01:NORTHAMERICA\jodeardu">
+          <Created>2019-11-23T09:32:32.7238877-05:00</Created>
+          <Type>SQL</Type>
+          <Server>(local)\JDSQL01</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>master</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="(local)\JDSQL02:NORTHAMERICA\jodeardu">
+          <Created>2019-11-23T10:21:53.7540153-05:00</Created>
+          <Type>SQL</Type>
+          <Server>(local)\JDSQL02</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="(local)\JDSQL19:NORTHAMERICA\jodeardu">
+          <Created>2020-04-22T10:40:11.4038093-04:00</Created>
+          <Type>SQL</Type>
+          <Server>(local)\JDSQL19</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>InjectionDemo</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="01_BackupCertDemo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>01_BackupCertDemo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_RestoreSameInstance.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02_RestoreSameInstance.sql</FullPath>
+        </FileNode>
+        <FileNode Name="03_TDEDemonstration.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>03_TDEDemonstration.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_TDEServer02Attach.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04_TDEServer02Attach.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05_AlwaysEncrptedDemo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_AlwaysEncrptedDemo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06_RLSDemo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Users\jodeardu\Desktop\06_RLSDemo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07_DataMasking.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>C:\Users\jodeardu\Desktop\07_DataMasking.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_PolicyManagement.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL02:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL02</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_PolicyManagement.sql</FullPath>
+        </FileNode>
+        <FileNode Name="09_SQL_Injection.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>09_SQL_Injection.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

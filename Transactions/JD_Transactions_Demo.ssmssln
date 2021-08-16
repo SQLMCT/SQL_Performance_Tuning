@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "JD_Transactions_Demo", "JD_Transactions_Demo.ssmssqlproj", "{CC46DE41-AAFB-405A-9030-5535CE13ECF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC46DE41-AAFB-405A-9030-5535CE13ECF2}.Default|Default.ActiveCfg = Default
+		{F163AD1E-93A5-4AF8-8D12-F6137AA0A181}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCF995CF-297D-4638-9702-A4726FFC071D}
+	EndGlobalSection
+EndGlobal

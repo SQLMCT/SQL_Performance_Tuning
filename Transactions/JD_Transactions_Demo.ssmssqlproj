@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="JD_Transactions_Demo">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="(local)\JDSQL19:NORTHAMERICA\jodeardu">
+          <Created>2021-08-09T10:31:28.667256-04:00</Created>
+          <Type>SQL</Type>
+          <Server>(local)\JDSQL19</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="02_AddPrimaryKey.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02_AddPrimaryKey.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_AddRecords.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_AddRecords.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_CreateDatabase.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_CreateDatabase.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_CreateTable.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_CreateTable.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_DBCC_Statements.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_DBCC_Statements.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_ErrorHandling.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_ErrorHandling.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_SelectTest.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_SelectTest.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_ShowPlan_Statistics.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_ShowPlan_Statistics.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_TranLogDemo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_TranLogDemo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_UpdateExample.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>02_UpdateExample.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_BlockingDemo1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>04_BlockingDemo1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_BlockingDemo2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>04_BlockingDemo2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_DeadlockDemo1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>04_DeadlockDemo1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_DeadLockDemo2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>04_DeadLockDemo2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04_LockingDemo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>04_LockingDemo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Xcurrency_DirtyRead1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Xcurrency_DirtyRead1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_DirtyRead2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_DirtyRead2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_LostUpdate1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_LostUpdate1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_LostUpdate2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_LostUpdate2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_Phantom1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_Phantom1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_Phantom2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_Phantom2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_RepeatRead1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_RepeatRead1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="XCurrency_RepeatRead2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>XCurrency_RepeatRead2.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

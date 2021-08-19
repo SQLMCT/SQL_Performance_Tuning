@@ -175,11 +175,23 @@
           <AssociatedConnUserName />
           <FullPath>05_NCI_Column_Order.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_PartitionIndex.sql">
+        <FileNode Name="05_Partition_ADWorks.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>05_PartitionIndex.sql</FullPath>
+          <FullPath>05_Partition_ADWorks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05_Partition_Database.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_Partition_Database.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05_Partition_Index.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_Partition_Index.sql</FullPath>
         </FileNode>
         <FileNode Name="05_TableScan_ClusteredScan.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>

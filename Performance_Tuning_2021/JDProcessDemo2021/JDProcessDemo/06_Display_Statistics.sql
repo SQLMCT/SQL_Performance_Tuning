@@ -1,12 +1,6 @@
 USE AdventureWorks2016
 GO
 
---Show Actual Execution Plan
-SELECT ProductID
-FROM Sales.SalesOrderDetail
-WHERE ProductID = 732
-GO
-
 --Show number of records returned for Product ID
 SELECT ProductID, Count(*) AS RecordCount
 FROM Sales.SalesOrderDetail
@@ -17,6 +11,30 @@ GO
 --Display Statistic information for the Sales.SalesOrderDetail table
 DBCC SHOW_STATISTICS ('Sales.SalesOrderDetail', 'IX_SalesOrderDetail_ProductID')
 WITH STAT_HEADER, HISTOGRAM
+GO
+
+--Show Actual Execution Plan
+--When using literal value, the EQ_ROWS value is used.
+SELECT ProductID
+FROM Sales.SalesOrderDetail
+WHERE ProductID IN(732, 736)
+GO
+
+--Show Actual Execution Plan
+--When using in a range, the AVG_RANGE_ROWS value is used.
+SELECT ProductID
+FROM Sales.SalesOrderDetail
+WHERE ProductID = 733
+GO
+
+--What about local variables?
+--Value for ProductID is unknown at optimization, so uses density vector
+--Total Rows (121,317) * Density Vector (0.003759399) = 456.079
+DECLARE @ProductID int = 732
+
+SELECT ProductID
+FROM Sales.SalesOrderDetail
+WHERE ProductID = @ProductID
 GO
 
 

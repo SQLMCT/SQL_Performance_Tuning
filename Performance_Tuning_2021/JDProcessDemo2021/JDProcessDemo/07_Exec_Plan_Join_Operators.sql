@@ -6,12 +6,15 @@ SELECT SOH.SalesOrderID, SOH.CustomerID,
 FROM Sales.SalesOrderHeader AS SOH
 	JOIN Sales.SalesOrderDetail AS SOD
 		ON SOH.SalesOrderID = SOD.SalesOrderID
-	INNER MERGE 
+	--INNER MERGE
 	JOIN Production.Product AS P
 		ON P.ProductID = SOD.ProductID
-	OPTION (MAXDOP 8)
---2.62516 CPU - 1888kb Memory
---4.53020 CPU - 40mb Memory
+--OPTION (MAXDOP 1)
+
+
+-- JOIN NOT FORCED: 2.62516 CPU - 1888kb Memory
+-- FORCED HASH JOIN: 4.1715 CPU - 14mb Memory
+-- FORCED MERGE JOIN: 4.53020 CPU - 40mb Memory
 
 
 		/* This Sample Code is provided for the purpose of illustration only and is not intended 

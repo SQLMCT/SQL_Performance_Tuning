@@ -1,3 +1,4 @@
+  
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
@@ -44,11 +45,6 @@ SELECT cpu_count, hyperthread_ratio, max_workers_count,
 	scheduler_count, scheduler_total_count, 
 	affinity_type, affinity_type_desc,
 	softnuma_configuration, softnuma_configuration_desc,
-	--socket_count, cores_per_socket, numa_node_count,
+	socket_count, cores_per_socket, numa_node_count,
 	sql_memory_model, sql_memory_model_desc
 FROM sys.dm_os_sys_info
-
-
-
-
-

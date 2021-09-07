@@ -3,15 +3,25 @@ USE master;
 
 --Build Database for Demo
 DROP DATABASE IF EXISTS ADR_Demo;
-CREATE DATABASE ADR_Demo ON
-(NAME = ADR_DB,
- FILENAME = 'D:\DATA\ADR_DB.mdf')
+CREATE DATABASE ADR_Demo ON PRIMARY
+	(NAME = ADR_DB,
+	FILENAME = 'D:\DATA\ADR_DB.mdf')
 LOG ON
-(NAME = ADR_DB_Log,
- FILENAME = 'D:\DATA\ADR_DB.ldf');
+	(NAME = ADR_DB_Log, 
+	FILENAME = 'D:\DATA\ADR_DB.ldf');
+GO
+
+--Create a Filegroup for Accelerated Database Recovery
+ALTER DATABASE ADR_DEMO
+ADD FILEGROUP ADR_FG
+GO
+ALTER DATABASE ADR_DEMO
+ADD FILE (NAME = ADR_FG1, FILENAME = 'D:\DATA\ADR_DB2.ndf')
+	TO FILEGROUP ADR_FG;
 GO
 
 --Change Compatability Level to pre-2019
+--This is to show recovery without ADR
 ALTER DATABASE ADR_DEMO
 SET COMPATIBILITY_LEVEL = 140
 
@@ -24,50 +34,163 @@ WHERE name = 'ADR_DEMO'
 USE ADR_Demo;
 GO
 SELECT TOP 750000
-	SomeID = IDENTITY(INT, 1, 1),
-	SomeInt = ABS(CHECKSUM(NEWID())) % 50000 +1,
-	SomeLetters2 = CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65) + 
+	AcctID = IDENTITY(INT, 1, 1),
+	AcctCode = CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65) + 
 			CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65),
-	SomeMoney = CAST(ABS(CHECKSUM(NEWID())) % 10000 /100.0 AS MONEY),
-	SomeDate = CAST(RAND(CHECKSUM(NEWID())) *3653.0 + 36524.0 AS DATETIME)
+	ModifiedDate = GETDATE()
 INTO dbo.ADRTest
-FROM Sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
+FROM sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
 GO
 
---Create Index to slow down Update statement
+--Create Index to speed up reads.
 CREATE NONCLUSTERED INDEX NC_Letters_Date ON 
-dbo.ADRTest (SomeLetters2, SomeDate)
+dbo.ADRTest (AcctCode, ModifiedDate)
 GO
 
 --Look at the data
 SELECT * FROM dbo.ADRTest
 
---Update records in table
---How long does it take?
---SQL Server Execution Times:
---CPU time = 13407 ms,  elapsed time = 31762 ms.
+--Hey John! DELETE Records from Table. How long does it take? 
+--CPU time = 5593 ms,  elapsed time = 23348 ms.
 SET STATISTICS TIME ON
-BEGIN TRAN
-UPDATE ADRTest 
-	SET [SomeLetters2] = 'JD',
-		[SomeDate] = CURRENT_TIMESTAMP
+BEGIN TRAN --Notice there is no Commit Transaction
+DELETE ADRTest
 SET STATISTICS TIME OFF
 GO
 
+--Look at the data and verify records DELETED.
+SELECT * FROM dbo.ADRTest
+
 -- Check Transaction Log Usage Before and After a CHECKPOINT
 -- Notice that there is no size difference.
-SELECT * FROM sys.dm_db_log_space_usage
+SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT * FROM sys.dm_db_log_space_usage
+SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---SQL Server Execution Times:
---CPU time = 7906 ms,  elapsed time = 18166 ms.
+--CPU time = 3828 ms,  elapsed time = 10073 ms.
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
+
+--Look at the data and verify records exist.
+SELECT * FROM dbo.ADRTest
+
+--TURN ADR ON
+ALTER DATABASE ADR_DEMO
+SET ACCELERATED_DATABASE_RECOVERY = ON
+	(PERSISTENT_VERSION_STORE_FILEGROUP = [ADR_FG]);
+GO
+
+--Notice the Compatibility Level is still 2017
+SELECT name, compatibility_level, is_accelerated_database_recovery_on
+FROM sys.databases
+WHERE name = 'ADR_DEMO'
+
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
+--DELETE records in table again. How long does it take? 
+--Without ADR: CPU time = 5593 ms,  elapsed time = 23348 ms 
+--With ADR: CPU time = 9265 ms,  elapsed time = 11900 ms.
+SET STATISTICS TIME ON
+BEGIN TRAN --Notice there is no Commit Transaction
+DELETE ADRTest
+SET STATISTICS TIME OFF
+GO
+
+--Check Transaction Log Usage
+--Before and After a CHECKPOINT
+SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
+
+--With ADR how long does it take to Rollback?
+--Without ADR: CPU time = 3828 ms,  elapsed time = 10073 ms.
+--With ADR: CPU time = 0 ms,  elapsed time = 2 ms.
+SET STATISTICS TIME ON
+ROLLBACK
+SET STATISTICS TIME OFF
+
+--Check that the records are available.
+SELECT * FROM dbo.ADRTest
+
+--Check Transaction Log Usage
+--Before and After a CHECKPOINT
+SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
+
+--Hey John! What about Updates?
+--Turn ADR OFF
+ALTER DATABASE ADR_DEMO
+SET ACCELERATED_DATABASE_RECOVERY = OFF
+
+SELECT name, compatibility_level, is_accelerated_database_recovery_on
+FROM sys.databases
+WHERE name = 'ADR_DEMO'
+
+--Update records in table.--How long does it take?
+--CPU time = 4516 ms,  elapsed time = 15604 ms.
+SET STATISTICS TIME ON
+BEGIN TRAN --Notice there is no Commit Transaction
+UPDATE ADRTest 
+	SET [AcctCode] = 'JD',
+		[ModifiedDate] = CURRENT_TIMESTAMP
+SET STATISTICS TIME OFF
+GO
+
+--Check that the records are updated.
+SELECT * FROM dbo.ADRTest
+
+-- Check Transaction Log Usage Before and After a CHECKPOINT
+-- Notice that there is no size difference.
+SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+--Without ADR how long does it take to Rollback?
+--SQL Server Execution Times:
+--CPU time = 4328 ms,  elapsed time = 15306 ms.
+SET STATISTICS TIME ON
+ROLLBACK
+SET STATISTICS TIME OFF
+
+--Check that the records are reverted to original.
+SELECT * FROM dbo.ADRTest
 
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO
@@ -79,36 +202,37 @@ FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
 --Update records in table again. How long does it take? 
---SQL Server Execution Times:
---CPU time = 36063 ms,  elapsed time = 54612 ms.
+--Without ADR: CPU time = 4516 ms,  elapsed time = 15604 ms
+--With ADR: CPU time = 13734 ms,  elapsed time = 14116 ms.
 SET STATISTICS TIME ON
-BEGIN TRAN
+BEGIN TRAN --Notice there is no Commit Transaction
 UPDATE ADRTest 
-	SET [SomeLetters2] = 'JD',
-		[SomeDate] = CURRENT_TIMESTAMP
+	SET [AcctCode] = 'JD',
+		[ModifiedDate] = CURRENT_TIMESTAMP
 SET STATISTICS TIME OFF
 GO
 
 --Check Transaction Log Usage
 --Before and After a CHECKPOINT
-SELECT * FROM sys.dm_db_log_space_usage
+SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT * FROM sys.dm_db_log_space_usage
+SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
 
 --Monitor PVS
-SELECT pvss.persistent_version_store_size_kb / 1024. AS persistent_version_store_size_mb,
-       pvss.current_aborted_transaction_count,
-       pvss.aborted_version_cleaner_start_time,
-       pvss.aborted_version_cleaner_end_time
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
 FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
 
 --With ADR how long does it take to Rollback?
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
-
  
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

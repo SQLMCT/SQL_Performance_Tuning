@@ -30,23 +30,28 @@ SELECT name, compatibility_level, is_accelerated_database_recovery_on
 FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
+--DROP TABLE dbo.ADRTest
 --Create ADRTest Table
 USE ADR_Demo;
 GO
 SELECT TOP 750000
 	AcctID = IDENTITY(INT, 1, 1),
-	AcctCode = CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65) + 
-			CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65),
+	AcctCode = CAST(CAST(RAND(CHECKSUM(NEWID()))* 10000 as int)as char(4))
+				+'_JD_INSERT'  ,
 	ModifiedDate = GETDATE()
 INTO dbo.ADRTest
 FROM sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
 GO
 
+--Create index to speed up reads
+CREATE NONCLUSTERED INDEX ix_jd_adrtest_demo
+ON dbo.ADRTEST(AcctCode, ModifiedDate)
+
 --Look at the data
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --Hey John! DELETE Records from Table. How long does it take? 
---CPU time = 1532 ms,  elapsed time = 10546 ms.
+--Be sure to paste results to line 103
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
@@ -54,26 +59,28 @@ SET STATISTICS TIME OFF
 GO
 
 --Look at the data and verify records DELETED.
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 -- Check Transaction Log Usage Before and After a CHECKPOINT
 -- Notice that there is no size difference.
-SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'After Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---CPU time = 1828 ms,  elapsed time = 5591 ms.
+--Hey John! Be sure to paste results to line 133
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
 
 --Look at the data and verify records exist.
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO
@@ -93,22 +100,26 @@ FROM sys.dm_tran_persistent_version_store_stats AS pvss
 WHERE database_id = DB_ID()
 
 --DELETE records in table again. How long does it take? 
---Without ADR: CPU time = 3703 ms,  elapsed time = 9265 ms 
---With ADR: CPU time = 3968 ms,  elapsed time = 9737 ms.
+--Without ADR: CPU time = 6204 ms,  elapsed time = 24953 ms
+--With ADR:  CPU time = 10172 ms,  elapsed time = 15533 ms
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
 SET STATISTICS TIME OFF
 GO
 
---Check Transaction Log Usage
---Before and After a CHECKPOINT
-SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+--Check Transaction Log Usage Before and After a CHECKPOINT
+--A lot smaller because all non-versioned operations are in the slog
+--Versioned information will be in the Persisted Version Store.
+--Transaction log only has activity since Checkpoint
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'After Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 --Monitor PVS
@@ -119,26 +130,36 @@ WHERE database_id = DB_ID()
 
 
 --With ADR how long does it take to Rollback?
---Without ADR: CPU time = 1828 ms,  elapsed time = 5591 ms.
---With ADR: 
+--Without ADR: CPU time = 4469 ms,  elapsed time = 12247 ms
+--With ADR: CPU time = 0 ms,  elapsed time = 2 ms.
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
 
 --Check that the records are available.
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
---Check Transaction Log Usage
---Before and After a CHECKPOINT
-SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
+--Check Transaction Log Usage Before and After a CHECKPOINT
+--The Logical Revert marked the transaction terminated in the PVS.
+--Transaction log only has activity since Checkpoint
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'After Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 --Monitor PVS
+--The Cleaner will remove stale rows that were marked as terminated.
 SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
        pvss.current_aborted_transaction_count  
 FROM sys.dm_tran_persistent_version_store_stats AS pvss
@@ -155,37 +176,37 @@ FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
 --Update records in table.--How long does it take?
---CPU time = 4516 ms,  elapsed time = 15604 ms.
+--Paste results to line 221
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 UPDATE ADRTest 
-	SET [AcctCode] = 'JD',
+	SET [AcctCode] = 'UPDATE_NO_ADR',
 		[ModifiedDate] = CURRENT_TIMESTAMP
 SET STATISTICS TIME OFF
 GO
 
 --Check that the records are updated.
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 -- Check Transaction Log Usage Before and After a CHECKPOINT
 -- Notice that there is no size difference.
-SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'After Checkpoint' AS Check_Time, (
+	used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---SQL Server Execution Times:
---CPU time = 4328 ms,  elapsed time = 15306 ms.
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
 
 --Check that the records are reverted to original.
-SELECT * FROM dbo.ADRTest
+SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO
@@ -197,24 +218,28 @@ FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
 --Update records in table again. How long does it take? 
---Without ADR: CPU time = 4516 ms,  elapsed time = 15604 ms
---With ADR: CPU time = 13734 ms,  elapsed time = 14116 ms.
+--Without ADR: CPU time = 14125 ms,  elapsed time = 36967 ms
+--With ADR: CPU time = 24969 ms,  elapsed time = 33433 ms
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 UPDATE ADRTest 
-	SET [AcctCode] = 'JD',
+	SET [AcctCode] = 'UPD_WITH_ADR',
 		[ModifiedDate] = CURRENT_TIMESTAMP
 SET STATISTICS TIME OFF
 GO
 
---Check Transaction Log Usage
---Before and After a CHECKPOINT
-SELECT 'Before Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+--A lot smaller after checkpoint because
+--All non-versioned operations are in the slog
+--Versioned information will be in the Persisted Version Store.
+--Transaction log only has activity since Checkpoint
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 CHECKPOINT;
 
-SELECT 'After Checkpoint' AS Check_Time, (used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+SELECT 'After Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
 --Monitor PVS
@@ -228,6 +253,25 @@ WHERE database_id = DB_ID()
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
+
+--Monitor PVS
+SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
+       pvss.current_aborted_transaction_count  
+FROM sys.dm_tran_persistent_version_store_stats AS pvss
+WHERE database_id = DB_ID()
+
+--Check Transaction Log Usage Before and After a CHECKPOINT
+--The Logical Revert marked the transaction terminated in the PVS
+--Transaction log only has activity since Checkpoint
+SELECT 'Before Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
+
+CHECKPOINT;
+
+SELECT 'After Checkpoint' AS Check_Time, 
+	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
+FROM sys.dm_db_log_space_usage
  
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

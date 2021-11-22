@@ -35,7 +35,7 @@ INTO dbo.Person
 FROM AdventureWorks2016.Person.Person;
 GO
 
---Verify Data
+--Verify Data --19,972 rows at 40 bytes each
 SELECT * FROM dbo.Person
 
 --Check Log Space. Should Not Change
@@ -58,6 +58,7 @@ MiddleName = CHAR(ABS(CHECKSUM(NEWID())) % 26 + 65),
 ModifiedDate = CURRENT_TIMESTAMP
 FROM Sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
 GO
+
 --Verify Data
 SELECT * FROM dbo.Person
 
@@ -88,7 +89,7 @@ CHECKPOINT;
 BEGIN TRAN
 	UPDATE TOP (1) dbo.Person 
 	SET ModifiedDate = DATEADD(MINUTE, 1, ModifiedDate);
-COMMIT;
+COMMIT TRANSACTION;
 SELECT * FROM sys.fn_dblog(NULL, NULL);
 GO
 
@@ -139,18 +140,6 @@ GO
 --This gets us back to one transaction that updates 5 rows
 --Fewer log records and fewer flushes to disk
 
-/*****************************************************************************/
-
--- Update a lot of rows and check its effect on the VLF count
-SELECT * FROM sys.dm_db_log_info(DB_ID());
-UPDATE dbo.Person 
-SET ModifiedDate = DATEADD(MINUTE, 1, ModifiedDate);
-SELECT * FROM sys.dm_db_log_info(DB_ID());
-
---	The update required that the log be expanded
---	64 MB (my autogrow size) are added across 4 VLFs
-
-/*****************************************************************************/
 --Check Log Space. Should Not Change
 SELECT database_id, 
 CONVERT(decimal(5,2),total_log_size_in_bytes *1.0/1024/1024) AS [Log Size(MB)], 
@@ -168,6 +157,9 @@ CONVERT(decimal(5,2),total_log_size_in_bytes *1.0/1024/1024) AS [Log Size(MB)],
 used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
 
+--Demonstrate DBCC LOGINFO
+SELECT * FROM sys.dm_db_log_info(DB_ID());
+
 --Now Perform a Log Backup. Space should change.
 BACKUP LOG TestDB
 TO DISK = 'D:\DATA\TestDB_Log.trn'
@@ -179,6 +171,10 @@ CONVERT(decimal(5,2),total_log_size_in_bytes *1.0/1024/1024) AS [Log Size(MB)],
 used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
 
+--Demonstrate DBCC LOGINFO
+SELECT * FROM sys.dm_db_log_info(DB_ID());
+
+--NEVER DO THIS!!!
 DBCC SHRINKFILE(Test_DB_Log, TRUNCATEONLY)
 GO
  --Check Log Space. Should see a change
@@ -189,3 +185,5 @@ FROM sys.dm_db_log_space_usage;
 
 --Demonstrate DBCC LOGINFO
 SELECT * FROM sys.dm_db_log_info(DB_ID());
+
+CHECKPOINT

@@ -25,7 +25,7 @@ FROM fn_dblog(null, null)
 
 
 SELECT COUNT(*) AS OperationCount, Operation, Context
-FROM sys.fn_dblog('00003150:00001976:0101', null)
+FROM sys.fn_dblog('00000044:00002743:0018', null)
 GROUP by Operation, Context
 ORDER BY OperationCount DESC
 GO

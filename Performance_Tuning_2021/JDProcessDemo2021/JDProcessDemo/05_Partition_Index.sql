@@ -38,6 +38,7 @@ SELECT partition_id, object_id, index_id,
 FROM sys.partitions 
 where object_id = object_id('Accounting.BankAccounts')
 
+-- 2 people in the single digits, 4 people in 10 range, 7 people in 20 range,  4 in the 30 range.
 --Add in more records and check partitions again
 --HEY JOHN! Don't forget to Run 02-AddRecords.sql
 SELECT partition_id, object_id, index_id, 
@@ -58,6 +59,7 @@ ON PartSch1(AcctID)
 --Review Records. Notice they are in a Clustered Index by partition.
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
+
 
 --What about adding a new range?
 SET IDENTITY_INSERT Accounting.BankAccounts ON

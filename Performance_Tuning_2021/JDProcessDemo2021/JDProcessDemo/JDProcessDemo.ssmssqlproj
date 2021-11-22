@@ -85,11 +85,17 @@
           <AssociatedConnUserName />
           <FullPath>02_ShowPlan_Statistics.sql</FullPath>
         </FileNode>
-        <FileNode Name="02_TranLogDemo.sql">
+        <FileNode Name="02_TransLog_ConvertLSN.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>02_TranLogDemo.sql</FullPath>
+          <FullPath>02_TransLog_ConvertLSN.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_TransLog_Reading.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02_TransLog_Reading.sql</FullPath>
         </FileNode>
         <FileNode Name="02_UpdateExample.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
@@ -318,6 +324,12 @@
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>iqp_Table_Variable_Deferred.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Overview of DMVs.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Overview of DMVs.sql</FullPath>
         </FileNode>
         <FileNode Name="WWI_Extend_Order_History.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>

@@ -17,7 +17,7 @@ GO
 INSERT INTO Accounting.BankAccounts
 VALUES('Jack',500, GETDATE())
 INSERT INTO Accounting.BankAccounts
-VALUES('Diane', 750, GETDATE())
+VALUSE('Diane', 750, GETDATE())
 GO
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

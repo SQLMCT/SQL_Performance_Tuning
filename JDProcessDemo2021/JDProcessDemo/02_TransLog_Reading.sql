@@ -32,10 +32,10 @@ GO
 -- Create and populate a couple of test tables
 SELECT LastName, FirstName, MiddleName, ModifiedDate
 INTO dbo.Person
-FROM AdventureWorks2016.Person.Person;
+FROM AdventureWorks2019.Person.Person;
 GO
 
---Verify Data --19,972 rows at 40 bytes each
+--Verify Data --19,972 rows at 40 bytes each = 800kb
 SELECT * FROM dbo.Person
 
 --Check Log Space. Should Not Change
@@ -75,6 +75,8 @@ GO
 --ALTER DATABASE TestDB
 --SET RECOVERY SIMPLE
 --GO
+
+--Explain Log Buffer Flushing and Checkpoints
 
 -- What's recorded in the tran log when we...
 -- update a single row using auto-commit

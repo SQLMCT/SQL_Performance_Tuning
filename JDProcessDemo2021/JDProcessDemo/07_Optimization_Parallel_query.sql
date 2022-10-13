@@ -1,8 +1,8 @@
-USE AdventureWorks2016;
+USE AdventureWorks2019;
 GO
 SET SHOWPLAN_XML ON;  
 GO
---Execute the query in Adventureworks2016 database
+--Execute the query in Adventureworks2019 database
 SELECT sod.SalesOrderID, sod.OrderQty, 
 p.ProductID, p.Name
 FROM Production.Product p

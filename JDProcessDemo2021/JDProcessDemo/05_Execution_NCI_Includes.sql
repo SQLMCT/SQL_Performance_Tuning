@@ -1,4 +1,4 @@
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
 --Show IX_Address_StateProvince Index
@@ -22,6 +22,27 @@ FROM Person.Address
 WHERE StateProvinceID = 119
 
 
+
+
+
+
+
+
+--Search Indexes: Person.Address
+USE AdventureWorks2016
+GO
+
+DBCC TRACEON(3604) 
+DBCC PAGE(0, 1, 26792, 3)
+--DBCC IND(0,'Person.Address',-1)
+
+SELECT index_id, allocated_page_page_id
+FROM sys.dm_db_database_page_allocations
+(DB_ID(), object_ID('Person.Address'), NULL, NULL, 'LIMITED')
+WHERE index_id = 4 and allocated_page_iam_file_id IS NOT NULL
+GO
+
+
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
@@ -34,4 +55,6 @@ in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and
 Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
 result from the use or distribution of the Sample Code.
 */
+
+
 

@@ -1,5 +1,5 @@
 --TempDB Metadeta cache demonstration
---Copy tempstress_ddl.sql and tempstress.sql under to C:\Temp folder
+--Copy 02_tempstress_ddl.sql and 02_tempstress.sql under to C:\Temp folder
 --Copy ostress.exe to C:\Temp foler
 
 --Step 1: Open Windows Performance Monitor
@@ -20,7 +20,7 @@ CREATE TABLE #This_Table (col1 INT);
 GO
 
 --Step 3: Run the following in a command prompt under C:\temp
---OSTRESS -E -S.\JDSQL19 -i"tempstress.sql" -n100 -r5000 -dPressureDemo -o"Temp01"
+--OSTRESS -E -S.\JDSQL19 -i"02_tempstress.sql" -n100 -r5000 -dPressureDemo -o"Temp01"
 
 --Step 4: Check current activity of TempDB
 USE master;
@@ -63,7 +63,7 @@ GO
 --Required to enable Memory_Optimized TempDB_MetaData 
 
 --Step 9: Run the following in a command prompt under C:\temp
---OSTRESS -E -S.\JDSQL19 -i"tempstress.sql" -n100 -r5000 -dPressureDemo -o"Temp01"
+--OSTRESS -E -S.\JDSQL19 -i"02_tempstress.sql" -n100 -r5000 -dPressureDemo -o"Temp01"
 
 --Step 10: Open Windows Performance Monitor
 --Watch %ProcessorTime Again
@@ -100,10 +100,13 @@ go
 
 --Step 13: Observe the total duration of the workload
 --OSTRESS exiting normally, elapsed time: hh:mm:ss.ms
+--OSTRESS exiting normally, elapsed time: 00:03:37.405
+--OSTRESS exiting normally, elapsed time: 00:02:16.303
+--
 
 --Step 14: Turn on Memory_Optimized TempDB_MetaData 
 ALTER SERVER CONFIGURATION SET MEMORY_OPTIMIZED TEMPDB_METADATA = OFF;
 GO
 
 --Step 15: Restart SQL Server
---Required to disnable Memory_Optimized TempDB_MetaData 
+--Required to disable Memory_Optimized TempDB_MetaData 

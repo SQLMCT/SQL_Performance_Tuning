@@ -1,8 +1,9 @@
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
 --SHOWPLAN will be Estimated Execution Plan
 --STATISTICS will be Actual Execution Plan
+--DO NOT DO THIS IN PRODUCTION!!!
 DBCC DROPCLEANBUFFERS
 DBCC FREEPROCCACHE
 GO

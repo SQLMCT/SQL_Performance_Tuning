@@ -61,11 +61,11 @@ CREATE OR ALTER PROC dbo.GatherOrderData
 ( @order_key BIGINT, @quantity INT )
 AS
 BEGIN
-    SELECT fo.[Order Key], si.[Lead Time Days], fo.Quantity
+    SELECT fo.[OrderKey], si.[LeadTimeDays], fo.Quantity
     FROM Fact.[Order] AS fo
          INNER JOIN Dimension.[Stock Item] AS si 
-		 ON fo.[Stock Item Key] = si.[Stock Item Key]
-    WHERE fo.Quantity = @quantity AND fo.[Order Key] <= @order_key;
+		 ON fo.[StockItemKey] = si.[StockItemKey]
+    WHERE fo.Quantity = @quantity AND fo.[OrderKey] <= @order_key;
 END
 GO
 

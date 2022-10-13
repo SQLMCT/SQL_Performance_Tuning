@@ -1,4 +1,4 @@
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
 SELECT SOH.SalesOrderID, SOH.CustomerID,
@@ -10,11 +10,13 @@ FROM Sales.SalesOrderHeader AS SOH
 	JOIN Production.Product AS P
 		ON P.ProductID = SOD.ProductID
 --OPTION (MAXDOP 1)
+--WHERE SOH.SalesOrderID = 43659
 
 
 -- JOIN NOT FORCED: 2.62516 CPU - 1888kb Memory
--- FORCED HASH JOIN: 4.1715 CPU - 14mb Memory
--- FORCED MERGE JOIN: 4.53020 CPU - 40mb Memory
+-- FORCED HASH JOIN: 4.1715 CPU - 14MB Memory
+-- FORCED MERGE JOIN: 4.53136 CPU - 40MB Memory
+-- FORCE MERGE AND MAXDOP 1 = 11.7558 - 11MB Memory
 
 
 		/* This Sample Code is provided for the purpose of illustration only and is not intended 

@@ -84,7 +84,7 @@ SELECT [City Key], [Customer Key], [Stock Item Key], [Order Date Key], [Picked D
 FROM Fact.OrderHistoryExtended;
 GO 3
 
--- Table should have 29,620,736 rows
+-- Fact.OrderHistoryExtended Table should have 29,620,736 rows
 SELECT 'Number of rows in Fact.OrderHistoryExtended = ', COUNT(*) FROM Fact.OrderHistoryExtended
 GO
 

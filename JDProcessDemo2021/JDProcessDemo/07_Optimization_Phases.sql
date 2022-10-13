@@ -4,11 +4,11 @@
 DBCC TRACEON (3604);
 GO
 
-USE AdventureWorks2016;
+USE AdventureWorks2019;
 GO
 
 /*
-	Using Trace flag 8676 we can see details on which Stage and Phase
+	Using Trace flag 8675 we can see details on which Stage and Phase
 	of optimization is being used. This is an undocumented trace flag
 	and should not be used in a production environment.
 	Verify in Messages tab what was done in which optimization phase
@@ -69,7 +69,7 @@ ORDER BY I.CustomerID
 OPTION (RECOMPILE, QUERYTRACEON 8675)
 GO
 --*** Optimizer time out abort at task 3492 ***
-
+--https://docs.microsoft.com/en-us/archive/blogs/psssql/understanding-optimizer-timeout-and-how-complex-queries-can-be-affected-in-sql-server
 
 --DMV with cumulative optimization information
 SELECT counter, occurrence

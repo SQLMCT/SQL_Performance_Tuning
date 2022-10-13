@@ -8,7 +8,7 @@ SELECT * FROM sys.resource_governor_configuration;
 --CREATE LOGIN UserMarketing  WITH PASSWORD = 'UserPwd', CHECK_POLICY = OFF
 --GO
 
---USE AdventureWorks2016
+--USE AdventureWorks2019
 --CREATE USER UserSales FROM LOGIN UserSales WITH DEFAULT_SCHEMA=[dbo]
 --ALTER ROLE db_owner ADD MEMBER UserSales
 --CREATE USER UserMarketing FROM LOGIN UserMarketing WITH DEFAULT_SCHEMA=[dbo]

@@ -1,12 +1,15 @@
-USE WideWorldImportersDW
-GO
 
--- Clean up just in case.
---Begin Setup run up to End of setup
---DROP TABLE IF EXISTS CCSIDEmo.OrderHistoryExtended;
+--Need to run the WWI_Extend_Order_History script from Joe Sack.
+
+--USE WideWorldImportersDW
 --GO
---DROP SCHEMA IF EXISTS CCSIDemo;
---GO
+
+---- Clean up just in case.
+----Begin Setup run up to End of setup
+----DROP TABLE IF EXISTS CCSIDEmo.OrderHistoryExtended;
+----GO
+----DROP SCHEMA IF EXISTS CCSIDemo;
+----GO
 --CREATE SCHEMA CCSIDemo;
 --GO
 
@@ -32,6 +35,7 @@ GO
 -- Turn on Actual Execution Plan (CTRL+L)
 -- make sure we have a cold cache
 DBCC DROPCLEANBUFFERS;
+PRINT ' ';
 PRINT 'Without CCSI';
 SET STATISTICS IO ON;
 DECLARE @start DATETIME,
@@ -49,7 +53,11 @@ PRINT 'Elapsed time: '
       + ' milliseconds.';
 SET STATISTICS IO OFF;
 GO
+
+
+
 DBCC DROPCLEANBUFFERS;
+PRINT ' ';
 PRINT 'With CCSI';
 SET STATISTICS IO ON;
 DECLARE @start DATETIME,

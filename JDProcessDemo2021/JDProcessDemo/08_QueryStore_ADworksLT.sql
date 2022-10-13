@@ -1,19 +1,19 @@
 SET NOCOUNT ON;
 
-USE AdventureWorks2019;
-GO
+--USE AdventureWorks2019;
+--GO
 
 /*
 	-- Start with a clean slate
-	ALTER DATABASE AdventureWorks2019 SET QUERY_STORE = OFF;
-	ALTER DATABASE AdventureWorks2019 SET QUERY_STORE CLEAR;
+	ALTER DATABASE AdventureWorks2016 SET QUERY_STORE = OFF;
+	ALTER DATABASE AdventureWorks2016 SET QUERY_STORE CLEAR;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
 	GO
 */
 
 -- Enable with default settings
-ALTER DATABASE AdventureWorks2016
+ALTER DATABASE jdsql19
 SET QUERY_STORE = ON ( 
 	OPERATION_MODE = READ_WRITE,
 	MAX_STORAGE_SIZE_MB = 100,			/* demo value */
@@ -34,7 +34,7 @@ WITH RECOMPILE
 AS
     SET NOCOUNT ON;
     SELECT   ProductID, OrderQty, UnitPrice
-    FROM     Sales.SalesOrderDetail
+    FROM     SalesLT.SalesOrderDetail
     WHERE    ProductID = @ProductID;
 GO
 
@@ -80,16 +80,16 @@ BEGIN
 	IF @counter % 5 = 0
 	BEGIN
 		IF @subcounter = 1
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice);
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice ON SalesLT.SalesOrderDetail (ProductID) INCLUDE (UnitPrice);
 		
 		IF @subcounter = 2
-			DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
+			DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON SalesLT.SalesOrderDetail;
 		
 		IF @subcounter = 3
-			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail (ProductID) INCLUDE (UnitPrice, OrderQty);
+			CREATE NONCLUSTERED INDEX demo_ProductID__UnitPrice_OrderQty ON SalesLT.SalesOrderDetail (ProductID) INCLUDE (UnitPrice, OrderQty);
 			
 		IF @subcounter = 4
-			DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
+			DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON SalesLT.SalesOrderDetail;
 		
 		IF @subcounter < 4
 			SET @subcounter += 1;

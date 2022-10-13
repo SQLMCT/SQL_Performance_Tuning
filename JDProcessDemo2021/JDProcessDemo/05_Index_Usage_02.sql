@@ -1,6 +1,6 @@
 SET NOCOUNT ON;
 GO
-USE AdventureWorks2016;
+USE AdventureWorks2019;
 GO
 
 /* Run 03_Index_Usage_01 after each of the following queries */ 

@@ -4,7 +4,7 @@ notice that not all indexes have been used for SEEK/SCAN
 maybe the CLUSTERED index hasn't been used for LOOKUP yet
 */
 
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 SELECT 
     i.index_id,

@@ -4,7 +4,7 @@ USE TestDB
 BEGIN TRAN
 	UPDATE Accounting.BankAccounts
 	SET ModifiedDate = '12/12/2015' --Reset Date
-	--SET ModifiedDate = '11/25/1999' --Run for Example
+	--SET ModifiedDate = GETDATE() --Run for Example
 COMMIT TRAN
 
 SELECT * FROM Accounting.BankAccounts

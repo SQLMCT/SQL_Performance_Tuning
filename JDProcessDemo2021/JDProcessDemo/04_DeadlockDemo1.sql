@@ -1,8 +1,9 @@
 
 --Remind John to build Build Deadlock XEvent Session
+--John DO NOT Filter on AdventureWorks because it breaks stuff
 
 --Jack Deadlock Session 1
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
 BEGIN TRAN

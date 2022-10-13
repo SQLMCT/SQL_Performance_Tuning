@@ -1,21 +1,23 @@
+USE AdventureWorks2019
+GO
 
-		UPDATE Accounting.BankAccounts
-		SET Balance -= 2/0
-		WHERE AcctID = 1
+SELECT SOH.SalesOrderID, SOH.CustomerID,
+	OrderQty, UnitPrice, P.Name
+FROM SalesLT.SalesOrderHeader AS SOH
+	JOIN SalesLT.SalesOrderDetail AS SOD
+		ON SOH.SalesOrderID = SOD.SalesOrderID
+	--INNER MERGE
+	JOIN SalesLT.Product AS P
+		ON P.ProductID = SOD.ProductID
+--OPTION (MAXDOP 1)
+GO 500
 
-		UPDATE Accounting.BankAccounts
-		SET Balance += 200
-		WHERE AcctID = 2
+-- JOIN NOT FORCED: 2.62516 CPU - 1888kb Memory
+-- FORCED HASH JOIN: 4.1715 CPU - 14mb Memory
+-- FORCED MERGE JOIN: 4.53020 CPU - 40mb Memory
 
 
-
-
-
-
-
-
-
-/* This Sample Code is provided for the purpose of illustration only and is not intended 
+		/* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
 NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR 
@@ -27,3 +29,6 @@ in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and
 Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
 result from the use or distribution of the Sample Code.
 */
+
+
+

@@ -25,12 +25,6 @@
           <AssociatedConnUserName />
           <FullPath>01_DMV_Intro.sql</FullPath>
         </FileNode>
-        <FileNode Name="01_ExaminingNUMA.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>01_ExaminingNUMA.sql</FullPath>
-        </FileNode>
         <FileNode Name="01_Waits.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
@@ -84,6 +78,18 @@
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_ShowPlan_Statistics.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_tempstress.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02_tempstress.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02_tempstress_ddl.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02_tempstress_ddl.sql</FullPath>
         </FileNode>
         <FileNode Name="02_TransLog_ConvertLSN.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
@@ -163,6 +169,12 @@
           <AssociatedConnUserName />
           <FullPath>05_Index_Fragmentation.sql</FullPath>
         </FileNode>
+        <FileNode Name="05_Index_Operational_Stats.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_Index_Operational_Stats.sql</FullPath>
+        </FileNode>
         <FileNode Name="05_Index_Usage_01.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
@@ -211,6 +223,18 @@
           <AssociatedConnUserName />
           <FullPath>06_Display_Statistics.sql</FullPath>
         </FileNode>
+        <FileNode Name="06_Stale_Stats.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>06_Stale_Stats.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07_Exec_Plan_ADworksLT.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>07_Exec_Plan_ADworksLT.sql</FullPath>
+        </FileNode>
         <FileNode Name="07_Exec_Plan_Join_Operators.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
@@ -253,11 +277,29 @@
           <AssociatedConnUserName />
           <FullPath>08_PlanCache_QueryTunning.sql</FullPath>
         </FileNode>
-        <FileNode Name="08_QueryStore_ADworks.sql">
+        <FileNode Name="08_PlanCache_Top10.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
+          <FullPath>08_PlanCache_Top10.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_ADworks.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>08_QueryStore_ADworks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_ADworksLT.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_ADworksLT.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_DMV.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_DMV.sql</FullPath>
         </FileNode>
         <FileNode Name="10_CPU_Intensive_Loop.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
@@ -324,12 +366,6 @@
           <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>iqp_Table_Variable_Deferred.sql</FullPath>
-        </FileNode>
-        <FileNode Name="Overview of DMVs.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Overview of DMVs.sql</FullPath>
         </FileNode>
         <FileNode Name="WWI_Extend_Order_History.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>

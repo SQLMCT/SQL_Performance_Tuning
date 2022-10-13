@@ -47,11 +47,11 @@ GO
 CREATE NONCLUSTERED INDEX ix_jd_adrtest_demo
 ON dbo.ADRTEST(AcctCode, ModifiedDate)
 
---Look at the data
+--Look at the data! LOOK AT IT NOW!
 SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --Hey John! DELETE Records from Table. How long does it take? 
---Be sure to paste results to line 103
+--Be sure to paste results to line 102
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
@@ -74,7 +74,7 @@ SELECT 'After Checkpoint' AS Check_Time,
 FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---Hey John! Be sure to paste results to line 133
+--Hey John! Be sure to paste results to line 132
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
@@ -83,10 +83,9 @@ SET STATISTICS TIME OFF
 SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --TURN ADR ON
-ALTER DATABASE ADR_DEMO
+ALTER DATABASE ADR_DEMO 
 SET ACCELERATED_DATABASE_RECOVERY = ON
-	(PERSISTENT_VERSION_STORE_FILEGROUP = [ADR_FG]);
-GO
+(PERSISTENT_VERSION_STORE_FILEGROUP = [ADR_FG])
 
 --Notice the Compatibility Level is still 2017
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
@@ -100,8 +99,8 @@ FROM sys.dm_tran_persistent_version_store_stats AS pvss
 WHERE database_id = DB_ID()
 
 --DELETE records in table again. How long does it take? 
---Without ADR: CPU time = 6204 ms,  elapsed time = 24953 ms
---With ADR:  CPU time = 10172 ms,  elapsed time = 15533 ms
+--Without ADR:  CPU time = 8234 ms,  elapsed time = 26366 ms.
+--With ADR: CPU time = 18671 ms,  elapsed time = 25642 ms.
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
@@ -112,6 +111,7 @@ GO
 --A lot smaller because all non-versioned operations are in the slog
 --Versioned information will be in the Persisted Version Store.
 --Transaction log only has activity since Checkpoint
+--741MB before ADR
 SELECT 'Before Checkpoint' AS Check_Time, 
 	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
@@ -128,10 +128,11 @@ SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
 FROM sys.dm_tran_persistent_version_store_stats AS pvss
 WHERE database_id = DB_ID()
 
+-- THIS IS WHERE THE MAGIC HAPPENS!!!! 
 
 --With ADR how long does it take to Rollback?
---Without ADR: CPU time = 4469 ms,  elapsed time = 12247 ms
---With ADR: CPU time = 0 ms,  elapsed time = 2 ms.
+--Without ADR: CPU time = 5484 ms,  elapsed time = 12389 ms.
+--With ADR: CPU time = 0 ms,  elapsed time = 1 ms.
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
@@ -158,12 +159,17 @@ SELECT 'After Checkpoint' AS Check_Time,
 	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
 
---Monitor PVS
+--Monitor PVS, Might take a minute for the Cleaner to do its job.
 --The Cleaner will remove stale rows that were marked as terminated.
 SELECT pvss.persistent_version_store_size_kb / 1024. AS PVS_MB,
        pvss.current_aborted_transaction_count  
 FROM sys.dm_tran_persistent_version_store_stats AS pvss
 WHERE database_id = DB_ID()
+
+--This concludes the short version of the demo.
+--Demo cleanup
+USE master
+DROP DATABASE ADR_Demo
 
 
 --Hey John! What about Updates?
@@ -176,7 +182,7 @@ FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
 --Update records in table.--How long does it take?
---Paste results to line 221
+--Paste results to line 220
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 UPDATE ADRTest 
@@ -272,18 +278,12 @@ CHECKPOINT;
 SELECT 'After Checkpoint' AS Check_Time, 
 	(used_log_space_in_bytes /1024)/ 1024 as space_used_MB, used_log_space_in_percent
 FROM sys.dm_db_log_space_usage
+
+
+
  
-/* This Sample Code is provided for the purpose of illustration only and is not intended 
-to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
-PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT
-NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR 
-PURPOSE.  We grant You a nonexclusive, royalty-free right to use and modify the Sample Code
-and to reproduce and distribute the object code form of the Sample Code, provided that You 
-agree: (i) to not use Our name, logo, or trademarks to market Your software product in which
-the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product
-in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and defend Us and
-Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or 
-result from the use or distribution of the Sample Code.
+/* 
+This Sample Code is provided for the purpose of illustration only and is not intended to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.  We grant You a nonexclusive, royalty-free right to use and modify the Sample Code and to reproduce and distribute the object code form of the Sample Code, provided that You agree: (i) to not use Our name, logo, or trademarks to market Your software product in which the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product in which the Sample Code is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, including attorneys’ fees, that arise or result from the use or distribution of the Sample Code.
 */
 
 

@@ -1,4 +1,4 @@
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
 --Show number of records returned for Product ID
@@ -17,7 +17,7 @@ GO
 --When using literal value, the EQ_ROWS value is used.
 SELECT ProductID
 FROM Sales.SalesOrderDetail
-WHERE ProductID IN(732, 736)
+WHERE ProductID = 732
 GO
 
 --Show Actual Execution Plan
@@ -26,6 +26,16 @@ SELECT ProductID
 FROM Sales.SalesOrderDetail
 WHERE ProductID = 733
 GO
+
+
+--Show Actual Execution Plan
+--When using multiple values
+SELECT ProductID
+FROM Sales.SalesOrderDetail
+WHERE ProductID IN(732, 736)
+GO
+
+
 
 --What about local variables?
 --Value for ProductID is unknown at optimization, so uses density vector

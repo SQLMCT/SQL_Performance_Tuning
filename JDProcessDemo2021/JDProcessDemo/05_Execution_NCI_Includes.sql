@@ -1,25 +1,29 @@
 USE AdventureWorks2019
 GO
 
+DBCC TRACEON(3604) 
+DBCC PAGE(0, 1, 5920, 3)
+DBCC IND(0,'Person.Address',-1)
+
 --Show IX_Address_StateProvince Index
 --SELECT * will need to find all columns
 SELECT *
 FROM Person.Address
-WHERE StateProvinceID = 119
+WHERE StateProvinceID = 3
 
 --Show IX_Address_StateProvince Index
 --SELECT only columns in Index
 --This is an index that covers a query
 SELECT AddressID, StateProvinceID
 FROM Person.Address
-WHERE StateProvinceID = 119
+WHERE StateProvinceID = 3
 
 --Show IX_Address_StateProvince Index
 --City is not covered in the Index
 --Use INCLUDE to add City to Index
 SELECT AddressID, StateProvinceID, City
 FROM Person.Address
-WHERE StateProvinceID = 119
+WHERE StateProvinceID = 3
 
 
 

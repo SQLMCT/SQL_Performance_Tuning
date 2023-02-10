@@ -17,7 +17,8 @@ WHERE s.is_user_process = 1;
 
 SELECT * FROM sys.dm_os_wait_stats
 
-  
+--Glenn Berry DMVS (Query 39 for Top Waits)
+ 
 
   /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

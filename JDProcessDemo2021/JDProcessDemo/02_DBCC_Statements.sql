@@ -1,6 +1,7 @@
---Remind John to show use 05_TableScan_ClusteredScan
+--Remind John to show use 02_TableScan_ClusteredScan
 USE TestDB
 GO
+
 SELECT DB_ID()
 GO
 
@@ -8,14 +9,8 @@ SELECT * FROM Accounting.BankAccounts
 GO
 
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 26176, 3)
---DBCC IND(0,'Accounting.BankAccounts',-1)
-
-
----New demonstration on Always Encrypted
---column encryption setting = enabled
-
-
+DBCC PAGE(0, 1, 352, 3)
+DBCC IND(0,'Accounting.BankAccounts',-1)
 
 
 --New in SQL Server 2016

@@ -35,6 +35,9 @@ SELECT cpu_count, hyperthread_ratio, max_workers_count,
 	sql_memory_model, sql_memory_model_desc
 FROM sys.dm_os_sys_info
 
+--Logical Processor Counts
+EXEC sys.xp_readerrorlog 0, 1, N'detected', N'socket';
+
 
 
   

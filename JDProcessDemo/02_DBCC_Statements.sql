@@ -13,14 +13,14 @@ GO
 --What pages belong to the table
 DBCC IND(0,'Person.Address',-1)
 
---Loog inside the data pages
+--Look inside the data pages
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 11712, 3)
+DBCC PAGE(0, 1, 11712, 3) --WITH TABLERESULTS
 
---New in SQL Server 2016
+--New in SQL Server 2016 for allocation information
 SELECT * FROM sys.dm_db_database_page_allocations
 (DB_ID(), object_ID('Person.Address'), NULL, NULL, 'LIMITED')
 WHERE index_id = 4
 
---New in SQL Server 2019
-SELECT * FROM sys.dm_db_page_info(DB_ID(), 1, 8544, 'Detailed')
+--New in SQL Server 2019 for page information
+SELECT * FROM sys.dm_db_page_info(DB_ID(), 1, 11712, 'Detailed')

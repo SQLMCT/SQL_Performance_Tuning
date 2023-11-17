@@ -1,148 +1,102 @@
 --This script is used to see how data type choices effect NCI
 
-USE [AdventureWorksDW2019];
+USE [AdventureWorks2019];
 GO
 
 --Notice the Clustered Index on SalesOrderNumber
---Notice the Data Type for SalesOrderNumber
+--Notice the Data Type for SalesOrderNumber (int which is 4 bytes)
 
-EXEC sp_help N'FactInternetSales';
-EXEC sp_helpindex N'FactInternetSales';
+EXEC sp_help N'Sales.SalesOrderHeader';
+EXEC sp_helpindex N'Sales.SalesOrderHeader';
 GO
 
--- Create seven nonclustered indexes
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_CurrencyKey] 
---ON [dbo].[FactInternetSales] ([CurrencyKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_CustomerKey] 
---ON [dbo].[FactInternetSales] ([CustomerKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_DueDateKey] 
---ON [dbo].[FactInternetSales] ([DueDateKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_OrderDateKey] 
---ON [dbo].[FactInternetSales] ([OrderDateKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_ProductKey] 
---ON [dbo].[FactInternetSales] ([ProductKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_PromotionKey] 
---ON [dbo].[FactInternetSales] ([PromotionKey]);
---GO
-
---CREATE NONCLUSTERED INDEX [IX_FactInternetSales_ShipDateKey] 
---ON [dbo].[FactInternetSales] ([ShipDateKey]); 
---GO
-
 -- Just in case fragmentation affects rows/pages
-ALTER TABLE [dbo].[FactInternetSales] 
+ALTER TABLE Sales.SalesOrderHeader
 REBUILD;
 GO
 
--- Create a duplicate of FactInternetSales 
-IF OBJECTPROPERTY (OBJECT_ID (N'dbo.FactInternetSales2')
+-- Create a duplicate of SalesOrderHeader
+IF OBJECTPROPERTY (OBJECT_ID (N'Sales.SalesOrderHeader2')
 		, N'IsUserTable') = 1
-	DROP TABLE [dbo].[FactInternetSales2];
+	DROP TABLE [Sales].[SalesOrderHeader2];
 GO
 
-SELECT [ProductKey]
-      ,[OrderDateKey]
-      ,[DueDateKey]
-      ,[ShipDateKey]
-      ,[CustomerKey]
-      ,[PromotionKey]
-      ,[CurrencyKey]
-      ,[SalesTerritoryKey]
-      , CONVERT (INT, 
-			SUBSTRING ([SalesOrderNumber], 3, 5) ) 
-				AS [SalesOrderNumber]
-      ,[SalesOrderLineNumber]
-	  ,[RevisionNumber]
-      ,[OrderQuantity]
-      ,[UnitPrice]
-      ,[ExtendedAmount]
-      ,[UnitPriceDiscountPct]
-      ,[DiscountAmount]
-      ,[ProductStandardCost]
-      ,[TotalProductCost]
-      ,[SalesAmount]
-      ,[TaxAmt]
-      ,[Freight]
-      ,[CarrierTrackingNumber]
-      ,[CustomerPONumber]
+--Create New table with Clustered Index on an nvarchar(50) field.
+SELECT [SalesOrderNumber] --This is an nvarchar (50) field
+	  ,[SalesOrderID]
+      ,[RevisionNumber]
       ,[OrderDate]
       ,[DueDate]
       ,[ShipDate]
-INTO [dbo].[FactInternetSales2]
-FROM [dbo].[FactInternetSales];
-GO
-
--- Modify the newly created table to make it 
--- non-nullable (required for a PK) 
--- Change data type of [SalesOrderNumber] to an Integer data type
-ALTER TABLE [dbo].[FactInternetSales2]
-ALTER COLUMN [SalesOrderNumber] 
-	INT NOT NULL;
+      ,[Status]
+      ,[OnlineOrderFlag]
+      ,[PurchaseOrderNumber]
+      ,[AccountNumber]
+      ,[CustomerID]
+      ,[SalesPersonID]
+      ,[TerritoryID]
+      ,[BillToAddressID]
+      ,[ShipToAddressID]
+      ,[ShipMethodID]
+      ,[CreditCardID]
+      ,[CreditCardApprovalCode]
+      ,[CurrencyRateID]
+      ,[SubTotal]
+      ,[TaxAmt]
+      ,[Freight]
+      ,[TotalDue]
+      ,[Comment]
+      ,[rowguid]
+      ,[ModifiedDate]
+INTO [Sales].[SalesOrderHeader2]
+FROM [Sales].[SalesOrderHeader];
 GO
 
 -- Create the clustered index
-ALTER TABLE [dbo].[FactInternetSales2]
-ADD CONSTRAINT [FactInternetSales2_PK] 
+ALTER TABLE [Sales].[SalesOrderHeader2]
+ADD CONSTRAINT [PK_SalesOrderHeader_SalesOrderNumber] 
 	PRIMARY KEY CLUSTERED 
-		( [SalesOrderNumber] ASC,
-		  [SalesOrderLineNumber] ASC );
+		( [SalesOrderNumber] ASC);
 GO
 
--- Create the seven nonclustered indexes to match original table
-
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_CurrencyKey] 
-ON [dbo].[FactInternetSales2] ([CurrencyKey]);
+EXEC sp_help N'Sales.SalesOrderHeader2';
+EXEC sp_helpindex N'Sales.SalesOrderHeader2';
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_CustomerKey] 
-ON [dbo].[FactInternetSales2] ([CustomerKey]);
+-- Create the nonclustered indexes to match original table
+DROP INDEX IF EXISTS [AK_SalesOrderHeader_rowguid] ON [Sales].[SalesOrderHeader2];
+CREATE UNIQUE NONCLUSTERED INDEX [AK_SalesOrderHeader_rowguid] ON [Sales].[SalesOrderHeader2]
+([rowguid] ASC);
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_DueDateKey] 
-ON [dbo].[FactInternetSales2] ([DueDateKey]);
+DROP INDEX IF EXISTS [AK_SalesOrderHeader_SalesOrderNumber] ON [Sales].[SalesOrderHeader2];
+CREATE UNIQUE NONCLUSTERED INDEX [AK_SalesOrderHeader_SalesOrderNumber] ON [Sales].[SalesOrderHeader2]([SalesOrderNumber] ASC);
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_OrderDateKey] 
-ON [dbo].[FactInternetSales2] ([OrderDateKey]);
+DROP INDEX IF EXISTS [IX_SalesOrderHeader_CustomerID] ON [Sales].[SalesOrderHeader2];
+CREATE NONCLUSTERED INDEX [IX_SalesOrderHeader_CustomerID] ON [Sales].[SalesOrderHeader2]
+([CustomerID] ASC);
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_ProductKey] 
-ON [dbo].[FactInternetSales2] ([ProductKey]);
+DROP INDEX IF EXISTS [IX_SalesOrderHeader_SalesPersonID] ON [Sales].[SalesOrderHeader2];
+CREATE NONCLUSTERED INDEX [IX_SalesOrderHeader_SalesPersonID] ON [Sales].[SalesOrderHeader2]([SalesPersonID] ASC);
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_PromotionKey] 
-ON [dbo].[FactInternetSales2] ([PromotionKey]);
+
+EXEC sp_helpindex N'Sales.SalesOrderHeader';
+EXEC sp_helpindex N'Sales.SalesOrderHeader2';
 GO
 
-CREATE NONCLUSTERED INDEX [IX_FactInternetSales2_ShipDateKey] 
-ON [dbo].[FactInternetSales2] ([ShipDateKey]); 
-GO
+-- Only 31,465 rows
+SELECT SalesOrderID, SalesOrderNumber
+FROM Sales.SalesOrderHeader;
 
-EXEC sp_helpindex N'FactInternetSales';
-EXEC sp_helpindex N'FactInternetSales2';
-GO
-
--- Only 60,398 rows
-SELECT TOP 100 * 
-FROM [dbo].[FactInternetSales];
-
-SELECT TOP 100 * 
-FROM [dbo].[FactInternetSales2];
+SELECT SalesOrderID, SalesOrderNumber
+FROM Sales.SalesOrderHeader2;
 GO
 
 --Compare space used between Clustered Index 
---on FactInternetSales (varchar)
---and FactInternetSales2 (int)
+--on SalesOrderHeader (int) and SalesOrderHeader2 (varchar)
 SELECT OBJECT_NAME ([si].[object_id]) AS [Table Name] 
 	, [si].[name] AS [Index Name]
 	, [ps].[index_id] AS [Index ID] 
@@ -161,8 +115,8 @@ FROM [sys].[indexes] AS [si]
 WHERE [si].[object_id] = [ps].[object_id]
 		AND [si].[index_id] = [ps].[index_id]
 		AND [si].[object_id] 
-			IN (OBJECT_ID (N'FactInternetSales')
-				, OBJECT_ID (N'FactInternetSales2'))
+			IN (OBJECT_ID (N'Sales.SalesOrderHeader')
+				, OBJECT_ID (N'Sales.SalesOrderHeader2'))
 		AND [ps].[index_level] = 0
 --		AND [ps].[index_id] = 1
 ORDER BY [Table Name], [Index ID];
@@ -171,10 +125,10 @@ GO
 -- Run code again but comment out [index_id] = 1
 -- to display space used by non-clustered indexes
 
--- SO12345 (varchar) = 7 chars * 2 bytes per char = 14 bytes
--- 12345 (integer) = 4 bytes
+-- SO43659 (varchar) = 7 chars * 2 bytes per char = 14 bytes
+-- 43659 (integer) = 4 bytes
 
 -- Compare the total index amount using sp_spaceused
-EXEC sp_spaceused N'FactInternetSales';
-EXEC sp_spaceused N'FactInternetSales2';
+EXEC sp_spaceused N'Sales.SalesOrderHeader';
+EXEC sp_spaceused N'Sales.SalesOrderHeader2';
 GO

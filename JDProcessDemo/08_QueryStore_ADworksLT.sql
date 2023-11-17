@@ -5,8 +5,8 @@ SET NOCOUNT ON;
 
 /*
 	-- Start with a clean slate
-	ALTER DATABASE AdventureWorks2016 SET QUERY_STORE = OFF;
-	ALTER DATABASE AdventureWorks2016 SET QUERY_STORE CLEAR;
+	ALTER DATABASE jdsqldb SET QUERY_STORE = OFF;
+	ALTER DATABASE jdsqldb SET QUERY_STORE CLEAR;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON SalesLT.SalesOrderDetail;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON SalesLT.SalesOrderDetail;
 	GO

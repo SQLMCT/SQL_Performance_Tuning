@@ -3,6 +3,7 @@ GO
 
 --Show [IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode]
 --SELECT * will need to find all columns
+--.0073426
 SELECT *
 FROM Person.Address
 WHERE AddressLine1 = '1970 Napa Ct.'
@@ -31,7 +32,7 @@ CREATE NONCLUSTERED INDEX [IX_Postal_State_City]
 GO
 
 --Use new index and performs Index Seek.
---.003295
+--.0032955
 SELECT City, StateProvinceID, PostalCode
 FROM Person.Address
 WHERE PostalCode = '98011'
@@ -39,7 +40,7 @@ GO
 
 --Use new index and performs Index Seek.
 --Search condition in same order as Index.
---.003295
+--.0032955
 SELECT City, StateProvinceID, PostalCode
 FROM Person.Address
 WHERE PostalCode = '98011' AND StateProvinceID = 79
@@ -47,7 +48,7 @@ GO
 
 --Use new index and performs Index Seek.
 --Search condition in same order as Index.
---.003295
+--.0032955
 SELECT City, StateProvinceID, PostalCode
 FROM Person.Address
 WHERE StateProvinceID = 79 AND PostalCode = '98011' 

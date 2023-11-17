@@ -1,6 +1,6 @@
 --Glenn Berry DMV
 
--- Missing Indexes for all databases by Index Advantage  (Query 33) (Missing Indexes All Databases)
+-- Missing Indexes for all databases by Index Advantage  (Query 36) (Missing Indexes All Databases)
 SELECT CONVERT(decimal(18,2), migs.user_seeks * migs.avg_total_user_cost * (migs.avg_user_impact * 0.01)) AS [index_advantage], 
 FORMAT(migs.last_user_seek, 'yyyy-MM-dd HH:mm:ss') AS [last_user_seek], mid.[statement] AS [Database.Schema.Table], 
 COUNT(1) OVER(PARTITION BY mid.[statement]) AS [missing_indexes_for_table], 

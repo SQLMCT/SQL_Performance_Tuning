@@ -45,7 +45,7 @@ GO
 
 --Index operations before Updates and Deletes
 SELECT *
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (8,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
@@ -71,7 +71,7 @@ WHERE AcctID BETWEEN 1000 AND 1500
 SELECT name, database_id, o.index_id, type_desc,
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count,
 	nonleaf_insert_count, nonleaf_delete_count, nonleaf_update_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (8,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 

@@ -5,19 +5,19 @@ USE master;
 DROP DATABASE IF EXISTS TestDB;
 CREATE DATABASE TestDB ON
 (NAME = Test_DB,
- FILENAME = N'D:\DATA\TestDB.mdf',
+ FILENAME = N'C:\DATA\TestDB.mdf',
 	SIZE = 10, MAXSIZE = 50),
 FILEGROUP[PartFG1] ( 
 	NAME = N'PartFile1', 
-	FILENAME = N'D:\DATA\TestDB1.ndf' , 
+	FILENAME = N'D:\DATA\TestDB1.mdf' , 
 	SIZE = 10, MAXSIZE = 50),
 FILEGROUP[PartFG2] ( 
 	NAME = N'PartFile2', 
-	FILENAME = N'D:\DATA\TestDB2.ndf' , 
+	FILENAME = N'F:\DATA\TestDB2.ndf' , 
 	SIZE = 10, MAXSIZE = 50),
 FILEGROUP[PartFG3] ( 
 	NAME = N'PartFile3', 
-	FILENAME = N'D:\DATA\TestDB3.ndf' , 
+	FILENAME = N'F:\DATA\TestDB3.ndf' , 
 	SIZE = 10, MAXSIZE = 50)
 LOG ON
 (NAME = Test_DB_Log,

@@ -4,7 +4,7 @@ GO
 SELECT SOH.SalesOrderID, SOH.CustomerID,
 	OrderQty, UnitPrice, P.Name
 FROM Sales.SalesOrderHeader AS SOH
-	JOIN Sales.SalesOrderDetail AS SOD
+	JOIN Sales.SalesOrderDetail AS SOD 
 		ON SOH.SalesOrderID = SOD.SalesOrderID
 	--INNER MERGE
 	JOIN Production.Product AS P
@@ -15,7 +15,7 @@ FROM Sales.SalesOrderHeader AS SOH
 
 -- JOIN NOT FORCED: 2.6259 CPU - 1888kb Memory
 -- FORCED HASH JOIN: 4.1715 CPU - 14MB Memory
--- FORCED MERGE JOIN: 3.429 CPU - 33MB Memory
+-- FORCED MERGE JOIN: 3.429 CPU - 57MB Memory
 -- FORCE MERGE AND MAXDOP 1 = 11.7558 - 11MB Memory
 
 

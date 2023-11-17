@@ -27,7 +27,7 @@ col3 datetime
 )ON PartSch1(col1)
 
 
--- Let's insert a 1 record into the table and check the locks being generated
+-- Let's insert 1 record into the table and check the locks being generated
 BEGIN TRANSACTION
 INSERT INTO LockingTest VALUES (1, 'FirstRecord',getdate())
 
@@ -88,24 +88,12 @@ WHERE object_id = object_id('LockingTest')
 
 --- Each partitition will have one page in this example -- hence 4 pages.
 COMMIT
-
-
---- What happens if we just select 1 record
-BEGIN TRANSACTION
-SELECT * FROM LockingTest where col1 = 100
-
---- how many Locks would be see... 
-SELECT resource_type, resource_description, resource_lock_partition,
-	request_mode, request_type, request_status
-FROM sys.dm_tran_locks
-WHERE request_session_id = @@SPID
---Don't Commit yet.
-COMMIT
-
+GO
 --Let's insert some more records to the table 
 --(Such that the record count is greater than 5000)
 SET NOCOUNT ON
-DECLARE @outerloop int = 1
+DECLARE @outerloop int 
+SET @outerloop = 1
 DECLARE @count int
 WHILE @outerloop <=200
 	BEGIN
@@ -118,7 +106,7 @@ WHILE @outerloop <=200
 		END
 	SET @outerloop +=1
 	END
-
+GO
 
 -- Select count(*) from LockingTest
 --- Let's create a XE session to monitor Lock Escalations

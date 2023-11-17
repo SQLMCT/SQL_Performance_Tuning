@@ -3,12 +3,12 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="jdsqlazure.database.windows.net:jodeardu@microsoft.com">
-          <Created>2023-05-14T09:10:59.4496912-04:00</Created>
+        <ConnectionNode Name="(local)\JDSQL19:NORTHAMERICA\jodeardu">
+          <Created>2023-05-26T07:09:17.0038435-04:00</Created>
           <Type>SQL</Type>
-          <Server>jdsqlazure.database.windows.net</Server>
-          <UserName>jodeardu@microsoft.com</UserName>
-          <Authentication>SQL</Authentication>
+          <Server>(local)\JDSQL19</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
           <InitialDB />
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
@@ -25,33 +25,39 @@
           <AssociatedConnUserName />
           <FullPath>01_DMV_Intro.sql</FullPath>
         </FileNode>
+        <FileNode Name="01_Exec_OS_DMV.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>01_Exec_OS_DMV.sql</FullPath>
+        </FileNode>
         <FileNode Name="01_Waits.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_Waits.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Add_Records.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_Add_Records.sql</FullPath>
         </FileNode>
         <FileNode Name="02_BankAccount_Select.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_BankAccount_Select.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Create_Database.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_Create_Database.sql</FullPath>
         </FileNode>
         <FileNode Name="02_Create_Table.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02_Create_Table.sql</FullPath>
         </FileNode>
@@ -66,12 +72,6 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>02_Display_Statistics.sql</FullPath>
-        </FileNode>
-        <FileNode Name="02_TableScan_ClusteredScan.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>02_TableScan_ClusteredScan.sql</FullPath>
         </FileNode>
         <FileNode Name="02_tempstress.sql">
           <AssociatedConnectionMoniker />
@@ -92,172 +92,172 @@
           <FullPath>02_TransLog_Reading.sql</FullPath>
         </FileNode>
         <FileNode Name="04_ADR_Demo.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_ADR_Demo.sql</FullPath>
         </FileNode>
         <FileNode Name="04_BlockingDemo1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_BlockingDemo1.sql</FullPath>
         </FileNode>
         <FileNode Name="04_BlockingDemo2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_BlockingDemo2.sql</FullPath>
         </FileNode>
         <FileNode Name="04_DeadlockDemo1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_DeadlockDemo1.sql</FullPath>
         </FileNode>
         <FileNode Name="04_DeadLockDemo2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_DeadLockDemo2.sql</FullPath>
         </FileNode>
         <FileNode Name="04_LockingDemo.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_LockingDemo.sql</FullPath>
         </FileNode>
         <FileNode Name="04_Trans_Finished.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_Trans_Finished.sql</FullPath>
         </FileNode>
         <FileNode Name="04_Transactions_Demo.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04_Transactions_Demo.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_DirtyRead1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_DirtyRead1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_DirtyRead2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_DirtyRead2.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_LostUpdate1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_LostUpdate1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_LostUpdate2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_LostUpdate2.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_Phantom1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_Phantom1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_Phantom2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_Phantom2.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_RepeatRead1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_RepeatRead1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_RepeatRead2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04c_RepeatRead2.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Columnstore_Index.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Columnstore_Index.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Execution_NCI_Includes.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Execution_NCI_Includes.sql</FullPath>
         </FileNode>
         <FileNode Name="05_FilteredIndex.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_FilteredIndex.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Fragmentation.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlazure.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsqlazure.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
           <FullPath>05_Index_Fragmentation.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Operational_Stats.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Operational_Stats.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Usage_01.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Usage_01.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Usage_02.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Usage_02.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Missing_Indexes.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Missing_Indexes.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Column_Order.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Column_Order.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_Partition_ADWorks.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+        <FileNode Name="05_NCI_Data_Type_Size.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>05_Partition_ADWorks.sql</FullPath>
+          <FullPath>05_NCI_Data_Type_Size.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_Partition_Database.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+        <FileNode Name="05_Seek_Scan_Tipping_Point.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>05_Partition_Database.sql</FullPath>
+          <FullPath>05_Seek_Scan_Tipping_Point.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_Partition_Index.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+        <FileNode Name="05_TableScan_ClusteredScan.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>05_Partition_Index.sql</FullPath>
+          <FullPath>05_TableScan_ClusteredScan.sql</FullPath>
         </FileNode>
         <FileNode Name="05_WWI_Extend_Order_History.sql">
           <AssociatedConnectionMoniker />
@@ -265,51 +265,69 @@
           <AssociatedConnUserName />
           <FullPath>05_WWI_Extend_Order_History.sql</FullPath>
         </FileNode>
+        <FileNode Name="05p_Partition_ADWorks.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05p_Partition_ADWorks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05p_Partition_Database.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05p_Partition_Database.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05p_Partition_Index.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05p_Partition_Index.sql</FullPath>
+        </FileNode>
         <FileNode Name="06_Display_Statistics.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>06_Display_Statistics.sql</FullPath>
         </FileNode>
         <FileNode Name="06_Stale_Stats.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlazure.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsqlazure.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>06_Stale_Stats.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Exec_Plan_ADworksLT.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlazure.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsqlazure.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>07_Exec_Plan_ADworksLT.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Exec_Plan_Join_Operators.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>07_Exec_Plan_Join_Operators.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Live_Query_Stats.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>07_Live_Query_Stats.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Optimization_Phases.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>07_Optimization_Phases.sql</FullPath>
         </FileNode>
         <FileNode Name="07_ShowPlan_All.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>07_ShowPlan_All.sql</FullPath>
         </FileNode>
         <FileNode Name="08_Ad_Hoc_Workload.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_Ad_Hoc_Workload.sql</FullPath>
         </FileNode>
@@ -332,15 +350,15 @@
           <FullPath>08_PlanCache_Top10.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_ADworks.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_QueryStore_ADworks.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_ADworksLT.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlazure.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsqlazure.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>08_QueryStore_ADworksLT.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_DMV.sql">

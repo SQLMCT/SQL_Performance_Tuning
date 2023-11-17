@@ -20,7 +20,7 @@ GO
 ---Include Actual Execution
 SET STATISTICS IO ON
 SELECT 'No Index' Indexname, SalesOrderID, UnitPrice
-FROM AdventureWorks2016.Sales.SalesOrderDetail
+FROM AdventureWorks2019.Sales.SalesOrderDetail
 WHERE UnitPrice > 3500
 GO
 SET STATISTICS IO OFF
@@ -35,11 +35,11 @@ SET STATISTICS IO OFF
 -- Adding Non cluster index on UnitPrice 
 --------------------------------------------------------------------------------------------
 CREATE NONCLUSTERED INDEX IX_UnitPrice 
-ON AdventureWorks2016.Sales.SalesOrderDetail(UnitPrice)
+ON AdventureWorks2019.Sales.SalesOrderDetail(UnitPrice)
 GO
 SET STATISTICS IO ON
 SELECT 'Non-clustered Index' IndexName, SalesOrderID, UnitPrice
-FROM AdventureWorks2016.Sales.SalesOrderDetail
+FROM AdventureWorks2019.Sales.SalesOrderDetail
 WHERE UnitPrice > 3500
 GO
 SET STATISTICS IO OFF
@@ -50,13 +50,13 @@ SET STATISTICS IO OFF
 
 ---------Add Filtered Index-------------------------
 CREATE NONCLUSTERED INDEX FilteredIX_UnitPrice
-ON AdventureWorks2016.Sales.SalesOrderDetail(UnitPrice)
+ON AdventureWorks2019.Sales.SalesOrderDetail(UnitPrice)
 WHERE UnitPrice > 3500
 GO
 
 SET STATISTICS IO ON
 SELECT 'Non-clustered Filtered Index', SalesOrderDetailID, UnitPrice
-FROM AdventureWorks2016.Sales.SalesOrderDetail WITH ( INDEX ( FilteredIX_UnitPrice ) )   
+FROM AdventureWorks2019.Sales.SalesOrderDetail WITH ( INDEX ( FilteredIX_UnitPrice ) )   
 WHERE UnitPrice > 3500
 GO
 SET STATISTICS IO OFF
@@ -71,7 +71,7 @@ SET STATISTICS IO OFF
 ----------Now Further reducing logical reads when filter is changed to UnitPrice > 5000
 SET STATISTICS IO ON
 SELECT 'Non-clustered Filter Index', SalesOrderDetailID, UnitPrice
-FROM AdventureWorks2016.Sales.SalesOrderDetail 
+FROM AdventureWorks2019.Sales.SalesOrderDetail 
 	WITH ( INDEX ( FilteredIX_UnitPrice ) )   
 WHERE UnitPrice > 5500
 SET STATISTICS IO OFF

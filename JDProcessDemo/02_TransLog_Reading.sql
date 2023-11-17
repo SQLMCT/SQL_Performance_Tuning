@@ -22,6 +22,10 @@ SELECT database_id,
 CONVERT(decimal(5,2),total_log_size_in_bytes *1.0/1024/1024) AS [Log Size(MB)], 
 used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
+--Log Size(MB)	Log Space Used (%)
+--7.99			7.42913 < 22.82502
+--71.99			35.96853
+
 
 --Demonstrate DBCC LOGINFO and db_log_info  
 DBCC LOGINFO;
@@ -88,7 +92,7 @@ SELECT * FROM sys.fn_dblog(NULL, NULL);
 GO 
 
 -- update a single row using an explicit transaction
-CHECKPOINT;
+--CHECKPOINT;
 BEGIN TRAN
 	UPDATE TOP (1) dbo.Person 
 	SET ModifiedDate = DATEADD(MINUTE, 1, ModifiedDate);

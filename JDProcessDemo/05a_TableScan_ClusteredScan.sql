@@ -10,7 +10,9 @@ DBCC IND(0,'Accounting.BankAccounts',-1)
 
 --Look inside the data pages
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 376, 3)
+DBCC PAGE(0, 1, 344, 3) WITH TABLERESULTS
+
+--DBCC TRACESTATUS()
 
 --Without Primary Key, Execution plan performs Table Scan
 SELECT AcctID, AcctName, Balance, ModifiedDate
@@ -23,7 +25,8 @@ ADD CONSTRAINT pk_acctID PRIMARY KEY(AcctID)
 --With Primary Key, plan performs Clustered Index Scan
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
---WHERE AcctID = 18
+WHERE AcctID = 18
+
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

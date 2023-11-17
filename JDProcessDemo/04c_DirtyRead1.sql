@@ -9,7 +9,7 @@ BEGIN TRAN
 	SET Balance -= 300
 	WHERE AcctID = 1
 		WAITFOR DELAY '00:00:10:000'
-	ROLLBACK TRAN
+ROLLBACK TRAN
 	SELECT AcctID, AcctName, Balance
 	FROM Accounting.BankAccounts
 	WHERE AcctID = 1

@@ -1,12 +1,16 @@
 USE AdventureWorks2019
 GO
 
+--List the indexes
+EXEC [sp_helpindex] 'Person.Address';
+GO
+
 --Find index pages for the table
 DBCC IND(0,'Person.Address',-1)
 
 --Look inside the data and index pages
 DBCC TRACEON(3604,-1) 
-DBCC PAGE(0, 1, 8544, 3)
+DBCC PAGE(0, 1, 26080, 3)
 
 --New Dynamic Management view from SQL Server 2016
 SELECT index_id, allocated_page_page_id
@@ -38,6 +42,26 @@ WHERE StateProvinceID = 3
 --.0230399 with Key Lookup
 --.0032897 with ADD City
 --.0032897 with INCLUDE City
+
+
+--Introduce a Page Split
+INSERT INTO Person.Address
+(AddressLine1, AddressLine2, City, StateProvinceID, PostalCode, SpatialLocation, rowguid, ModifiedDate)
+VALUES ('3548 Combahee Road', NULL, 'Greenbow', 3, '29944', 0xE6100000010C81A75BBCD45C414036C6FAAE20A755C0, NEWID(), CURRENT_TIMESTAMP)
+
+--237
+--120
+--214
+
+ALTER INDEX [IX_Address_StateProvinceID] 
+ON [Person].[Address] 
+REBUILD 
+WITH (FILLFACTOR = 90)
+
+DELETE FROM Person.Address
+WHERE City = 'Greenbow'
+
+
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

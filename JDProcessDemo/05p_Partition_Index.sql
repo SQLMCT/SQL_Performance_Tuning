@@ -75,7 +75,7 @@ SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
 --SPLIT the last two partitions 
---Will get an ERROR as there is not an available filegropu
+--Will get an ERROR as there is not an available filegroup
 ALTER PARTITION FUNCTION PartFunc1() 
 SPLIT RANGE (40)
 GO
@@ -87,7 +87,7 @@ GO
 ALTER DATABASE TestDB
 ADD FILE 
 (NAME = N'PartFile4', 
-	FILENAME = N'D:\DATA\TestDB4.ndf', 
+	FILENAME = N'F:\DATA\TestDB4.ndf', 
 	SIZE = 10, MAXSIZE = 50)
 TO FILEGROUP [PartFG4]
 GO

@@ -28,7 +28,7 @@ select * from sys.dm_server_memory_dumps
 
 --John's demo for Processor Counts
 SELECT cpu_count, hyperthread_ratio, max_workers_count, 
-	scheduler_count, scheduler_total_count, 
+	scheduler_count, scheduler_total_count, os_quantum,
 	affinity_type, affinity_type_desc,
 	softnuma_configuration, softnuma_configuration_desc,
 	socket_count, cores_per_socket, numa_node_count,

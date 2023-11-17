@@ -1,5 +1,7 @@
 --SQL Server Concurrency
 --Phantom Read - Session 1
+USE TestDB
+GO
 
 SET TRANSACTION ISOLATION LEVEL
 READ COMMITTED

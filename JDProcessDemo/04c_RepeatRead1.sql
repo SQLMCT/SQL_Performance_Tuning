@@ -2,8 +2,8 @@
 --Repeatable Read - Session 1
 
 SET TRANSACTION ISOLATION LEVEL
-READ COMMITTED -- Before Example
---REPEATABLE READ --Switch for Example
+--READ COMMITTED -- Before Example
+REPEATABLE READ --Switch for Example
 BEGIN TRAN
 	SELECT AcctID, ModifiedDate
 	FROM Accounting.BankAccounts

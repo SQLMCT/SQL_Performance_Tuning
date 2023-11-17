@@ -11,19 +11,10 @@ LOG ON
 	FILENAME = 'D:\DATA\ADR_DB.ldf');
 GO
 
---Create a Filegroup for Accelerated Database Recovery
-ALTER DATABASE ADR_DEMO
-ADD FILEGROUP ADR_FG
-GO
-ALTER DATABASE ADR_DEMO
-ADD FILE (NAME = ADR_FG1, FILENAME = 'D:\DATA\ADR_DB2.ndf')
-	TO FILEGROUP ADR_FG;
-GO
-
 --Change Compatability Level to pre-2019
 --This is to show recovery without ADR
 ALTER DATABASE ADR_DEMO
-SET COMPATIBILITY_LEVEL = 140
+SET COMPATIBILITY_LEVEL = 150
 
 --Check that ADR is turned off
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
@@ -34,7 +25,7 @@ WHERE name = 'ADR_DEMO'
 --Create ADRTest Table
 USE ADR_Demo;
 GO
-SELECT TOP 750000
+SELECT TOP 1750000
 	AcctID = IDENTITY(INT, 1, 1),
 	AcctCode = CAST(CAST(RAND(CHECKSUM(NEWID()))* 10000 as int)as char(4))
 				+'_JD_INSERT'  ,
@@ -85,7 +76,6 @@ SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 --TURN ADR ON
 ALTER DATABASE ADR_DEMO 
 SET ACCELERATED_DATABASE_RECOVERY = ON
-(PERSISTENT_VERSION_STORE_FILEGROUP = [ADR_FG])
 
 --Notice the Compatibility Level is still 2017
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
@@ -99,8 +89,8 @@ FROM sys.dm_tran_persistent_version_store_stats AS pvss
 WHERE database_id = DB_ID()
 
 --DELETE records in table again. How long does it take? 
---Without ADR:  CPU time = 8234 ms,  elapsed time = 26366 ms.
---With ADR: CPU time = 18671 ms,  elapsed time = 25642 ms.
+--Without ADR:
+--With ADR: 
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
@@ -131,8 +121,8 @@ WHERE database_id = DB_ID()
 -- THIS IS WHERE THE MAGIC HAPPENS!!!! 
 
 --With ADR how long does it take to Rollback?
---Without ADR: CPU time = 5484 ms,  elapsed time = 12389 ms.
---With ADR: CPU time = 0 ms,  elapsed time = 1 ms.
+--Without ADR: CPU time = 4734 ms,  elapsed time = 7597 ms.
+--With ADR:  
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
@@ -171,6 +161,11 @@ WHERE database_id = DB_ID()
 USE master
 DROP DATABASE ADR_Demo
 
+
+/* 
+** This ends the DELETE section of the demonstration.
+** If there is time also demonstrate and UPDATES.
+*/
 
 --Hey John! What about Updates?
 --Turn ADR OFF

@@ -1,6 +1,8 @@
 --SQL Server Concurrency
 --Phantom Read - Session 2
 USE TestDB
+GO
+
 BEGIN TRAN
 	DELETE FROM Accounting.BankAccounts
 	WHERE AcctID IN(12,15,21)

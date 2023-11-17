@@ -14,7 +14,7 @@ GO
 --Change Compatability Level to pre-2019
 --This is to show recovery without ADR
 ALTER DATABASE ADR_DEMO
-SET COMPATIBILITY_LEVEL = 150
+SET COMPATIBILITY_LEVEL = 140
 
 --Check that ADR is turned off
 SELECT name, compatibility_level, is_accelerated_database_recovery_on
@@ -42,7 +42,7 @@ ON dbo.ADRTEST(AcctCode, ModifiedDate)
 SELECT AcctID, AcctCode, ModifiedDate FROM dbo.ADRTest
 
 --Hey John! DELETE Records from Table. How long does it take? 
---Be sure to paste results to line 102
+--Be sure to paste results to line 92
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 DELETE ADRTest
@@ -65,7 +65,7 @@ SELECT 'After Checkpoint' AS Check_Time,
 FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---Hey John! Be sure to paste results to line 132
+--Hey John! Be sure to paste results to line 124
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
@@ -121,8 +121,8 @@ WHERE database_id = DB_ID()
 -- THIS IS WHERE THE MAGIC HAPPENS!!!! 
 
 --With ADR how long does it take to Rollback?
---Without ADR: CPU time = 4734 ms,  elapsed time = 7597 ms.
---With ADR:  
+--Without ADR: 
+--With ADR:    
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF

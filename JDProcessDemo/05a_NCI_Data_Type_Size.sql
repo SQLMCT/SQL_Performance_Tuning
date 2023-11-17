@@ -88,10 +88,10 @@ EXEC sp_helpindex N'Sales.SalesOrderHeader2';
 GO
 
 -- Only 31,465 rows
-SELECT SalesOrderID, SalesOrderNumber
+SELECT *
 FROM Sales.SalesOrderHeader;
 
-SELECT SalesOrderID, SalesOrderNumber
+SELECT *
 FROM Sales.SalesOrderHeader2;
 GO
 

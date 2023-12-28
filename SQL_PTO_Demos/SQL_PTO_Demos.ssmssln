@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 19.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "01_SQL_Architecture", "01_SQL_Architecture\01_SQL_Architecture.ssmssqlproj", "{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "02_Processors_Memory", "02_Processors_Memory\02_Processors_Memory.ssmssqlproj", "{3056A62E-2586-4EE9-AC3E-8137693BE0BD}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "03_Database_Structure", "03_Database_Structure\03_Database_Structure.ssmssqlproj", "{BC2BC8D0-819E-41E2-847C-51700DF84572}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "04_Transacations_Concurrency", "04_Transacations_Concurrency\04_Transacations_Concurrency.ssmssqlproj", "{F3B239A1-5DAF-4CF4-8B10-DB333C892B8E}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "05_Indexing_Strategy", "05_Indexing_Strategy\05_Indexing_Strategy.ssmssqlproj", "{DD9D98F2-FB85-48AD-8628-834CA05B656F}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "06_Statistics_Maintenance", "06_Statistics_Maintenance\06_Statistics_Maintenance.ssmssqlproj", "{BF7EE6E8-63D0-4D35-BA76-657BAFFDBBE5}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "07_Execution_Plans", "07_Execution_Plans\07_Execution_Plans.ssmssqlproj", "{7DE54592-7F1F-48B3-BBDA-F4C614829176}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "08_Plan_Cache_Query_Store", "08_Plan_Cache_Query_Store\08_Plan_Cache_Query_Store.ssmssqlproj", "{36C97D36-753B-4042-8291-4DF1DFCCC878}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}.Default|Default.ActiveCfg = Default
+		{3056A62E-2586-4EE9-AC3E-8137693BE0BD}.Default|Default.ActiveCfg = Default
+		{BC2BC8D0-819E-41E2-847C-51700DF84572}.Default|Default.ActiveCfg = Default
+		{31C7806D-A25B-4EB0-9270-A9AB3D919E0B}.Default|Default.ActiveCfg = Default
+		{F3B239A1-5DAF-4CF4-8B10-DB333C892B8E}.Default|Default.ActiveCfg = Default
+		{DD9D98F2-FB85-48AD-8628-834CA05B656F}.Default|Default.ActiveCfg = Default
+		{BF7EE6E8-63D0-4D35-BA76-657BAFFDBBE5}.Default|Default.ActiveCfg = Default
+		{7DE54592-7F1F-48B3-BBDA-F4C614829176}.Default|Default.ActiveCfg = Default
+		{36C97D36-753B-4042-8291-4DF1DFCCC878}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88FE1920-8AF0-4758-BA36-DFACC089E9FF}
+	EndGlobalSection
+EndGlobal

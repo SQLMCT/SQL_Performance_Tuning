@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "In memory OLTP", "In memory OLTP\In memory OLTP.ssmssqlproj", "{F5DB55D0-A118-47FE-845C-1EE129915879}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5DB55D0-A118-47FE-845C-1EE129915879}.Default|Default.ActiveCfg = Default
+		{1D68BF16-5D75-4524-A468-436051BF83F9}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43CD8A55-52E4-4214-B798-2833088883C1}
+	EndGlobalSection
+EndGlobal

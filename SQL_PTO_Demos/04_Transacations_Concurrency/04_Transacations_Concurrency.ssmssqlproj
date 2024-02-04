@@ -15,6 +15,18 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
         </ConnectionNode>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL22:NORTHAMERICA\jodeardu">
+          <Created>2024-01-29T14:09:55.9418718-05:00</Created>
+          <Type>SQL</Type>
+          <Server>JDSQL-LAPTOP\JDSQL22</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
@@ -38,8 +50,8 @@
           <FullPath>04a_Demo_Setup.sql</FullPath>
         </FileNode>
         <FileNode Name="04b_LockingDemo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL22:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL22</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04b_LockingDemo.sql</FullPath>
         </FileNode>
@@ -92,14 +104,14 @@
           <FullPath>04c_RepeatRead2.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_BlockingDemo1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL22:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL22</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_BlockingDemo1.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_BlockingDemo2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL22:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL22</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_BlockingDemo2.sql</FullPath>
         </FileNode>

@@ -1,0 +1,41 @@
+============
+Non-I/O Page Latch Concurrency
+============
+
+On servers with high-volume workloads where many users are simultaneously creating and dropping 
+temp tables (or allocating and deallocating pages within existing tables), latch waits can occur 
+on frequent-modified allocation pages or database catalog system table pages.  This class of waits 
+will have a “PAGELATCH*” prefix (distinct from “PAGEIOLATCH*”).  The wait time for any individual 
+session is often short (<100ms), but this occurs during every execution of a fast and frequently-
+executed query, and therefore becomes a major bottleneck on the system.  The blocking_session_id 
+column in sys.dm_exec_requests will be populated, so some people approach the problem like a lock 
+blocking problem.  However, in this scenario the head of the blocking chain is not any more 
+important than the blocked spids, and the blocked spids can actually be the most valuable source 
+of information.  
+
+
+------------
+Identifying Root Cause
+------------
+1. Bottleneck analysis should show that the system is not CPU-bound, and the primary wait category 
+   is non-I/O page latch contention.  Wait time/sec for this category should exceed 1000ms per 
+   sec, usually by a large margin. 
+2. Identify the pages involved in the latch contention.  Are they in tempdb (temp table-related), 
+   or a user database?  
+3. Identify the queries that are waiting.  Most commonly, these will be temp table CREATE/DROP 
+   statements, or a DML statement that modifies LOB data
+
+
+------------
+Solving the Problem 
+------------
+Solving non-I/O page latch contention usually requires either DBA configuration changes, hardware 
+upgrades, or application changes.  
+
+In the case of tempdb allocation page latch contention, you can increase the number of files in 
+tempdb and/or enable a trace flag to prevent the use of mixed extents. 
+
+In the case of latch contention on tempdb system tables due to frequent temp table create/drop 
+commands, you must reduce or eliminate the use of temp tables (including table variables) in one 
+or more of the most frequently-executed stored procs on the system. 
+

@@ -37,7 +37,7 @@ GO
 INSERT INTO Accounting.BankAccounts
 VALUES('Jack','Jones',500, GETDATE())
 INSERT INTO Accounting.BankAccounts
-VALUES('Diane','Smith', 750, GETDATE())
+VALUSE('Diane','Smith', 750, GETDATE())
 GO
 
 --Test to see if records were inserted, then fix VALUSE and try again.

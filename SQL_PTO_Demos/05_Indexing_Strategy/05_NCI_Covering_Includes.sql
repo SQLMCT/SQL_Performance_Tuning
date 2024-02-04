@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorksPTO
 GO
 
 -- List the indexes

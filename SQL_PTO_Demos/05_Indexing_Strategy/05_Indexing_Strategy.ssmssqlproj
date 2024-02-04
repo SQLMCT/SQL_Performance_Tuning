@@ -61,18 +61,6 @@
           <AssociatedConnUserName />
           <FullPath>05_NCI_Covering_Includes.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_NCI_Data_Type_Size.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>05_NCI_Data_Type_Size.sql</FullPath>
-        </FileNode>
-        <FileNode Name="05_Seek_Scan_Tipping_Point.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>05_Seek_Scan_Tipping_Point.sql</FullPath>
-        </FileNode>
         <FileNode Name="05_TableScan_ClusteredScan.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>

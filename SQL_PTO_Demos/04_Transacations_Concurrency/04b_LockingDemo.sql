@@ -151,7 +151,7 @@ ALTER TABLE LockingTest SET (lock_escalation = Auto)
 
 BEGIN TRAN
 SELECT * FROM LockingTest 
-WHERE col1 > 250 
+WHERE LockID > 250 
 
 -- Check the locks 
 SELECT resource_type, resource_description, resource_lock_partition,

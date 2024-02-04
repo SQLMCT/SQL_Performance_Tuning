@@ -1,7 +1,10 @@
---Clear Stats
+-- Clear Stats
 --DBCC SQLPERF("sys.dm_os_wait_stats" , CLEAR)
---Waiting tasks
 
+-- Open Blocking_1.sql and Execute Query
+-- Open Blocking_2.sql and Execute Query
+
+-- Waiting tasks
 SELECT w.session_id, w.wait_duration_ms, w.wait_type,
      w.blocking_session_id, w.resource_description,
 	 s.program_name, t.text, t.dbid, s.cpu_time,
@@ -15,10 +18,11 @@ FROM sys.dm_os_waiting_tasks as w
 WHERE s.is_user_process = 1;
 
 
+-- To see history of waits stats
 SELECT * FROM sys.dm_os_wait_stats
 
 /* Signal_wait_time percentage_calculation 
-** Signal wait time is the time a task waits to be signalled there is a CPU ready to execute its task
+** Signal wait time is the time a task waits to be signaled there is a CPU ready to execute its task
 ** Resource wait time is the time spent waiting on things like IO, network etc.
 ** If the percentage of signal wait time is high, there may be CPU pressure
 */
@@ -31,7 +35,7 @@ FROM
   sys.dm_os_wait_stats; 
 
 
--- Tracking a specific wait type
+--Track a specific wait type
 SELECT wait_type
        ,waiting_tasks_count
        ,wait_time_ms
@@ -41,8 +45,40 @@ WHERE  wait_type LIKE 'PAGEIOLATCH%'
 ORDER  BY
   wait_type; 
 
- 
 
+-- Show only wait stats that have an avg of 10ms or higher
+-- ordered by count
+--
+SELECT wait_type
+       ,waiting_tasks_count
+       ,wait_time_ms / waiting_tasks_count AS avg_wait_time_ms
+FROM
+  sys.dm_os_wait_stats
+WHERE  waiting_tasks_count > 0
+       AND wait_time_ms / waiting_tasks_count >= 10
+ORDER  BY
+  waiting_tasks_count DESC;
+go 
+
+-- Isolate top waits for server instance since last restart or statistics clear
+SELECT wait_type                                                 AS [Wait Type]
+       ,wait_time_ms / 1000.                                     AS [Wait Time (s)]
+       ,CONVERT(DECIMAL(12, 2), wait_time_ms * 100.0 / SUM(wait_time_ms)
+                                                         OVER()) AS [Wait Time %]
+FROM
+  sys.dm_os_wait_stats
+WHERE  wait_type NOT IN ( 'CLR_SEMAPHORE', 'LAZYWRITER_SLEEP', 'RESOURCE_QUEUE', 'SLEEP_TASK',
+                          'SLEEP_SYSTEMTASK', 'SQLTRACE_BUFFER_FLUSH', 'WAITFOR', 'LOGMGR_QUEUE',
+                          'CHECKPOINT_QUEUE', 'REQUEST_FOR_DEADLOCK_SEARCH', 'XE_TIMER_EVENT', 'BROKER_TO_FLUSH',
+                          'BROKER_TASK_STOP', 'CLR_MANUAL_EVENT', 'CLR_AUTO_EVENT', 'DISPATCHER_QUEUE_SEMAPHORE',
+                          'FT_IFTS_SCHEDULER_IDLE_WAIT', 'XE_DISPATCHER_WAIT', 'XE_DISPATCHER_JOIN', 'BROKER_EVENTHANDLER',
+                          'TRACEWRITE', 'FT_IFTSHC_MUTEX', 'SQLTRACE_INCREMENTAL_FLUSH_SLEEP', 'HADR_FILESTREAM_IOMGR_IOCOMPLETION', 'DIRTY_PAGE_POLL' )
+       AND waiting_tasks_count > 0
+ORDER  BY
+  [Wait Time %] DESC;
+GO 
+
+ 
   /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 
 PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT

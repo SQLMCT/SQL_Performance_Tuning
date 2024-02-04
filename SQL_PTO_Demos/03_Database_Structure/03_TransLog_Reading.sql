@@ -37,7 +37,7 @@ GO
 -- Create and populate a couple of test tables
 SELECT LastName, FirstName, MiddleName, ModifiedDate
 INTO dbo.Person
-FROM AdventureWorks2019.Person.Person;
+FROM AdventureWorksPTO.Person.Person;
 GO
 
 --Verify Data --19,972 rows at 40 bytes each = 800kb

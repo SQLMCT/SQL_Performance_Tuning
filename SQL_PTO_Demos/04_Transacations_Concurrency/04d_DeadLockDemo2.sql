@@ -1,5 +1,5 @@
 --Diane Deadlock Session 2
-USE AdventureWorks2019
+USE AdventureWorksPTO
 GO
 
 BEGIN TRAN

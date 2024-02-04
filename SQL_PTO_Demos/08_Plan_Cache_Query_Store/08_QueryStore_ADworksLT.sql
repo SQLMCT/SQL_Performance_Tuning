@@ -13,7 +13,7 @@ SET NOCOUNT ON;
 */
 
 -- Enable with default setting
-ALTER DATABASE jdsqldb
+ALTER DATABASE SalesDB
 SET QUERY_STORE = ON ( 
 	OPERATION_MODE = READ_WRITE,
 	MAX_STORAGE_SIZE_MB = 100,			/* demo value */

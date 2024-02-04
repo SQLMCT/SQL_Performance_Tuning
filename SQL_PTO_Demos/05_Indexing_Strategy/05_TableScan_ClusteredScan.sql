@@ -11,14 +11,14 @@ DBCC IND(0,'Accounting.BankAccounts',-1)
 -- Copy data page number from DBCC IND into DBCC Page command
 -- Look inside the data pages
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 312, 3) 
--- WITH TABLERESULTS
+DBCC PAGE(0, 1, 320, 3) 
+WITH TABLERESULTS
 
 -- DBCC TRACESTATUS()
 
 -- Turn on Estimated Execution Plan (CTRL + L)
 -- Without Primary Key, Execution plan performs Table Scan
-SELECT AcctID, FirstName, LastName,  Balance, ModifiedDate
+SELECT AcctID, FirstName, LastName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
 --- Adding a Primary Key will also create a clustered index.
@@ -27,7 +27,7 @@ ADD CONSTRAINT pk_acctID PRIMARY KEY(AcctID)
 
 -- Turn on Actual Execution Plan (CTRL + M)
 -- With Primary Key, plan performs Clustered Index Scan
-SELECT AcctID, FirstName, LastName,  Balance, ModifiedDate
+SELECT AcctID, FirstName, LastName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
 -- Turn on Actual Execution Plan (CTRL + M)

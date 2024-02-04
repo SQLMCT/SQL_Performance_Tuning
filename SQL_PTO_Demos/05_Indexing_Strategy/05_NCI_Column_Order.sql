@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorksPTO
 GO
 
 --Show [IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode]

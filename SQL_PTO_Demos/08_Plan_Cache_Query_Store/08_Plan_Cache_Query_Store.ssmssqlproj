@@ -15,6 +15,18 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
         </ConnectionNode>
+        <ConnectionNode Name="jdsqlcentral.database.windows.net:jodeardu@microsoft.com">
+          <Created>2024-01-22T06:46:45.2809762-05:00</Created>
+          <Type>SQL</Type>
+          <Server>jdsqlcentral.database.windows.net</Server>
+          <UserName>jodeardu@microsoft.com</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
@@ -50,9 +62,9 @@
           <FullPath>08_QueryStore_ADworks.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_ADworksLT.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
-          <AssociatedConnUserName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlcentral.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>jdsqlcentral.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
           <FullPath>08_QueryStore_ADworksLT.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_DMV.sql">

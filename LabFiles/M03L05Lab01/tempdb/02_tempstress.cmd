@@ -1,1 +1,0 @@
-ostress -E -Q"exec Table_Demo" -n50 -r60000 -dTempDBPressure -T146

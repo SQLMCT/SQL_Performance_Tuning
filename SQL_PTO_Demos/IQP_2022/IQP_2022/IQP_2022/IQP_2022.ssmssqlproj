@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="IQP_2022">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items />
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="iqp_Adaptive_Joins.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Adaptive_Joins.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_Approx_Count_Distinct.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Approx_Count_Distinct.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_BatchModeRowStore.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_BatchModeRowStore.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_Interleaved_Execution.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Interleaved_Execution.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_Memory_Grant_Feedback_Row.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Memory_Grant_Feedback_Row.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_Scalar_UDF_Inlining.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Scalar_UDF_Inlining.sql</FullPath>
+        </FileNode>
+        <FileNode Name="iqp_Table_Variable_Deferred.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>iqp_Table_Variable_Deferred.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

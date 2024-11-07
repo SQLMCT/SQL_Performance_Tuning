@@ -22,7 +22,7 @@ WHERE record_count > 0
 ** Record Count = 19614
 ** Row Per Page = SELECT 19614 / 344 = 57
 
-** Clustered Index has 344 PAGES (Level 0 in CL)
+** Clustered Index has 344 PAGES (Level 0 is leaf level in Clustered Index)
 ** SELECT 344/4 = 86
 ** SELECT 344/3 = 114
 **

@@ -1,6 +1,6 @@
 -- For Demonstration Setup
 -- Run 05a_Demo_Setup.sql and 05a_Add_Records.sql
-USE WoodgroveBank;
+USE WoodLandBank;
 
 -- Hey John! What is the difference between
 -- Table Scan and Clustered Index Scan
@@ -11,7 +11,7 @@ DBCC IND(0,'Accounting.BankAccounts',-1)
 -- Copy data page number from DBCC IND into DBCC Page command
 -- Look inside the data pages
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 320, 3) 
+DBCC PAGE(0, 1, 312, 3) 
 WITH TABLERESULTS
 
 -- DBCC TRACESTATUS()

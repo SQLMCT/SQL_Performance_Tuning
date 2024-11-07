@@ -5,15 +5,15 @@ SET NOCOUNT ON;
 
 /*
 	-- Start with a clean slate
-	ALTER DATABASE jdsqldb SET QUERY_STORE = OFF;
-	ALTER DATABASE jdsqldb SET QUERY_STORE CLEAR;
+	ALTER DATABASE SalesDB SET QUERY_STORE = OFF;
+	ALTER DATABASE SalesDB SET QUERY_STORE CLEAR;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON SalesLT.SalesOrderDetail;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON SalesLT.SalesOrderDetail;
 	GO
 */
 
 -- Enable with default setting
-ALTER DATABASE SalesDB
+ALTER DATABASE jdsqldb
 SET QUERY_STORE = ON ( 
 	OPERATION_MODE = READ_WRITE,
 	MAX_STORAGE_SIZE_MB = 100,			/* demo value */

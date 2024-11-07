@@ -3,10 +3,10 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL22:NORTHAMERICA\jodeardu">
-          <Created>2024-01-29T09:36:38.3446845-05:00</Created>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2024-09-30T10:36:35.4969297-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL22</Server>
+          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
@@ -20,16 +20,34 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="01_DMV_Intro.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL22:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL22</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_DMV_Intro.sql</FullPath>
         </FileNode>
         <FileNode Name="01_Waits.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL22:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL22</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_Waits.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Blocking_1.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Blocking_1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Blocking_2.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Blocking_2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Execution_Session_DMV.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Execution_Session_DMV.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

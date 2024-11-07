@@ -10,6 +10,7 @@ LOG ON
 (NAME = Test_DB_Log,
  FILENAME = 'D:\DATA\TestDB.ldf');
 GO
+
 --Switch to TestDB and verify files created
 USE TestDB
 SELECT * FROM sys.database_files
@@ -24,7 +25,7 @@ used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
 
 --Log Size(MB)	Log Space Used (%)
---7.99			7.42913 < 22.82502
+--7.99			8.651027 < 24.0958
 --71.99			35.96853
 
 
@@ -37,7 +38,7 @@ GO
 -- Create and populate a couple of test tables
 SELECT LastName, FirstName, MiddleName, ModifiedDate
 INTO dbo.Person
-FROM AdventureWorksPTO.Person.Person;
+FROM AdventureWorks2019.Person.Person;
 GO
 
 --Verify Data --19,972 rows at 40 bytes each = 800kb
@@ -81,7 +82,7 @@ GO
 --SET RECOVERY SIMPLE
 --GO
 
---Explain Log Buffer Flushing and Checkpoints
+-- Explain Log Buffer Flushing and Checkpoints
 
 -- What's recorded in the tran log when we...
 -- update a single row using auto-commit
@@ -89,7 +90,7 @@ GO
 CHECKPOINT;
 UPDATE TOP (1) dbo.Person 
 SET ModifiedDate = DATEADD(MINUTE, 1, ModifiedDate);
-SELECT * FROM sys.fn_dblog(NULL, NULL);
+--SELECT * FROM sys.fn_dblog(NULL, NULL);
 GO 
 
 -- update a single row using an explicit transaction
@@ -124,7 +125,7 @@ SELECT * FROM sys.fn_dblog(NULL, NULL);
 GO
 
 --	This generates a lot more log records - 3 for each row updated, and each 
---separate commit forces a flush of a log buffer so we're doing more and 
+--separate commit forces a flush of the log buffer so we're doing more and 
 --more inefficient I/O.
 
 -- If you must update individual rows, you can still batch them into larger

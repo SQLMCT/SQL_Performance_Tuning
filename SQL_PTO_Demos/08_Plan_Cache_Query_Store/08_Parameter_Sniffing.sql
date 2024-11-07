@@ -15,7 +15,7 @@ GO
 --Ad-Hoc Query
 SELECT SalesOrderID, OrderQty
 FROM Sales.SalesOrderDetail
-WHERE ProductID = 870
+WHERE ProductID = 897
 GO
 --DBCC FREEPROCCACHE
 --DROP PROC IF EXISTS GET_ORDERID_ORDER_QTY
@@ -29,9 +29,10 @@ SELECT SalesOrderID, OrderQty
 FROM Sales.SalesOrderDetail
 WHERE ProductID = @PRODUCTID
 Option(Optimize FOR (@ProductID = 945))
+--OPTION(Optimize FOR UNKNOWN)
 GO
 
-EXEC dbo.GET_ORDERID_ORDER_QTY 897
+EXEC dbo.GET_ORDERID_ORDER_QTY 870
 
 --DBCC FREEPROCCACHE
 

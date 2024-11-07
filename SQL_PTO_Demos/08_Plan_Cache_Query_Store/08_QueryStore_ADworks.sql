@@ -57,7 +57,7 @@ GO
 -- Generate some interesting data for Query Store
 -- Allow script to run for some time prior to customer demo
 DECLARE @counter INT = 1, @subcounter INT = 1, @exCounter TINYINT = 1;
-WHILE (@counter <= 25000)
+WHILE (@counter <= 2000)
 BEGIN
 	BEGIN
 	-- Run the stored procedure with parameters that will return 

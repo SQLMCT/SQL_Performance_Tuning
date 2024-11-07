@@ -1,5 +1,5 @@
 --Diane Deadlock Session 2
-USE AdventureWorksPTO
+USE AdventureWorks2019
 GO
 
 BEGIN TRAN
@@ -12,3 +12,4 @@ BEGIN TRAN
 	SET LastName = 'Deardurff'
 	WHERE BusinessEntityID = 2
 COMMIT TRAN
+

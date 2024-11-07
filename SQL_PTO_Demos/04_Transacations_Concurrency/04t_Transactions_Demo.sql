@@ -37,7 +37,7 @@ GO
 INSERT INTO Accounting.BankAccounts
 VALUES('Jack','Jones',500, GETDATE())
 INSERT INTO Accounting.BankAccounts
-VALUSE('Diane','Smith', 750, GETDATE())
+VALUES('Diane','Smith', 750, GETDATE())
 GO
 
 --Test to see if records were inserted, then fix VALUSE and try again.
@@ -146,7 +146,7 @@ BEGIN TRY
 END TRY
 BEGIN CATCH
 	ROLLBACK TRANSACTION
-	PRINT 'Divide by Zero Error. Error Number:' + CAST(ERROR_Number() as char(4))
+	PRINT 'Divide by Zero Error. Error Number: ' + CAST(ERROR_Number() as char(4))
 END CATCH
 GO
 
@@ -155,7 +155,7 @@ SELECT * FROM Accounting.BankAccounts;
 GO
 
 -- To make our code reusable, we will create a stored procedure.
--- Also notice SET NOCOUNT ON that will turn off counting row affected.
+-- Also notice SET NOCOUNT ON that will turn off counting rows affected.
 -- We will also fix the divide by zero error.
 
 CREATE OR ALTER PROCEDURE dbo.BankTransfer

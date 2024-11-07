@@ -3,13 +3,13 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(local)\JDSQL19:NORTHAMERICA\jodeardu">
-          <Created>2023-12-04T11:44:11.6092068-05:00</Created>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2024-08-28T04:30:32.4929067-04:00</Created>
           <Type>SQL</Type>
-          <Server>(local)\JDSQL19</Server>
+          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>master</InitialDB>
+          <InitialDB />
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
@@ -20,32 +20,32 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="04e_Columnstore_Index.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04e_Columnstore_Index.sql</FullPath>
         </FileNode>
         <FileNode Name="04e_Partition_ADWorks.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04e_Partition_ADWorks.sql</FullPath>
         </FileNode>
         <FileNode Name="04e_Partition_Database.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04e_Partition_Database.sql</FullPath>
         </FileNode>
         <FileNode Name="04e_Partition_Index.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04e_Partition_Index.sql</FullPath>
         </FileNode>
         <FileNode Name="04e_WWI_Extend_Order_History.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\JDSQL19:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\JDSQL19</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04e_WWI_Extend_Order_History.sql</FullPath>
         </FileNode>

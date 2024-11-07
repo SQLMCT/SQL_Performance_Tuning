@@ -16,7 +16,7 @@ DBCC IND(0,'Person.Address',-1)
 -- Look inside the data pages
 DBCC TRACEON(3604) 
 DBCC PAGE(0, 1, 11712, 3) 
--- WITH TABLERESULTS
+WITH TABLERESULTS
 
 -- DBCC TRACESTATUS()
 

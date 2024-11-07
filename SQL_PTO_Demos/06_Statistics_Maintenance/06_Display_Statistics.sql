@@ -17,8 +17,10 @@ GO
 --When using literal value, the EQ_ROWS value is used.
 SELECT ProductID
 FROM Sales.SalesOrderDetail
-WHERE ProductID = 738
+WHERE ProductID = 732
 GO
+
+DBCC FREEPROCCACHE
 
 --Show Actual Execution Plan
 --When using in a range, the AVG_RANGE_ROWS value is used.

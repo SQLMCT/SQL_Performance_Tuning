@@ -11,7 +11,7 @@ BEGIN TRAN
 	SELECT @OldBalance = Balance 
 	FROM Accounting.BankAccounts
 	WHERE AcctID = 1
-	SET @NewBalance = @OldBalance - 400
+	SET @NewBalance = @OldBalance - 300
 
 	UPDATE Accounting.BankAccounts
 	SET Balance = @NewBalance

@@ -1,4 +1,4 @@
-USE AdventureWorksPTO
+USE AdventureWorks2019
 GO
 
 -- List the indexes
@@ -53,6 +53,20 @@ ALTER INDEX [IX_Address_StateProvinceID]
 ON [Person].[Address] 
 REBUILD 
 WITH (FILLFACTOR = 90)
+
+-- Look inside the data and index pages
+-- Currently 578 pages in StateProvinceID NCI
+-- After Page Split 289 rows.
+-- With Fill Factor 221 rows.
+DBCC TRACEON(3604,-1) 
+DBCC PAGE(0, 1, 26216, 3)
+
+-- New Dynamic Management view from SQL Server 2016
+SELECT index_id, allocated_page_page_id
+FROM sys.dm_db_database_page_allocations
+(DB_ID(), object_ID('Person.Address'), NULL, NULL, 'LIMITED')
+WHERE index_id = 4 and allocated_page_iam_file_id IS NOT NULL
+GO
 
 DELETE FROM Person.Address
 WHERE City = 'Greenbow'

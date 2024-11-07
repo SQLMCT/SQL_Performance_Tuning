@@ -16,26 +16,43 @@ GO
 DROP TABLE IF EXISTS dbo.IndexOppTest
 GO
 
-SELECT TOP 750000
-	AcctID = IDENTITY(INT, 1, 1),
-	AcctCode = CAST(CAST(RAND(CHECKSUM(NEWID()))* 10000 as int)as char(4))
-				+'_JD_INSERT'  ,
-	ModifiedDate = GETDATE()
+SELECT *
 INTO dbo.IndexOppTest
-FROM sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
+FROM AdventureWorks2019.Sales.SalesOrderHeader 
 GO
 
---Create clustered index
-ALTER TABLE dbo.IndexOppTest
-ADD CONSTRAINT pk_acctID PRIMARY KEY (AcctID)
+--Create non-clustered index to speed up reads 
+--Notice we are not creating a clustered index.
+CREATE NONCLUSTERED INDEX jd_OrderID_OrderDate_demo
+ON dbo.IndexOppTest(SalesOrderID, OrderDate)
 
---Create non-clustered index to speed up reads
-CREATE NONCLUSTERED INDEX ix_jd_IndOpptest_demo
-ON dbo.IndexOppTest(AcctCode, ModifiedDate)
+CREATE NONCLUSTERED INDEX jd_OrderID_DueDate_demo
+ON dbo.IndexOppTest(SalesOrderID, DueDate)
+
+CREATE NONCLUSTERED INDEX jd_OrderID_ShipDate_demo
+ON dbo.IndexOppTest(SalesOrderID, ShipDate)
+
+CREATE NONCLUSTERED INDEX jd_OrderID_SalesOrderNumber_demo
+ON dbo.IndexOppTest(SalesOrderID, SalesOrderNumber)
+
+CREATE NONCLUSTERED INDEX jd_ModifiedDate_demo
+ON dbo.IndexOppTest(ModifiedDate)
+
+CREATE NONCLUSTERED INDEX jd_DueDate_ModifiedDate_demo
+ON dbo.IndexOppTest(DueDate, ModifiedDate)
+
+CREATE NONCLUSTERED INDEX jd_OrderID_ModifiedDate_demo
+ON dbo.IndexOppTest(SalesOrderID, ModifiedDate)
+
+CREATE NONCLUSTERED INDEX ix_OrderID_ModifiedDate_demo
+ON dbo.IndexOppTest(SalesOrderID, ModifiedDate)
+
+CREATE NONCLUSTERED INDEX nc_OrderID_ModifiedDate_demo
+ON dbo.IndexOppTest(SalesOrderID, ModifiedDate)
 
 --Look at the data! LOOK AT IT NOW!
-SELECT AcctID, AcctCode, ModifiedDate FROM dbo.IndexOppTest
-WHERE AcctID < 1000
+SELECT SalesOrderID, OrderDate FROM dbo.IndexOppTest
+WHERE SalesOrderID < 44658
 
 --Get the current database id
 USE IOP_Demo;
@@ -44,8 +61,9 @@ SELECT DB_ID()
 GO
 
 --Index operations before Updates and Deletes
-SELECT *
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (11,NULL,NULL,NULL ) AS O
+SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
+	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
@@ -62,18 +80,73 @@ WHERE OBJECTPROPERTY(O.[OBJECT_ID],'IsUserTable') = 1
 --Perform some DML operations
 UPDATE dbo.IndexOppTest
 SET ModifiedDate = '03/20/2020'
-WHERE AcctID < 1000
+WHERE SalesOrderID < 44658
 
 DELETE dbo.IndexOppTest
-WHERE AcctID BETWEEN 1000 AND 1500
+WHERE SalesOrderID BETWEEN 44658 AND 45158
 
 --Index operations after Updates and Deletes
-SELECT name, database_id, o.index_id, type_desc,
-	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count,
-	nonleaf_insert_count, nonleaf_delete_count, nonleaf_update_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (11,NULL,NULL,NULL ) AS O
+SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
+	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
 WHERE OBJECTPROPERTY(O.[OBJECT_ID],'IsUserTable') = 1
+
+--Create clustered index (Notice all the indexes get rebuilt.)
+ALTER TABLE dbo.IndexOppTest
+ADD CONSTRAINT pk_SalesOrderID PRIMARY KEY (SalesOrderID)
+
+--Perform some DML operations again, but now with the Clustered Index
+UPDATE dbo.IndexOppTest
+SET ModifiedDate = '03/20/2020'
+WHERE SalesOrderID < 44658
+
+DELETE dbo.IndexOppTest
+WHERE SalesOrderID BETWEEN 74623 AND 75123
+
+--Index operations after Updates and Deletes
+SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
+	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
+	INNER JOIN SYS.INDEXES AS I
+		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
+		AND I.INDEX_ID = O.INDEX_ID 
+WHERE OBJECTPROPERTY(O.[OBJECT_ID],'IsUserTable') = 1
+
+--Start reading from Non-clustered indexes to compare usage vs updates.
+SELECT *
+FROM dbo.IndexOppTest
+WHERE ModifiedDate = '03/20/2020'
+
+SELECT * 
+FROM dbo.IndexOppTest
+WHERE SalesOrderID = 43800
+
+SELECT * 
+FROM dbo.IndexOppTest
+WHERE SalesOrderNumber ='SO43800'
+
+SELECT SalesOrderID, SalesOrderNumber
+FROM dbo.IndexOppTest
+WHERE SalesOrderNumber = 'SO43800'
+
+---Check used and used indexes.
+SELECT 
+    i.index_id,
+	indexname = i.name, 
+    user_seeks, user_scans, user_lookups, user_updates,
+    user_seeks + user_scans + user_lookups AS total_reads
+FROM 
+	sys.dm_db_index_usage_stats s
+    RIGHT OUTER JOIN sys.indexes i 
+		ON i.object_id = s.object_id AND i.index_id = s.index_id
+    JOIN sys.objects o 
+		ON o.object_id = i.object_id
+    JOIN sys.schemas sc 
+		ON sc.schema_id = o.schema_id
+WHERE o.type = 'U' -- user table
+    AND o.name = N'IndexOppTest';
+GO
 

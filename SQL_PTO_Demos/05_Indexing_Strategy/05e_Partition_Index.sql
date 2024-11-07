@@ -1,7 +1,7 @@
 
 --HEY JOHN! 
---Don't forget to Run 05_Partition_Database to create TestDB
-USE TestDB
+--Don't forget to Run 05_Partition_Database to create PartDB
+USE PartDB
 GO
 
 --Create Partition Function
@@ -19,7 +19,7 @@ GO
 CREATE SCHEMA Accounting Authorization dbo
 CREATE TABLE BankAccounts
  (AcctID int IDENTITY,
-  AcctName char(15),
+  AcctName char(30),
   Balance money,
   ModifiedDate date)
 ON PartSch1(AcctID)-- Adding a Partition to the table
@@ -38,9 +38,31 @@ SELECT partition_id, object_id, index_id,
 FROM sys.partitions 
 where object_id = object_id('Accounting.BankAccounts')
 
--- 2 people in the single digits, 4 people in 10 range, 7 people in 20 range,  4 in the 30 range.
 --Add in more records and check partitions again
---HEY JOHN! Don't forget to Run 02-AddRecords.sql
+SET IDENTITY_INSERT Accounting.BankAccounts ON
+BEGIN TRAN
+	INSERT INTO Accounting.BankAccounts
+	(AcctID, AcctName, Balance, ModifiedDate)
+	VALUES (29,'Isabel Winkler', 1250, GETDATE()),
+		   (27,'Deena Mathis', 1005, GETDATE()),
+		   (18,'Zoe Callahan', 745, GETDATE()),
+		   (22,'Jacob Howlett', 445, GETDATE()),
+		   (21,'Adele Aguilar', 555, GETDATE()),
+		   (15,'Henry Barker', 790, GETDATE()),
+		   (24,'Susie Nguyen', 650, GETDATE()),
+		   (23,'Haris Howlett', 1050, GETDATE()),
+		   (33,'Amber Spence', 450, GETDATE()),
+		   (36,'Subhan Davidson', 850, GETDATE()),
+		   (37,'Seth Sutton', 630, GETDATE()),
+		   (12,'Annika Collier', 630, GETDATE()),
+		   (14,'Lila Lang', 204, GETDATE()),
+		   (25,'Abubakar Keller', 180, GETDATE()),
+		   (30,'Juneau Velazquez', 320, GETDATE())
+COMMIT TRAN
+SET IDENTITY_INSERT Accounting.BankAccounts OFF
+SELECT * FROM Accounting.BankAccounts
+
+-- 2 people in the single digits, 4 people in 10 range, 7 people in 20 range,  4 in the 30 range.
 SELECT partition_id, object_id, index_id, 
 	partition_number, rows	
 FROM sys.partitions 
@@ -81,13 +103,13 @@ SPLIT RANGE (40)
 GO
 
 ---Create a new Filegroup and File for the new partition.
-ALTER DATABASE TestDB
+ALTER DATABASE PartDB
 ADD FILEGROUP [PartFG4];
 GO
-ALTER DATABASE TestDB
+ALTER DATABASE PartDB
 ADD FILE 
 (NAME = N'PartFile4', 
-	FILENAME = N'E:\DATA\TestDB4.ndf', 
+	FILENAME = N'D:\DATA\PartDB4.ndf', 
 	SIZE = 10, MAXSIZE = 50)
 TO FILEGROUP [PartFG4]
 GO
@@ -133,8 +155,8 @@ SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
 --SWITCH the first partition from BankAccounts to ArchiveAccounts
-ALTER TABLE [TestDB].[Accounting].[BankAccounts] SWITCH PARTITION 1 
-TO [TestDB].[Accounting].[ArchiveAccounts] 
+ALTER TABLE [PartDB].[Accounting].[BankAccounts] SWITCH PARTITION 1 
+TO [PartDB].[Accounting].[ArchiveAccounts] 
 GO
 
 --Review records in first table (Jack and Diane are gone).
@@ -161,8 +183,8 @@ GO
 
 --Non-Aligned Index on Non-Clustered Indexes -Thank you Marina
 CREATE PARTITION FUNCTION [pf_OrderDate](date) 
-AS RANGE RIGHT FOR VALUES (N'2024-06-01', N'2024-07-01', 
-	N'2024-08-01')
+AS RANGE RIGHT FOR VALUES (N'2024-09-01', N'2024-10-01', 
+	N'2024-11-01')
 
 CREATE PARTITION SCHEME Part_OrderDate
 AS PARTITION pf_OrderDate
@@ -179,7 +201,7 @@ GO
 
 --Demo Cleanuup
 USE MASTER
-DROP DATABASE IF EXISTS TestDB;
+DROP DATABASE IF EXISTS PartDB;
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

@@ -3,13 +3,13 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(local)\SQLINDY:NORTHAMERICA\jodeardu">
-          <Created>2023-12-17T00:37:20.3916395-05:00</Created>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2024-08-28T10:19:20.0420894-04:00</Created>
           <Type>SQL</Type>
-          <Server>(local)\SQLINDY</Server>
+          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>master</InitialDB>
+          <InitialDB>AdventureWorks2019</InitialDB>
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
@@ -20,64 +20,82 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="05_FilteredIndex.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>05_FilteredIndex.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Fragmentation.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Fragmentation.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Operational_Stats.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Operational_Stats.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Usage_01.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Usage_01.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Usage_02.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Usage_02.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Column_Order.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Column_Order.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Covering_Includes.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Covering_Includes.sql</FullPath>
         </FileNode>
+        <FileNode Name="05_Seek_Scan_Tipping_Point.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05_Seek_Scan_Tipping_Point.sql</FullPath>
+        </FileNode>
         <FileNode Name="05_TableScan_ClusteredScan.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_TableScan_ClusteredScan.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Add_Records.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Add_Records.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Demo_Setup.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Demo_Setup.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05e_Partition_Database.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05e_Partition_Database.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05e_Partition_Index.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05e_Partition_Index.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

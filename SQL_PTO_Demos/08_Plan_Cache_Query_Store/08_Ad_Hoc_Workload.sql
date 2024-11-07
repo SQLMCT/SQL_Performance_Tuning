@@ -5,7 +5,8 @@ EXEC sp_configure 'show advanced options', 1;
 RECONFIGURE;
 GO
 -- NEW SYNTAX:
-ALTER DATABASE SCOPED CONFIGURATION SET OPTIMIZE_FOR_AD_HOC_WORKLOADS = ON;
+ALTER DATABASE SCOPED CONFIGURATION SET OPTIMIZE_FOR_AD_HOC_WORKLOADS = OFF;
+
 -- OLD SYNTAX:
 EXEC sp_configure 'Optimize for ad hoc workload', 0;
 RECONFIGURE;
@@ -27,10 +28,10 @@ GO
 -- Clear the plan cache for this database only, execute four very similar ad hoc 
 -- SQL statements then take a look at the plan cache contents
 
-USE AdventureWorks2016
+USE AdventureWorks2019
 GO
 
-ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x0600050017D7CD19B01B3D201402000001000000000000000000000000000000000000000000000000000000 ;
 GO
 
 SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
@@ -55,7 +56,7 @@ GO
 
 -- What's in the plan cache? 
 SELECT p.objtype, p.size_in_bytes, OBJECT_SCHEMA_NAME(st.objectid) + N'.' + OBJECT_NAME(st.objectid) AS object_name, st.text,
-    qs.query_hash, qs.sql_handle, qs.query_plan_hash, qs.execution_count AS exec_count,
+    qs.query_hash, qs.sql_handle,  qs.plan_handle, qs.query_plan_hash, qs.execution_count AS exec_count,
     qs.total_worker_time / ( qs.execution_count * 1000 ) AS avg_CPU_ms,
     ( qs.total_elapsed_time / ( qs.execution_count * 1000 )) AS avg_time_ms,
     ( qs.total_logical_reads / qs.execution_count ) AS avg_logical_reads,
@@ -66,6 +67,9 @@ FROM sys.dm_exec_cached_plans p
      CROSS APPLY sys.dm_exec_query_plan(qs.plan_handle) qp
 WHERE st.dbid = DB_ID() AND st.text LIKE N'%NationalIdNumber%'
 OPTION ( RECOMPILE );	/* prevents the query plan for this statement from being cached*/
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x0600050017D7CD19B01B3D201402000001000000000000000000000000000000000000000000000000000000 ;
 GO
 
 /*

@@ -11,7 +11,7 @@ BEGIN TRAN
 	SELECT @OldBalance = Balance 
 	FROM Accounting.BankAccounts
 	WHERE AcctID = 1
-	SET @NewBalance = @OldBalance - 300
+	SET @NewBalance = @OldBalance - 400
 WAITFOR DELAY '00:00:10:000'
 	UPDATE Accounting.BankAccounts
 	SET Balance = @NewBalance

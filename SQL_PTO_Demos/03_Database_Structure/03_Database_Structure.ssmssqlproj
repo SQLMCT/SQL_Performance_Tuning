@@ -3,13 +3,13 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(local)\SQLINDY:NORTHAMERICA\jodeardu">
-          <Created>2023-12-17T00:26:39.2017674-05:00</Created>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2024-10-09T10:50:34.1401206-04:00</Created>
           <Type>SQL</Type>
-          <Server>(local)\SQLINDY</Server>
+          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>master</InitialDB>
+          <InitialDB />
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
@@ -20,26 +20,26 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="03_ADR_Demo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_ADR_Demo.sql</FullPath>
         </FileNode>
         <FileNode Name="03_DBCC_Statements.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_DBCC_Statements.sql</FullPath>
         </FileNode>
         <FileNode Name="03_Display_Statistics.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_Display_Statistics.sql</FullPath>
         </FileNode>
         <FileNode Name="03_TransLog_Reading.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_TransLog_Reading.sql</FullPath>
         </FileNode>

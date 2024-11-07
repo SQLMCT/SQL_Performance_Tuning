@@ -9,7 +9,7 @@ GO
 
 -- Enable Acutal Execution Plan (CTRL+M)
 -- Show Merge vs Hash Match Join.
--- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory
+-- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory (Serial Plan)
 SELECT SOH.SalesOrderID, SOH.CustomerID,
 	OrderQty, UnitPrice, P.Name
 FROM Sales.SalesOrderHeader AS SOH
@@ -18,7 +18,7 @@ FROM Sales.SalesOrderHeader AS SOH
 	JOIN Production.Product AS P
 		ON P.ProductID = SOD.ProductID
 
--- FORCED MERGE JOIN: Cost = 3.429 and 57MB Memory
+-- FORCED MERGE JOIN: Cost = 3.429 and 57MB Memory (Parrallel Plan)
 SELECT SOH.SalesOrderID, SOH.CustomerID,
 	OrderQty, UnitPrice, P.Name
 FROM Sales.SalesOrderHeader AS SOH

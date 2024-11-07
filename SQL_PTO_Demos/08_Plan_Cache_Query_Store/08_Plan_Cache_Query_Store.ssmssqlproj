@@ -3,25 +3,13 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="(local)\SQLINDY:NORTHAMERICA\jodeardu">
-          <Created>2023-12-17T00:40:40.927519-05:00</Created>
+        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2024-08-30T09:18:09.3798878-04:00</Created>
           <Type>SQL</Type>
-          <Server>(local)\SQLINDY</Server>
+          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>master</InitialDB>
-          <LoginTimeout>30</LoginTimeout>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-        <ConnectionNode Name="jdsqlcentral.database.windows.net:jodeardu@microsoft.com">
-          <Created>2024-01-22T06:46:45.2809762-05:00</Created>
-          <Type>SQL</Type>
-          <Server>jdsqlcentral.database.windows.net</Server>
-          <UserName>jodeardu@microsoft.com</UserName>
-          <Authentication>SQL</Authentication>
-          <InitialDB />
+          <InitialDB>AdventureWorks2019</InitialDB>
           <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
@@ -32,46 +20,52 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="08_Ad_Hoc_Workload.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_Ad_Hoc_Workload.sql</FullPath>
         </FileNode>
         <FileNode Name="08_Parameter_Sniffing.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_Parameter_Sniffing.sql</FullPath>
         </FileNode>
         <FileNode Name="08_PlanCache_QueryTunning.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_PlanCache_QueryTunning.sql</FullPath>
         </FileNode>
         <FileNode Name="08_PlanCache_Top10.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>08_PlanCache_Top10.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_ADworks.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>08_QueryStore_ADworks.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_ADworksLT.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:jdsqlcentral.database.windows.net:False:jodeardu@microsoft.com</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>jdsqlcentral.database.windows.net</AssociatedConnSrvName>
-          <AssociatedConnUserName>jodeardu@microsoft.com</AssociatedConnUserName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
           <FullPath>08_QueryStore_ADworksLT.sql</FullPath>
         </FileNode>
         <FileNode Name="08_QueryStore_DMV.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\SQLINDY:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\SQLINDY</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>08_QueryStore_DMV.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_QueryStore_GetProductInfo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_QueryStore_GetProductInfo.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

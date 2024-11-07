@@ -71,7 +71,7 @@ SET @count = 2
 WHILE @count <=350
 	BEGIN
 		INSERT INTO LockingTest 
-		VALUES(@count, 'Record'+cast(@count as char(4)),getdate())
+		VALUES(@count, 'Record '+ cast(@count as char(4)),getdate())
 		SET @count += 1
 	END
 

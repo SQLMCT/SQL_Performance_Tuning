@@ -13,15 +13,15 @@ FILEGROUP[PartFG1] (
 	SIZE = 10, MAXSIZE = 50),
 FILEGROUP[PartFG2] ( 
 	NAME = N'PartFile2', 
-	FILENAME = N'D:\DATA\PartDB2.ndf' , 
+	FILENAME = N'D:\DATA2\PartDB2.ndf' , 
 	SIZE = 10, MAXSIZE = 50),
 FILEGROUP[PartFG3] ( 
 	NAME = N'PartFile3', 
-	FILENAME = N'D:\DATA\PartDB3.ndf' , 
+	FILENAME = N'E:\DATA\PartDB3.ndf' , 
 	SIZE = 10, MAXSIZE = 50)
 LOG ON
 (NAME = Test_DB_Log,
- FILENAME = 'D:\DATA\PartDB.ldf',
+ FILENAME = 'F:\LOG\PartDB.ldf',
 	SIZE = 5MB,
     MAXSIZE = 25MB,
     FILEGROWTH = 5MB);
@@ -30,7 +30,6 @@ GO
 USE PartDB
 SELECT file_id, name, physical_name
 FROM sys.database_files
-WHERE type_desc = 'Rows'
 
 SELECT data_space_id, name, type_desc
 FROM sys.filegroups;

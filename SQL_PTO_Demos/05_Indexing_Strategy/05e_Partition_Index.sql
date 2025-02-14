@@ -82,17 +82,16 @@ ON PartSch1(AcctID)
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
-
 --What about adding a new range?
 SET IDENTITY_INSERT Accounting.BankAccounts ON
 INSERT INTO Accounting.BankAccounts
 	(AcctID, AcctName, Balance, ModifiedDate)
-VALUES(42,'Lois',500, GETDATE()), 
-	(47,'Clarke', 750, GETDATE())
+VALUES(42,'Lois Lane',500, GETDATE()), 
+	(47,'Clark Kent', 750, GETDATE())
 SET IDENTITY_INSERT Accounting.BankAccounts OFF
 GO
 
---Review Records. Notice the two new records for Lois and Clarke
+--Review Records. Notice the two new records for Lois and Clark
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
@@ -109,7 +108,7 @@ GO
 ALTER DATABASE PartDB
 ADD FILE 
 (NAME = N'PartFile4', 
-	FILENAME = N'D:\DATA\PartDB4.ndf', 
+	FILENAME = N'D:\DATA3\PartDB4.ndf', 
 	SIZE = 10, MAXSIZE = 50)
 TO FILEGROUP [PartFG4]
 GO
@@ -145,7 +144,7 @@ GO
 CREATE TABLE Accounting.ArchiveAccounts
  (AcctID int IDENTITY 
 	CONSTRAINT [pk_archiveID] PRIMARY KEY(AcctID),
-  AcctName char(15),
+  AcctName char(30),
   Balance money,
   ModifiedDate date)
 GO

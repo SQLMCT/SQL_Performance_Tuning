@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 20.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Resource Governor", "Resource Governor.ssmssqlproj", "{FD458106-C7A1-40A7-868B-0226E459DE55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD458106-C7A1-40A7-868B-0226E459DE55}.Default|Default.ActiveCfg = Default
+		{B035D197-54BD-4076-BCB5-7AC3C1D4BB2F}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5115D6E-C4D7-4BA9-AF93-B9AD6CA2C058}
+	EndGlobalSection
+EndGlobal

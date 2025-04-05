@@ -198,6 +198,10 @@ FROM sys.partitions
 where object_id = object_id('Accounting.BankAccounts')
 GO
 
+UPDATE Accounting.BankAccounts
+SET ModifiedDate = '2024-09-04'
+WHERE AcctID < 25
+
 --Demo Cleanuup
 USE MASTER
 DROP DATABASE IF EXISTS PartDB;

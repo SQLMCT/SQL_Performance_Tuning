@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 -- List the indexes
@@ -10,7 +10,9 @@ DBCC IND(0,'Person.Address',-1)
 
 -- Look inside the data and index pages
 DBCC TRACEON(3604,-1) 
-DBCC PAGE(0, 1, 8544, 3)
+DBCC PAGE(0, 1, 8544, 3) --NonClustered Index Page
+DBCC PAGE(0, 1, 12272, 3) --Clustered Index Page
+DBCC PAGE(0, 1, 11855, 3) --Actual Data Page
 
 -- New Dynamic Management view from SQL Server 2016
 SELECT index_id, allocated_page_page_id
@@ -18,6 +20,7 @@ FROM sys.dm_db_database_page_allocations
 (DB_ID(), object_ID('Person.Address'), NULL, NULL, 'LIMITED')
 WHERE index_id = 4 and allocated_page_iam_file_id IS NOT NULL
 GO
+
 
 -- Turn on Actual Execution Plan (CTRL + M)
 -- Show IX_Address_StateProvince Index
@@ -42,7 +45,12 @@ WHERE StateProvinceID = 3
 
 --.0230399 with Key Lookup
 --.0032897 with ADD City
---.0032897 with INCLUDE City
+--.0032898 with INCLUDE City
+
+--578 rows in the index page for AddressID and StateProvinceID -- 12 bytes per row
+--232 rows when ADDing or Include City -- 30 bytes per row
+--120 rows after page split
+--214 rows after fill factor
 
 --Introduce a Page Split
 INSERT INTO Person.Address
@@ -54,6 +62,7 @@ ON [Person].[Address]
 REBUILD 
 WITH (FILLFACTOR = 90)
 
+-- Remove City from Index before this demo
 -- Look inside the data and index pages
 -- Currently 578 pages in StateProvinceID NCI
 -- After Page Split 289 rows.

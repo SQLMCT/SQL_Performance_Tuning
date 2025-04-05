@@ -3,14 +3,32 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
-          <Created>2024-08-26T08:59:49.0445682-04:00</Created>
+        <ConnectionNode Name="SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
+          <Created>2025-04-02T08:33:45.3949037-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
+          <Server>SQLMCT\Blackrock_A</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>AdventureWorks2022</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="SQLMCT\Blackrock_B:NORTHAMERICA\jodeardu">
+          <Created>2025-04-02T12:58:05.920458-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\Blackrock_B</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
           <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
@@ -20,50 +38,50 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="04a_Add_Records.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04a_Add_Records.sql</FullPath>
         </FileNode>
         <FileNode Name="04a_BankAccount_Select.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04a_BankAccount_Select.sql</FullPath>
         </FileNode>
         <FileNode Name="04a_Demo_Setup.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04a_Demo_Setup.sql</FullPath>
         </FileNode>
         <FileNode Name="04b_LockingDemo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04b_LockingDemo.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_DirtyRead1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_DirtyRead1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_DirtyRead2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_DirtyRead2.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_LostUpdate1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_LostUpdate1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_LostUpdate2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_LostUpdate2.sql</FullPath>
         </FileNode>
@@ -80,44 +98,44 @@
           <FullPath>04c_Phantom2.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_RepeatRead1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_RepeatRead1.sql</FullPath>
         </FileNode>
         <FileNode Name="04c_RepeatRead2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>04c_RepeatRead2.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_BlockingDemo1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_BlockingDemo1.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_BlockingDemo2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_BlockingDemo2.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_DeadlockDemo1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_DeadlockDemo1.sql</FullPath>
         </FileNode>
         <FileNode Name="04d_DeadLockDemo2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04d_DeadLockDemo2.sql</FullPath>
         </FileNode>
         <FileNode Name="04t_Transactions_Demo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>04t_Transactions_Demo.sql</FullPath>
         </FileNode>

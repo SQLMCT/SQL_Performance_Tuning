@@ -2,22 +2,22 @@
 USE master;
 
 --Build Database for Demo
-DROP DATABASE IF EXISTS WoodgroveBank;
-CREATE DATABASE WoodgroveBank ON
-(NAME = WoodgroveBank,
- FILENAME = 'D:\DATA\WoodgroveBank.mdf',
+DROP DATABASE IF EXISTS WoodLandBank;
+CREATE DATABASE WoodLandBank ON
+(NAME = WoodLandBank,
+ FILENAME = 'D:\DATA2\WoodLandBank.mdf',
 	SIZE = 10,
     MAXSIZE = 50,
     FILEGROWTH = 5)
 LOG ON
 (NAME = Test_DB_Log,
- FILENAME = 'D:\DATA\WoodgroveBank.ldf',
+ FILENAME = 'D:\DATA2\WoodLandBank.ldf',
 	SIZE = 5MB,
     MAXSIZE = 25MB,
     FILEGROWTH = 5MB);
 GO
 
-USE WoodgroveBank
+USE WoodLandBank
 SELECT * 
 FROM sys.database_files
 GO

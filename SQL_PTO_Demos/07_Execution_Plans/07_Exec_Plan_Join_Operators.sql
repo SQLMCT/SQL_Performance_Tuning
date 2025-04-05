@@ -1,8 +1,8 @@
 USE AdventureWorks2019
 GO
 
--- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory
--- FORCED MERGE JOIN: Cost = 3.429 and 57MB Memory
+-- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory (Serial Plan)
+-- FORCED MERGE JOIN: Cost = 3.429 and 57MB Memory (Parrallel Plan)
 -- FORCE MERGE AND MAXDOP 1 and CTOP = 5: Cost = 11.7573 and 11MB Memory
 -- FORCE MERGE AND MAXDOP 0 and CTOP = 15: Cost = 11.7573 and 11MB Memory
 -- FORCED HASH JOIN: Cost = 4.1715 and 14MB Memory

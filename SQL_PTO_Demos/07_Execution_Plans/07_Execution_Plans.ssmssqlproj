@@ -3,14 +3,17 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
-          <Created>2024-10-11T13:44:32.424679-04:00</Created>
+        <ConnectionNode Name="SQLMCT\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2025-04-05T10:55:21.5015214-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
+          <Server>SQLMCT\JDSQL2019</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>IOP_Demo</InitialDB>
+          <InitialDB />
           <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
@@ -20,20 +23,20 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="07_Exec_Plan_Join_Operators.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07_Exec_Plan_Join_Operators.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Live_Query_Stats.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07_Live_Query_Stats.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Optimization_Phases.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07_Optimization_Phases.sql</FullPath>
         </FileNode>
@@ -42,6 +45,12 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07_ShowPlan_All.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Plan_Guides.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>08_Plan_Guides.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

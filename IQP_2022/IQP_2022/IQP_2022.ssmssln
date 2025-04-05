@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 19.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "IQP_2022", "IQP_2022\IQP_2022.ssmssqlproj", "{6A9A2022-D55A-4AEA-AAFF-747180355CE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A9A2022-D55A-4AEA-AAFF-747180355CE1}.Default|Default.ActiveCfg = Default
+		{F0D9B08D-37E1-4D3A-858C-89599AE2E5A4}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF418F20-F936-41CA-85FD-45E5D950F8FD}
+	EndGlobalSection
+EndGlobal

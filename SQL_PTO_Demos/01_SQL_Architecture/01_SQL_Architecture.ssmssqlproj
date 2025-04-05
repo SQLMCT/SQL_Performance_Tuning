@@ -3,14 +3,47 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
-          <Created>2024-09-30T10:36:35.4969297-04:00</Created>
+        <ConnectionNode Name="SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
+          <Created>2025-03-26T19:25:15.9156528-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
+          <Server>SQLMCT\Blackrock_A</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
           <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="SQLMCT\Blackrock_B:NORTHAMERICA\jodeardu">
+          <Created>2025-03-25T14:37:19.6540714-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\Blackrock_B</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="SQLMCT\Blackrock_C:NORTHAMERICA\jodeardu">
+          <Created>2025-03-25T16:13:38.8530742-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\Blackrock_C</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
@@ -20,32 +53,32 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="01_DMV_Intro.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_DMV_Intro.sql</FullPath>
         </FileNode>
         <FileNode Name="01_Waits.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01_Waits.sql</FullPath>
         </FileNode>
         <FileNode Name="Blocking_1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_C:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_C</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Blocking_1.sql</FullPath>
         </FileNode>
         <FileNode Name="Blocking_2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_C:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_C</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Blocking_2.sql</FullPath>
         </FileNode>
         <FileNode Name="Execution_Session_DMV.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Execution_Session_DMV.sql</FullPath>
         </FileNode>

@@ -4,13 +4,13 @@ USE master;
 DROP DATABASE IF EXISTS LockingDemo;
 CREATE DATABASE LockingDemo ON
 (NAME = LockingDemo,
- FILENAME = 'D:\DATA\LockingDemo.mdf',
+ FILENAME = 'D:\DATA3\LockingDemo.mdf',
 	SIZE = 10,
     MAXSIZE = 50,
     FILEGROWTH = 5)
 LOG ON
 (NAME = Test_DB_Log,
- FILENAME = 'D:\DATA\LockingDemo.ldf',
+ FILENAME = 'D:\DATA3\LockingDemo.ldf',
 	SIZE = 5MB,
     MAXSIZE = 25MB,
     FILEGROWTH = 5MB);
@@ -141,6 +141,7 @@ SELECT resource_type, resource_description, resource_lock_partition,
 	request_mode, request_type, request_status
 FROM sys.dm_tran_locks
 WHERE request_session_id = @@SPID
+ORDER BY resource_type
 
 -- We should see only 2 locks (1 at the DB Level and another one at the Object Level)
 -- Check the LockEscalation XE live Data

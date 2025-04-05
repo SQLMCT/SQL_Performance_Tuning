@@ -15,7 +15,7 @@ FROM sys.dm_os_waiting_tasks as w
       INNER JOIN sys.dm_exec_requests as r 
          ON s.session_id = r.session_id
       OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) as t
-WHERE s.is_user_process = 1;
+WHERE s.is_user_process = 1 
 
 
 -- To see history of waits stats

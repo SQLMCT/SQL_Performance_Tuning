@@ -18,7 +18,7 @@ GO
 
 SELECT *
 INTO dbo.IndexOppTest
-FROM AdventureWorks2019.Sales.SalesOrderHeader 
+FROM AdventureWorks2022.Sales.SalesOrderHeader 
 GO
 
 --Create non-clustered index to speed up reads 
@@ -50,6 +50,9 @@ ON dbo.IndexOppTest(SalesOrderID, ModifiedDate)
 CREATE NONCLUSTERED INDEX nc_OrderID_ModifiedDate_demo
 ON dbo.IndexOppTest(SalesOrderID, ModifiedDate)
 
+CREATE NONCLUSTERED INDEX nc_OrderID_Include_ModifiedDate
+ON dbo.IndexOppTest(SalesOrderID) INCLUDE (ModifiedDate)
+
 --Look at the data! LOOK AT IT NOW!
 SELECT SalesOrderID, OrderDate FROM dbo.IndexOppTest
 WHERE SalesOrderID < 44658
@@ -60,10 +63,14 @@ GO
 SELECT DB_ID()
 GO
 
+-- List the indexes
+EXEC [sp_helpindex] 'dbo.IndexOppTest';
+GO
+
 --Index operations before Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
@@ -79,7 +86,7 @@ WHERE OBJECTPROPERTY(O.[OBJECT_ID],'IsUserTable') = 1
 
 --Perform some DML operations
 UPDATE dbo.IndexOppTest
-SET ModifiedDate = '03/20/2020'
+SET ModifiedDate = '03/25/2020'
 WHERE SalesOrderID < 44658
 
 DELETE dbo.IndexOppTest
@@ -88,11 +95,20 @@ WHERE SalesOrderID BETWEEN 44658 AND 45158
 --Index operations after Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
 WHERE OBJECTPROPERTY(O.[OBJECT_ID],'IsUserTable') = 1
+
+INSERT TOP (1) INTO dbo.IndexOppTest
+SELECT [RevisionNumber],[OrderDate],[DueDate],[ShipDate],[Status],
+       [OnlineOrderFlag],[SalesOrderNumber],[PurchaseOrderNumber],
+       [AccountNumber],[CustomerID],[SalesPersonID],[TerritoryID],
+       [BillToAddressID],[ShipToAddressID],[ShipMethodID],[CreditCardID],
+       [CreditCardApprovalCode],[CurrencyRateID],[SubTotal],[TaxAmt],
+       [Freight],[TotalDue],[Comment],[rowguid],[ModifiedDate]
+FROM AdventureWorks2022.Sales.SalesOrderHeader 
 
 --Create clustered index (Notice all the indexes get rebuilt.)
 ALTER TABLE dbo.IndexOppTest
@@ -109,7 +125,7 @@ WHERE SalesOrderID BETWEEN 74623 AND 75123
 --Index operations after Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (6,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 

@@ -2,17 +2,17 @@ SET NOCOUNT ON;
 USE MASTER
 GO
 --Build Database for Demo
-DROP DATABASE IF EXISTS TestDB;
-CREATE DATABASE TestDB ON
+DROP DATABASE IF EXISTS TLogDemo;
+CREATE DATABASE TLogDemo ON
 (NAME = Test_DB,
- FILENAME = 'D:\DATA\TestDB.mdf')
+ FILENAME = 'D:\DATA2\TLogDemo.mdf')
 LOG ON
 (NAME = Test_DB_Log,
- FILENAME = 'D:\DATA\TestDB.ldf');
+ FILENAME = 'D:\DATA2\TLogDemo.ldf');
 GO
 
---Switch to TestDB and verify files created
-USE TestDB
+--Switch to TLogDemo and verify files created
+USE TLogDemo
 SELECT * FROM sys.database_files
 
  --Check Log Space. Should Match Model Database
@@ -25,7 +25,7 @@ used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
 
 --Log Size(MB)	Log Space Used (%)
---7.99			8.651027 < 24.0958
+--7.99			11.29032 < 24.0958
 --71.99			35.96853
 
 
@@ -38,7 +38,7 @@ GO
 -- Create and populate a couple of test tables
 SELECT LastName, FirstName, MiddleName, ModifiedDate
 INTO dbo.Person
-FROM AdventureWorks2019.Person.Person;
+FROM AdventureWorks2022.Person.Person;
 GO
 
 --Verify Data --19,972 rows at 40 bytes each = 800kb
@@ -54,7 +54,7 @@ FROM sys.dm_db_log_space_usage;
 SELECT * FROM sys.dm_db_log_info(DB_ID());
 GO
 
-USE TestDB;
+USE TLogDemo;
 GO
 INSERT INTO dbo.Person 
 SELECT TOP 200000
@@ -78,7 +78,7 @@ FROM sys.dm_db_log_space_usage;
 SELECT * FROM sys.dm_db_log_info(DB_ID());
 GO
 /*****************************************************************************/
---ALTER DATABASE TestDB
+--ALTER DATABASE TLogDemo
 --SET RECOVERY SIMPLE
 --GO
 
@@ -156,8 +156,8 @@ used_log_space_in_percent AS [Log Space Used (%)]
 FROM sys.dm_db_log_space_usage;
 
 --Test full backup. Space should not change
-BACKUP DATABASE TestDB
-TO DISK = 'D:\DATA\TestDB.bak'
+BACKUP DATABASE TLogDemo
+TO DISK = 'D:\DATA\TLogDemo.bak'
 WITH INIT;
 
 --Check Log Space. Should Not Change
@@ -170,8 +170,8 @@ FROM sys.dm_db_log_space_usage;
 SELECT * FROM sys.dm_db_log_info(DB_ID());
 
 --Now Perform a Log Backup. Space should change.
-BACKUP LOG TestDB
-TO DISK = 'D:\DATA\TestDB_Log.trn'
+BACKUP LOG TLogDemo
+TO DISK = 'D:\DATA\TLogDemo_Log.trn'
 WITH INIT;
 
  --Check Log Space. Should see a change

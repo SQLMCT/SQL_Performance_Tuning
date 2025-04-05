@@ -14,3 +14,7 @@ WHERE IX.id > 100 -- excluding system object statistics
 	AND IX.indid > 0 -- excluding heaps or tables that do not any indexes
 	AND IX.rowcnt >= 500 -- only indexes with more than 500 rows
 ORDER BY  [%RowsChanged] DESC
+
+--Cause a Stat Update
+SELECT LastName, FirstName, MiddleName FROM Person.Person
+WHERE LastName = 'Deardurff'

@@ -3,14 +3,32 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
-          <Created>2024-10-09T10:50:34.1401206-04:00</Created>
+        <ConnectionNode Name="ADMIN:SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
+          <Created>2025-04-01T13:06:02.646422-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
+          <Server>ADMIN:SQLMCT\Blackrock_A</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
           <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="SQLMCT\Blackrock_B:NORTHAMERICA\jodeardu">
+          <Created>2025-04-01T13:07:27.7027398-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\Blackrock_B</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
@@ -19,27 +37,27 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="03_ADR_Demo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+        <FileNode Name="Simplified_ADR_Demo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>03_ADR_Demo.sql</FullPath>
+          <FullPath>C:\Users\jodeardu\OneDrive - Microsoft\CSUDataAICommunityIPLibrary - Data-Bytes-Lunch-And-Learn\CIP\Accelerated Database Recovery\ADR Demos\Simplified_ADR_Demo.sql</FullPath>
         </FileNode>
         <FileNode Name="03_DBCC_Statements.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_DBCC_Statements.sql</FullPath>
         </FileNode>
         <FileNode Name="03_Display_Statistics.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>03_Display_Statistics.sql</FullPath>
         </FileNode>
         <FileNode Name="03_TransLog_Reading.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>03_TransLog_Reading.sql</FullPath>
         </FileNode>

@@ -3,7 +3,7 @@
 --John DO NOT Filter on AdventureWorks because it breaks stuff
 
 --Jack Deadlock Session 1
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 BEGIN TRAN

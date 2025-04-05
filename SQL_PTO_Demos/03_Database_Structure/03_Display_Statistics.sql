@@ -1,4 +1,4 @@
-USE AdventureWorksPTO
+USE AdventureWorks2019
 GO
 
 --SHOWPLAN will be Estimated Execution Plan

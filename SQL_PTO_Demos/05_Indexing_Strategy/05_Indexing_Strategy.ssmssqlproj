@@ -3,14 +3,32 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="JDSQL-LAPTOP\JDSQL2019:NORTHAMERICA\jodeardu">
-          <Created>2024-08-28T10:19:20.0420894-04:00</Created>
+        <ConnectionNode Name="SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
+          <Created>2025-04-01T10:45:39.80058-04:00</Created>
           <Type>SQL</Type>
-          <Server>JDSQL-LAPTOP\JDSQL2019</Server>
+          <Server>SQLMCT\Blackrock_A</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>AdventureWorks2019</InitialDB>
+          <InitialDB />
           <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="SQLMCT\JDSQL2019:NORTHAMERICA\jodeardu">
+          <Created>2025-04-03T11:25:30.0915106-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\JDSQL2019</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <HostNameInServerCertificate />
+          <EncryptionOption>False</EncryptionOption>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
@@ -26,74 +44,68 @@
           <FullPath>05_FilteredIndex.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Fragmentation.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2019:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2019</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Fragmentation.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Operational_Stats.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Operational_Stats.sql</FullPath>
         </FileNode>
-        <FileNode Name="05_Index_Usage_01.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+        <FileNode Name="05_Index_Usage_Script.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>05_Index_Usage_01.sql</FullPath>
-        </FileNode>
-        <FileNode Name="05_Index_Usage_02.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>05_Index_Usage_02.sql</FullPath>
+          <FullPath>05_Index_Usage_Script.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Column_Order.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Column_Order.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Covering_Includes.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Covering_Includes.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Seek_Scan_Tipping_Point.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Seek_Scan_Tipping_Point.sql</FullPath>
         </FileNode>
         <FileNode Name="05_TableScan_ClusteredScan.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_TableScan_ClusteredScan.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Add_Records.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Add_Records.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Demo_Setup.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Demo_Setup.sql</FullPath>
         </FileNode>
         <FileNode Name="05e_Partition_Database.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>05e_Partition_Database.sql</FullPath>
         </FileNode>
         <FileNode Name="05e_Partition_Index.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:JDSQL-LAPTOP\JDSQL2019:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>JDSQL-LAPTOP\JDSQL2019</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>05e_Partition_Index.sql</FullPath>
         </FileNode>

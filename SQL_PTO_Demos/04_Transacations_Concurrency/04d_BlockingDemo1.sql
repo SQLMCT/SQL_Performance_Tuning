@@ -1,6 +1,7 @@
 USE AdventureWorks2019
 GO
 
+--Session 79
 --Blocking Demo - Session 1
 --Jack updates the Person.Person table
 

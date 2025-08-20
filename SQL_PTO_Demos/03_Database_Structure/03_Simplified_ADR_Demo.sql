@@ -28,14 +28,14 @@ GO
 SELECT TOP 1750000
 	AcctID = IDENTITY(INT, 1, 1),
 	AcctCode = CAST(CAST(RAND(CHECKSUM(NEWID()))* 10000 as int)as char(4))
-				+'_JD_INSERT'  ,
+				+'_ADR_INSERT'  ,
 	ModifiedDate = GETDATE()
 INTO dbo.ADRTest
 FROM sys.all_columns AC1 CROSS JOIN sys.all_columns AC2
 GO
 
 --Create index to speed up reads
-CREATE NONCLUSTERED INDEX ix_jd_adrtest_demo
+CREATE NONCLUSTERED INDEX ix_adrtest_demo
 ON dbo.ADRTEST(AcctCode, ModifiedDate)
 
 --Look at the data! LOOK AT IT NOW!
@@ -65,7 +65,7 @@ SELECT 'After Checkpoint' AS Check_Time,
 FROM sys.dm_db_log_space_usage
 
 --Without ADR how long does it take to Rollback?
---Hey John! Be sure to paste results to line 124
+--Be sure to paste results to line 124
 SET STATISTICS TIME ON
 ROLLBACK
 SET STATISTICS TIME OFF
@@ -167,7 +167,7 @@ DROP DATABASE ADR_Demo
 ** If there is time also demonstrate and UPDATES.
 */
 
---Hey John! What about Updates?
+--What about Updates?
 --Turn ADR OFF
 ALTER DATABASE ADR_DEMO
 SET ACCELERATED_DATABASE_RECOVERY = OFF
@@ -177,7 +177,7 @@ FROM sys.databases
 WHERE name = 'ADR_DEMO'
 
 --Update records in table.--How long does it take?
---Paste results to line 220
+--Paste results to line 222
 SET STATISTICS TIME ON
 BEGIN TRAN --Notice there is no Commit Transaction
 UPDATE ADRTest 

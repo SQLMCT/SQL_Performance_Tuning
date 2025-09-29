@@ -18,7 +18,7 @@ GO
 
 SELECT *
 INTO dbo.IndexOppTest
-FROM AdventureWorks2022.Sales.SalesOrderHeader 
+FROM AdventureWorks2019.Sales.SalesOrderHeader 
 GO
 
 --Create non-clustered index to speed up reads 
@@ -70,7 +70,7 @@ GO
 --Index operations before Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (8,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
@@ -95,7 +95,7 @@ WHERE SalesOrderID BETWEEN 44658 AND 45158
 --Index operations after Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (8,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 
@@ -108,7 +108,7 @@ SELECT [RevisionNumber],[OrderDate],[DueDate],[ShipDate],[Status],
        [BillToAddressID],[ShipToAddressID],[ShipMethodID],[CreditCardID],
        [CreditCardApprovalCode],[CurrencyRateID],[SubTotal],[TaxAmt],
        [Freight],[TotalDue],[Comment],[rowguid],[ModifiedDate]
-FROM AdventureWorks2022.Sales.SalesOrderHeader 
+FROM AdventureWorks2019.Sales.SalesOrderHeader 
 
 --Create clustered index (Notice all the indexes get rebuilt.)
 ALTER TABLE dbo.IndexOppTest
@@ -125,7 +125,7 @@ WHERE SalesOrderID BETWEEN 74623 AND 75123
 --Index operations after Updates and Deletes
 SELECT database_id, i.name, o.object_id, o.index_id,  i.type_desc, hobt_id, 
 	leaf_insert_count, leaf_delete_count, leaf_update_count, leaf_ghost_count
-FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (7,NULL,NULL,NULL ) AS O
+FROM  SYS.DM_DB_INDEX_OPERATIONAL_STATS (8,NULL,NULL,NULL ) AS O
 	INNER JOIN SYS.INDEXES AS I
 		ON I.[OBJECT_ID] = O.[OBJECT_ID] 
 		AND I.INDEX_ID = O.INDEX_ID 

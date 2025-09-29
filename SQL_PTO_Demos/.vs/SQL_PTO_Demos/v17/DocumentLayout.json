@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}|01_SQL_Architecture\\01_SQL_Architecture.ssmssqlproj|C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\01_SQL_Architecture\\01_RCSI_Enable.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}|01_SQL_Architecture\\01_SQL_Architecture.ssmssqlproj|solutionrelative:01_SQL_Architecture\\01_RCSI_Enable.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ed7d6f85-175b-4b57-9887-71fe8b865fc8}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "01_RCSI_Enable.sql - SQLMCT\\JDSQL2025.master (NORTHAMERICA\\jodeardu (61))",
+              "DocumentMoniker": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\01_SQL_Architecture\\01_RCSI_Enable.sql",
+              "RelativeDocumentMoniker": "01_SQL_Architecture\\01_RCSI_Enable.sql",
+              "ToolTip": "01_RCSI_Enable.sql - SQLMCT\\JDSQL2025.master (NORTHAMERICA\\jodeardu (61))",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-09-29T14:26:35.254Z",
+              "EditorCaption": " - SQLMCT\\JDSQL2025.master (NORTHAMERICA\\jodeardu (61))"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

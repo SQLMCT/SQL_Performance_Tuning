@@ -1,7 +1,5 @@
-USE AdventureWorks2022
+USE AdventureWorks2019
 GO
-
---DBCC FREEPROCCACHE
 
 --ProductID 870 returns 4,688 rows out of 121,317 total rows. 
 EXEC sp_executesql

@@ -36,6 +36,26 @@ SELECT name, type, type_desc
 FROM sys.system_objects 
 WHERE name LIKE N'dm%[_]db[_]%' 
 ORDER BY name;
+
+--Finding Total Memory
+SELECT total_physical_memory_kb / 1024 AS MemoryMb 
+FROM sys.dm_os_sys_memory
+
+--SQL Configurations
+SELECT name, value_in_use 
+FROM sys.configurations 
+WHERE name LIKE 'max server memory%'
+
+-- https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql?view=sql-server-ver16
+
+--Checking Memory Objects
+SELECT [type] AS [ClerkType],
+SUM(pages_kb) / 1024 AS [SizeMb]
+FROM sys.dm_os_memory_clerks WITH (NOLOCK)
+WHERE [type] LIKE 'Cachestore_OBJCP' OR
+	[type] LIKE 'Cachestore_SQLCP'
+GROUP BY [type]
+ORDER BY SUM(pages_kb) DESC
   
 /* This Sample Code is provided for the purpose of illustration only and is not intended 
 to be used in a production environment.  THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE 

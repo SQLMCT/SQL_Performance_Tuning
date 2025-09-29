@@ -2,44 +2,13 @@
 <SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="03_Database_Structure">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items>
-        <ConnectionNode Name="ADMIN:SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
-          <Created>2025-04-01T13:06:02.646422-04:00</Created>
-          <Type>SQL</Type>
-          <Server>ADMIN:SQLMCT\Blackrock_A</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <TrustServerCertificate>False</TrustServerCertificate>
-          <HostNameInServerCertificate />
-          <EncryptionOption>False</EncryptionOption>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-        <ConnectionNode Name="SQLMCT\Blackrock_B:NORTHAMERICA\jodeardu">
-          <Created>2025-04-01T13:07:27.7027398-04:00</Created>
-          <Type>SQL</Type>
-          <Server>SQLMCT\Blackrock_B</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <TrustServerCertificate>False</TrustServerCertificate>
-          <HostNameInServerCertificate />
-          <EncryptionOption>False</EncryptionOption>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-      </Items>
+      <Items />
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="03_DBCC_Statements.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>03_DBCC_Statements.sql</FullPath>
         </FileNode>
@@ -56,8 +25,8 @@
           <FullPath>03_Simplified_ADR_Demo.sql</FullPath>
         </FileNode>
         <FileNode Name="03_TransLog_Reading.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>03_TransLog_Reading.sql</FullPath>
         </FileNode>

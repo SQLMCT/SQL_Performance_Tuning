@@ -1,12 +1,12 @@
 SET NOCOUNT ON;
 
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 
 /*
 	-- Start with a clean slate
-	ALTER DATABASE AdventureWorks2019 SET QUERY_STORE = OFF;
-	ALTER DATABASE AdventureWorks2019 SET QUERY_STORE CLEAR;
+	ALTER DATABASE AdventureWorks2022 SET QUERY_STORE = OFF;
+	ALTER DATABASE AdventureWorks2022 SET QUERY_STORE CLEAR;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice_OrderQty ON Sales.SalesOrderDetail;
 	DROP INDEX IF EXISTS demo_ProductID__UnitPrice ON Sales.SalesOrderDetail;
 	GO
@@ -17,7 +17,7 @@ EXEC sys.sp_helpindex 'sales.salesorderdetail';
 
 
 -- Enable with default settings
-ALTER DATABASE AdventureWorks2019
+ALTER DATABASE AdventureWorks2022
 SET QUERY_STORE = ON ( 
 	OPERATION_MODE = READ_WRITE,
 	MAX_STORAGE_SIZE_MB = 100,			/* demo value */

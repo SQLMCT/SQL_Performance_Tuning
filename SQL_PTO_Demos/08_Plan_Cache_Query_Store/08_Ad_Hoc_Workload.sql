@@ -31,9 +31,12 @@ GO
 USE AdventureWorks2019
 GO
 
-ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x0600050017D7CD19B01B3D201402000001000000000000000000000000000000000000000000000000000000 ;
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE;
 GO
 
+
+
+--Run all four statements at once.
 SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
 FROM Person.Person p INNER JOIN HumanResources.Employee e ON e.BusinessEntityID = p.BusinessEntityID
 WHERE p.LastName LIKE N'M%';	/* baseline */
@@ -69,7 +72,7 @@ WHERE st.dbid = DB_ID() AND st.text LIKE N'%NationalIdNumber%'
 OPTION ( RECOMPILE );	/* prevents the query plan for this statement from being cached*/
 GO
 
-ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x0600050017D7CD19B01B3D201402000001000000000000000000000000000000000000000000000000000000 ;
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x06000500B5F4EA2480D976863902000001000000000000000000000000000000000000000000000000000000 ;
 GO
 
 /*
@@ -157,6 +160,54 @@ ALTER DATABASE SCOPED CONFIGURATION SET OPTIMIZE_FOR_AD_HOC_WORKLOADS = ON;
 EXEC sp_configure 'Optimize for ad hoc workload', 1;
 RECONFIGURE;
 GO
+
+USE AdventureWorks2019
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 
+GO
+
+
+--Run all four statements at once.
+SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
+FROM Person.Person p INNER JOIN HumanResources.Employee e ON e.BusinessEntityID = p.BusinessEntityID
+WHERE p.LastName LIKE N'M%';	/* baseline */
+GO
+
+SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
+FROM Person.Person p INNER JOIN HumanResources.Employee e ON e.BusinessEntityID = p.BusinessEntityID
+WHERE p.lastname LIKE N'M%';	/* lower case column name (lastname) */
+GO 
+
+SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
+FROM Person.Person p INNER JOIN HumanResources.Employee e ON e.BusinessEntityID = p.BusinessEntityID
+WHERE p.LastName LIKE	N'M%';	/* extra white space after LIKE */
+GO 
+
+SELECT p.LastName, p.MiddleName, p.FirstName, e.NationalIDNumber
+FROM Person.Person p INNER JOIN HumanResources.Employee e ON e.BusinessEntityID = p.BusinessEntityID
+WHERE p.LastName LIKE N'Mil%';	/* different literal value */
+GO 
+
+-- What's in the plan cache? 
+SELECT p.objtype, p.size_in_bytes, OBJECT_SCHEMA_NAME(st.objectid) + N'.' + OBJECT_NAME(st.objectid) AS object_name, st.text,
+    qs.query_hash, qs.sql_handle,  qs.plan_handle, qs.query_plan_hash, qs.execution_count AS exec_count,
+    qs.total_worker_time / ( qs.execution_count * 1000 ) AS avg_CPU_ms,
+    ( qs.total_elapsed_time / ( qs.execution_count * 1000 )) AS avg_time_ms,
+    ( qs.total_logical_reads / qs.execution_count ) AS avg_logical_reads,
+    qp.query_plan
+FROM sys.dm_exec_cached_plans p 
+	 INNER JOIN sys.dm_exec_query_stats qs ON qs.plan_handle = p.plan_handle
+     CROSS APPLY sys.dm_exec_sql_text(qs.plan_handle) st
+     CROSS APPLY sys.dm_exec_query_plan(qs.plan_handle) qp
+WHERE st.dbid = DB_ID() AND st.text LIKE N'%NationalIdNumber%'
+OPTION ( RECOMPILE );	/* prevents the query plan for this statement from being cached*/
+GO
+
+ALTER DATABASE SCOPED CONFIGURATION CLEAR PROCEDURE_CACHE 0x060005006D495010F03277863902000001000000000000000000000000000000000000000000000000000000 ;
+GO
+
+--Run all four statements again.
 
 
 

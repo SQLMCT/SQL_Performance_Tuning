@@ -1,3 +1,7 @@
+USE AdventureWorks2019
+GO
+
+--DBCC FREEPROCCACHE
 
 -- Plan Cache
 
@@ -9,6 +13,12 @@ FROM   sys.dm_exec_cached_plans;
 SELECT  *
 FROM   sys.dm_exec_query_stats;
 
+--Ad-Hoc Query
+SELECT SalesOrderID, OrderQty
+FROM Sales.SalesOrderDetail
+WHERE ProductID = 870
+GO
+
 -- this query returns the text and plan for queries
 -- point out each column type
 SELECT objtype, refcounts, usecounts, text, query_plan
@@ -18,16 +28,8 @@ FROM   sys.dm_exec_cached_plans AS a
        ON a.plan_handle = b.plan_handle 
 	   CROSS APPLY sys.dm_exec_sql_text (b.sql_handle) 
    CROSS APPLY sys.dm_exec_query_plan (b.plan_handle)
-WHERE objtype = 'AdHoc'
+WHERE objtype = 'AdHoc'and usecounts > 1
 ORDER BY usecounts desc;
-
---Ad-Hoc Query
-SELECT SalesOrderID, OrderQty
-FROM Sales.SalesOrderDetail
-WHERE ProductID = 870
-GO
---DBCC FREEPROCCACHE
-
 
 
 /* This Sample Code is provided for the purpose of illustration only and is not intended 

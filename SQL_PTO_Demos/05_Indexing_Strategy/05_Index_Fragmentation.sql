@@ -11,3 +11,9 @@ INNER JOIN sys.dm_db_index_physical_stats
 	AND I.index_id = IPS.index_id
 WHERE IPS.avg_fragmentation_in_percent > 30
 AND IPS.page_count > 1000
+
+---- 62.2950819672131% 1220 pages
+ALTER INDEX [IX_Sales_OrderLines_Perf_20160301_01] 
+ON [Sales].[OrderLines] 
+REBUILD
+WITH (FILLFACTOR = 100)

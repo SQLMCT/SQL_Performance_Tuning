@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# SQL Server Management Studio Solution File, Format Version 20.00
-VisualStudioVersion = 15.0.28307.421
+# SQL Server Management Studio Version 21
+VisualStudioVersion = 17.14.36109.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "01_SQL_Architecture", "01_SQL_Architecture\01_SQL_Architecture.ssmssqlproj", "{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}"
 EndProject
@@ -24,7 +24,6 @@ Global
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{36F0A1B6-1FAA-4A68-8E8F-94FDBD773779}.Default|Default.ActiveCfg = Default
 		{9031887E-DFBC-47E1-92FC-8FE9EE853B9B}.Default|Default.ActiveCfg = Default
 		{3056A62E-2586-4EE9-AC3E-8137693BE0BD}.Default|Default.ActiveCfg = Default
 		{BC2BC8D0-819E-41E2-847C-51700DF84572}.Default|Default.ActiveCfg = Default
@@ -33,6 +32,7 @@ Global
 		{BF7EE6E8-63D0-4D35-BA76-657BAFFDBBE5}.Default|Default.ActiveCfg = Default
 		{7DE54592-7F1F-48B3-BBDA-F4C614829176}.Default|Default.ActiveCfg = Default
 		{36C97D36-753B-4042-8291-4DF1DFCCC878}.Default|Default.ActiveCfg = Default
+		{456B6A0E-BD57-4C72-A0E7-BA0CF6797B6C}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

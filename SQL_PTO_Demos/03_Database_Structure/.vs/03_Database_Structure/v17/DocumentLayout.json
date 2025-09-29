@@ -1,9 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jodeardu\\Documents\\GitHub\\SQL_Performance_Tuning\\SQL_PTO_Demos\\03_Database_Structure\\",
+  "WorkspaceRootPath": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+      "AbsoluteMoniker": "D:0:0:{4A530E2C-9A7D-4F18-F297-3F775F5558F6}|03_Database_Structure.ssmssqlproj|C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{4A530E2C-9A7D-4F18-F297-3F775F5558F6}|03_Database_Structure.ssmssqlproj|solutionrelative:03_Simplified_ADR_Demo.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,11 +21,10 @@
               "DocumentIndex": 0,
               "Title": "03_Simplified_ADR_Demo.sql - SQLMCT\\JDSQL2019.master (NORTHAMERICA\\jodeardu (125))",
               "DocumentMoniker": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql",
-              "ToolTip": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql - SQLMCT\\JDSQL2019.master (NORTHAMERICA\\jodeardu (125))",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\03_Database_Structure\\03_Simplified_ADR_Demo.sql - SQLMCT\\JDSQL2019.master (NORTHAMERICA\\jodeardu (125))",
+              "RelativeDocumentMoniker": "03_Simplified_ADR_Demo.sql",
+              "ToolTip": "03_Simplified_ADR_Demo.sql - SQLMCT\\JDSQL2019.master (NORTHAMERICA\\jodeardu (125))",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-05-24T13:13:00.056Z",
+              "WhenOpened": "2025-05-24T13:15:01.091Z",
               "EditorCaption": " - SQLMCT\\JDSQL2019.master (NORTHAMERICA\\jodeardu (125))"
             }
           ]

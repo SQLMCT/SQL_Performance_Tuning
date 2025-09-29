@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 --Show number of records returned for Product ID

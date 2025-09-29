@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 -- MERGE JOIN NOT FORCED: Cost = 2.62738 and 1888kb Memory (Serial Plan)
@@ -52,7 +52,7 @@ RECONFIGURE
 GO
 
 -- Switch back to AdventureWorks2019
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 
 -- FORCE MERGE using default MAXDOP of 0 and CTOP = 15

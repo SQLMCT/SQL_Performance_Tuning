@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="08_Plan_Cache_Query_Store">
+<SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="08_Plan_Cache_Query_Store">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items />
@@ -17,6 +17,12 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>08_Parameter_Sniffing.sql</FullPath>
+        </FileNode>
+        <FileNode Name="08_Plan_Guides.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>08_Plan_Guides.sql</FullPath>
         </FileNode>
         <FileNode Name="08_PlanCache_QueryTunning.sql">
           <AssociatedConnectionMoniker />
@@ -53,12 +59,6 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>08_QueryStore_GetProductInfo.sql</FullPath>
-        </FileNode>
-        <FileNode Name="SQLQuery2.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>SQLQuery2.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

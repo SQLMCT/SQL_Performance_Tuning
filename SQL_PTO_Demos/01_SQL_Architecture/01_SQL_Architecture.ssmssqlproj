@@ -1,84 +1,44 @@
 <?xml version="1.0"?>
-<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="01_SQL_Architecture">
+<SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="01_SQL_Architecture">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items>
-        <ConnectionNode Name="SQLMCT\Blackrock_A:NORTHAMERICA\jodeardu">
-          <Created>2025-03-26T19:25:15.9156528-04:00</Created>
-          <Type>SQL</Type>
-          <Server>SQLMCT\Blackrock_A</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <TrustServerCertificate>False</TrustServerCertificate>
-          <HostNameInServerCertificate />
-          <EncryptionOption>False</EncryptionOption>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-        <ConnectionNode Name="SQLMCT\Blackrock_B:NORTHAMERICA\jodeardu">
-          <Created>2025-03-25T14:37:19.6540714-04:00</Created>
-          <Type>SQL</Type>
-          <Server>SQLMCT\Blackrock_B</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <TrustServerCertificate>False</TrustServerCertificate>
-          <HostNameInServerCertificate />
-          <EncryptionOption>False</EncryptionOption>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-        <ConnectionNode Name="SQLMCT\Blackrock_C:NORTHAMERICA\jodeardu">
-          <Created>2025-03-25T16:13:38.8530742-04:00</Created>
-          <Type>SQL</Type>
-          <Server>SQLMCT\Blackrock_C</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <TrustServerCertificate>False</TrustServerCertificate>
-          <HostNameInServerCertificate />
-          <EncryptionOption>False</EncryptionOption>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-      </Items>
+      <Items />
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="01_DMV_Intro.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>01_DMV_Intro.sql</FullPath>
         </FileNode>
+        <FileNode Name="01_RCSI_Enable.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>01_RCSI_Enable.sql</FullPath>
+        </FileNode>
         <FileNode Name="01_Waits.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_A:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_A</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>01_Waits.sql</FullPath>
         </FileNode>
         <FileNode Name="Blocking_1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_C:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_C</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>Blocking_1.sql</FullPath>
         </FileNode>
         <FileNode Name="Blocking_2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_C:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_C</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>Blocking_2.sql</FullPath>
         </FileNode>
         <FileNode Name="Execution_Session_DMV.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\Blackrock_B:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>SQLMCT\Blackrock_B</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>Execution_Session_DMV.sql</FullPath>
         </FileNode>

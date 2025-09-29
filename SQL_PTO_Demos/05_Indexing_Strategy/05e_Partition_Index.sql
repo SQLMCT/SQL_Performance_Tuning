@@ -95,6 +95,12 @@ GO
 SELECT AcctID, AcctName, Balance, ModifiedDate
 FROM Accounting.BankAccounts
 
+--Check partitions before SPLIT.
+SELECT partition_id, object_id, index_id, 
+	partition_number, rows	
+FROM sys.partitions 
+where object_id = object_id('Accounting.BankAccounts')
+
 --SPLIT the last two partitions 
 --Will get an ERROR as there is not an available filegroup
 ALTER PARTITION FUNCTION PartFunc1() 
@@ -182,8 +188,8 @@ GO
 
 --Non-Aligned Index on Non-Clustered Indexes -Thank you Marina
 CREATE PARTITION FUNCTION [pf_OrderDate](date) 
-AS RANGE RIGHT FOR VALUES (N'2024-09-01', N'2024-10-01', 
-	N'2024-11-01')
+AS RANGE RIGHT FOR VALUES (N'2025-03-01', N'2025-04-01', 
+	N'2025-05-01')
 
 CREATE PARTITION SCHEME Part_OrderDate
 AS PARTITION pf_OrderDate
@@ -199,8 +205,8 @@ where object_id = object_id('Accounting.BankAccounts')
 GO
 
 UPDATE Accounting.BankAccounts
-SET ModifiedDate = '2024-09-04'
-WHERE AcctID < 25
+SET ModifiedDate = '2025-03-04'
+WHERE AcctID <= 29
 
 --Demo Cleanuup
 USE MASTER

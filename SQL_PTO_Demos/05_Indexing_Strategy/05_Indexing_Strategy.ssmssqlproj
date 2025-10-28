@@ -2,7 +2,22 @@
 <SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="05_Indexing_Strategy">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items />
+      <Items>
+        <ConnectionNode Name="SQLMCT\JDSQL2022:NORTHAMERICA\jodeardu">
+          <Created>2025-10-23T14:00:43.4007184-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\JDSQL2022</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>master</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
@@ -13,14 +28,14 @@
           <FullPath>05_FilteredIndex.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Fragmentation.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Fragmentation.sql</FullPath>
         </FileNode>
         <FileNode Name="05_Index_Operational_Stats.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_Index_Operational_Stats.sql</FullPath>
         </FileNode>
@@ -31,14 +46,14 @@
           <FullPath>05_Index_Usage_Script.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Column_Order.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Column_Order.sql</FullPath>
         </FileNode>
         <FileNode Name="05_NCI_Covering_Includes.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05_NCI_Covering_Includes.sql</FullPath>
         </FileNode>
@@ -55,14 +70,14 @@
           <FullPath>05_TableScan_ClusteredScan.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Add_Records.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Add_Records.sql</FullPath>
         </FileNode>
         <FileNode Name="05a_Demo_Setup.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>05a_Demo_Setup.sql</FullPath>
         </FileNode>

@@ -16,4 +16,4 @@ AND IPS.page_count > 1000
 ALTER INDEX [IX_Sales_OrderLines_Perf_20160301_01] 
 ON [Sales].[OrderLines] 
 REBUILD
-WITH (FILLFACTOR = 100)
+WITH (FILLFACTOR = 90)

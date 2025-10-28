@@ -4,7 +4,7 @@
 DBCC TRACEON (3604);
 GO
 
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
 
 /*

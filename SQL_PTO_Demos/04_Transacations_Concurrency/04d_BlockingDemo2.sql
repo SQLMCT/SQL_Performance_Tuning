@@ -1,7 +1,7 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
---Session 80
+--Session 64
 --Blocking Demo - Session 2
 --Diane selects from Person.Person table
 

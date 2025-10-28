@@ -1,19 +1,65 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE54592-7F1F-48B3-BBDA-F4C614829176}|07_Execution_Plans\\07_Execution_Plans.ssmssqlproj|C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\07_Execution_Plans\\07_Execution_Flow.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}",
+      "RelativeMoniker": "D:0:0:{7DE54592-7F1F-48B3-BBDA-F4C614829176}|07_Execution_Plans\\07_Execution_Plans.ssmssqlproj|solutionrelative:07_Execution_Plans\\07_Execution_Flow.sql||{B5A506EB-11BE-4782-9A18-21265C2CA0B4}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 175,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{ed7d6f85-175b-4b57-9887-71fe8b865fc8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{ed7d6f85-175b-4b57-9887-71fe8b865fc8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{956e1b22-878b-499b-ac5c-2705c05370ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34a775a1-a35e-4d56-b0dd-f83927b436ed}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "07_Execution_Flow.sql - SQLMCT\\JDSQL2022.AdventureWorks2022 (NORTHAMERICA\\jodeardu (93))",
+              "DocumentMoniker": "C:\\Users\\jodeardu\\OneDrive\\MIPS\\SQL_Server_PTO_2022\\SQL_PTO_Demos\\SQL_PTO_Demos\\07_Execution_Plans\\07_Execution_Flow.sql",
+              "RelativeDocumentMoniker": "07_Execution_Plans\\07_Execution_Flow.sql",
+              "ToolTip": "07_Execution_Flow.sql - SQLMCT\\JDSQL2022.AdventureWorks2022 (NORTHAMERICA\\jodeardu (93))",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-10-25T10:50:47.742Z",
+              "EditorCaption": " - SQLMCT\\JDSQL2022.AdventureWorks2022 (NORTHAMERICA\\jodeardu (93))"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 244,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{ed7d6f85-175b-4b57-9887-71fe8b865fc8}"
+              "Name": "ST:0:0:{3eb44d79-dda1-4580-b810-0808975173e4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{956e1b22-878b-499b-ac5c-2705c05370ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{956e1b22-878b-499b-ac5c-2705c05370ff}"
             }
           ]
         }

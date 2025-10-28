@@ -1,4 +1,4 @@
-USE AdventureWorks2019
+USE AdventureWorks2022
 GO
 
 --Check the ID of the Database
@@ -15,7 +15,7 @@ DBCC IND(0,'Person.Address',-1)
 -- Copy data page number from DBCC IND into DBCC Page command
 -- Look inside the data pages
 DBCC TRACEON(3604) 
-DBCC PAGE(0, 1, 11712, 3) 
+DBCC PAGE(0, 1, 13232, 3) 
 WITH TABLERESULTS
 
 -- DBCC TRACESTATUS()

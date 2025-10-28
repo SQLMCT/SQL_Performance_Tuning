@@ -1,6 +1,10 @@
 USE AdventureWorks2022
 GO
 
+-- List the indexes
+EXEC [sp_helpindex] 'Person.Address';
+GO
+
 --Show [IX_Address_AddressLine1_AddressLine2_City_StateProvinceID_PostalCode]
 --SELECT * will need to find all columns
 --.0073426
@@ -70,7 +74,16 @@ FROM Person.Address
 WHERE City = 'Bothell'
 GO
 
+CREATE NONCLUSTERED INDEX [IX_State_Include_City_Postal] 
+ON [Person].[Address] ([StateProvinceID]) INCLUDE ([City],[PostalCode])
 
+--Use new index and performs Index Seek.
+--Search condition not in same order as Index.
+--.0169822
+SELECT  City, StateProvinceID, PostalCode
+FROM Person.Address
+WHERE StateProvinceID = 79
+GO
 
 
 

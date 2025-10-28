@@ -2,7 +2,22 @@
 <SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="07_Execution_Plans">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items />
+      <Items>
+        <ConnectionNode Name="SQLMCT\JDSQL2022:NORTHAMERICA\jodeardu">
+          <Created>2025-10-25T06:51:02.6256781-04:00</Created>
+          <Type>SQL</Type>
+          <Server>SQLMCT\JDSQL2022</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>AdventureWorks2022</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
+          <TrustServerCertificate>False</TrustServerCertificate>
+          <EncryptionOption>False</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
@@ -11,6 +26,12 @@
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07_Exec_Plan_Join_Operators.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07_Execution_Flow.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SQLMCT\JDSQL2022:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>SQLMCT\JDSQL2022</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>07_Execution_Flow.sql</FullPath>
         </FileNode>
         <FileNode Name="07_Live_Query_Stats.sql">
           <AssociatedConnectionMoniker />

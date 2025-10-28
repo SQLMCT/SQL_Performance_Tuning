@@ -2,6 +2,8 @@
 --Remind John to build Build Deadlock XEvent Session
 --John DO NOT Filter on AdventureWorks because it breaks stuff
 
+SELECT * FROM HumanResources.Department
+
 --Jack Deadlock Session 1
 USE AdventureWorks2022
 GO
@@ -20,6 +22,6 @@ COMMIT TRAN
 
 
 --Cleanup Demo
---DELETE FROM HumanResources.Department
---WHERE DepartmentID > 16
+DELETE FROM HumanResources.Department
+WHERE DepartmentID > 16
 

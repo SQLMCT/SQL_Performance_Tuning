@@ -10,9 +10,9 @@ DBCC IND(0,'Person.Address',-1)
 
 -- Look inside the data and index pages
 DBCC TRACEON(3604,-1) 
-DBCC PAGE(0, 1, 8544, 3) --NonClustered Index Page
-DBCC PAGE(0, 1, 12272, 3) --Clustered Index Page
-DBCC PAGE(0, 1, 11855, 3) --Actual Data Page
+DBCC PAGE(0, 1, 10272, 3) --NonClustered Index Page
+DBCC PAGE(0, 1, 13512, 3) --Clustered Index Page
+DBCC PAGE(0, 1, 13343, 3) --Actual Data Page
 
 -- New Dynamic Management view from SQL Server 2016
 SELECT index_id, allocated_page_page_id
@@ -43,7 +43,7 @@ SELECT AddressID, StateProvinceID, City
 FROM Person.Address
 WHERE StateProvinceID = 3
 
---.0230399 with Key Lookup
+--.0230391 with Key Lookup
 --.0032897 with ADD City
 --.0032898 with INCLUDE City
 
@@ -57,6 +57,7 @@ INSERT INTO Person.Address
 (AddressLine1, AddressLine2, City, StateProvinceID, PostalCode, SpatialLocation, rowguid, ModifiedDate)
 VALUES ('3548 Combahee Road', NULL, 'Greenbow', 3, '29944', 0xE6100000010C81A75BBCD45C414036C6FAAE20A755C0, NEWID(), CURRENT_TIMESTAMP)
 
+--Don't do this until after the INCLUDE city demo
 ALTER INDEX [IX_Address_StateProvinceID] 
 ON [Person].[Address] 
 REBUILD 
@@ -65,6 +66,7 @@ WITH (FILLFACTOR = 90)
 -- Remove City from Index before this demo
 -- Look inside the data and index pages
 -- Currently 578 pages in StateProvinceID NCI
+-- 237 Pages with City Included
 -- After Page Split 289 rows.
 -- With Fill Factor 221 rows.
 DBCC TRACEON(3604,-1) 

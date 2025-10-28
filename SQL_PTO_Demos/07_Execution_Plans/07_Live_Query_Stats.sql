@@ -1,5 +1,5 @@
 
-USE AdventureWorks2019;
+USE AdventureWorks2022;
 GO
  
 SELECT * 
